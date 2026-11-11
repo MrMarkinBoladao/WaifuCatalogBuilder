@@ -4,13 +4,17 @@
 
 > 🚧 **This project is under construction.** Nothing here is usable yet, and this page will grow as development moves forward.
 
-A modern, dynamic and continuously updated build creator for [Waifu Catalog](https://waifu-catalog.neocities.org), featuring the complete set of options and mechanics from the official documentation.
+A modern, dynamic and continuously updated build creator for Waifu Catalog, featuring the complete set of options and mechanics from the [official documentation](https://docs.google.com/document/d/1ILzH_MYYTsS40Dx4YnnqbGiFaHiqVRZD-yJBEz4CnEg/edit).
+
+## Source of truth
+
+The only reference for this project is the [Waifu Catalog - Main Sourcebook (Current/unstable ver.)](https://docs.google.com/document/d/1ILzH_MYYTsS40Dx4YnnqbGiFaHiqVRZD-yJBEz4CnEg/edit). Every option, rule and mechanic in the builder comes from it. The Waifu Catalog Interactive is not used as a reference.
 
 ## Goals
 
-- **Complete:** cover every option and mechanic described in the official Waifu Catalog documentation, not just a subset.
+- **Complete:** cover every option and mechanic described in the Main Sourcebook, not just a subset.
 - **Dynamic:** make creating and adjusting a build fast and responsive.
-- **Continuously updated:** follow the official documentation as it changes, so the builder does not fall behind.
+- **Continuously updated:** follow the Main Sourcebook as it changes, so the builder does not fall behind.
 - **Modern:** a clean, pleasant interface that works well on desktop and on a phone.
 
 ## Features
@@ -23,8 +27,7 @@ Instructions for running or using the builder will be added when the first versi
 
 ## Related projects
 
-- [Waifu Catalog Interactive](https://waifu-catalog.neocities.org): the interactive version of the Waifu Catalog, which is the reference for this project.
-- [WaifuCatalogBuildFix](https://github.com/MrMarkinBoladao/WaifuCatalogBuildFix): a build checker for the Interactive, by the same author.
+- [WaifuCatalogBuildFix](https://github.com/MrMarkinBoladao/WaifuCatalogBuildFix): a build checker for the Waifu Catalog Interactive, by the same author. It is a separate project and is not a reference for this one.
 
 ## Contributing
 
