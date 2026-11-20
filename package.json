@@ -1,0 +1,10 @@
+{
+  "name": "waifu-catalog-builder",
+  "private": true,
+  "type": "module",
+  "description": "Construtor de builds do Waifu Catalog (Main Sourcebook).",
+  "scripts": {
+    "test": "node --test testes/*.test.mjs",
+    "vigiar": "node ferramentas/vigiar-documento.mjs"
+  }
+}
