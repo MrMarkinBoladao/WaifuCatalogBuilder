@@ -1,0 +1,446 @@
+{
+  "categoria": "outros-perks",
+  "titulo": "Other Perks",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "outros-perks/sexual-calibration",
+      "nome": "Sexual Calibration",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-carnal",
+      "custo": {"tipo": "fixo", "valor": 2},
+      "resumo": "Elimina os pequenos incômodos do sexo: higiene e cheiro ideais, sem período refratário, sem cansaço antes de ele se satisfazer e sem gravidez ou complicações indesejadas. Pode estender os efeitos às parceiras.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/fertility-calibration-i",
+      "nome": "Fertility Calibration I",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-carnal",
+      "custo": {"tipo": "fixo", "valor": 2},
+      "requisitos": {"id": "outros-perks/sexual-calibration"},
+      "resumo": "Controle total da chance de gravidez em qualquer relação que envolva alguém do séquito, mesmo contra o controle de fertilidade das waifus.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/fertility-calibration-ii",
+      "nome": "Fertility Calibration II",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-carnal",
+      "custo": {"tipo": "fixo", "valor": 6},
+      "repeticao": {"max": 16},
+      "requisitos": {"id": "outros-perks/fertility-calibration-i"},
+      "resumo": "Garante gêmeos; cada compra (até 16) dobra o máximo de bebês que ele pode garantir. Não vale para simbiontes de Harmonic Union nem para crias de corpo diferente do dele.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/pregnant-pause",
+      "nome": "Pregnant Pause",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-carnal",
+      "custo": {"tipo": "fixo", "valor": 3},
+      "requisitos": {"id": "outros-perks/fertility-calibration-i"},
+      "resumo": "Coloca as gestações do séquito em pausa pelo tempo que ele quiser: os bebês ficam em estase e a mãe fica sem os demais efeitos da gravidez.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/eugenic-calibration",
+      "nome": "Eugenic Calibration",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-carnal",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "repeticao": {"max": 2},
+      "requisitos": {"id": "outros-perks/pregnant-pause"},
+      "resumo": "Com a gestação em pausa, ele decide gênero, traços e raça do filho (entre as raças dos pais), garante herdar ou excluir qualquer traço dos pais e ajusta o andamento e o número de bebês. A 2ª compra força a ativação de traços que pedem ativação.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/mapper",
+      "nome": "Mapper",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-navigation",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "App de mapas do mundo atual, com pontos de interesse e busca, atualizado conforme o séquito explora; só traz o que se descobriria perguntando por aí. Com Rainbow Bridge, alterna para o mapa de qualquer mundo acessível.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/hearts-compass",
+      "nome": "Heart’s Compass",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-navigation",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "App que aponta, de forma vaga, a direção da pessoa do mundo atual que ele mais gostaria de capturar, mais precisa conforme ele se aproxima; ao encontrá-la, confirma quem é. Com Mapper, aparece como um cone no mapa.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/target-tracker",
+      "nome": "Target Tracker",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-navigation",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "outros-perks/mapper"},
+      "resumo": "Rastreia qualquer alvo que se mova sozinho e que ele tenha fotografado, como ícone no mapa com informações básicas; não funciona com outros contractors, nem com os subjects e as Rides deles.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/bounty-tracker",
+      "nome": "Bounty Tracker",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-navigation",
+      "custo": {"tipo": "fixo", "valor": 40},
+      "requisitos": {"todos": [{"id": "outros-perks/hearts-compass"}, {"id": "outros-perks/target-tracker"}]},
+      "resumo": "Liga ao mapa os alvos de captura listados no catálogo para o mundo atual, com os familiares e o equipamento padrão de quem foi capturado cedo; a função Show All Unknowns mostra alvos ainda desconhecidos.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/universal-calibration-i",
+      "nome": "Universal Calibration I",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-setting",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Acesso limitado ao algoritmo de mira da Company ao escolher o mundo de partida e ao usar perks de viagem: permite uma linha do tempo cujos alvos de captura combinam com o gosto dele, sem mudar o DR do mundo nem o tier dos alvos.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/universal-calibration-ii",
+      "nome": "Universal Calibration II",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-setting",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"id": "outros-perks/universal-calibration-i"},
+      "resumo": "Amplia o acesso ao algoritmo: ele pede divergências do cânone (tantas quanto o tier do subject mais alto, até 10) ou deixa o subconsciente decidir, e pode buscar mundos de crossover.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/meta-shift",
+      "nome": "Meta Shift",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-setting",
+      "custo": {"tipo": "fixo", "valor": 2, "moeda": "IMG"},
+      "requisitos": {"id": "outros-perks/universal-calibration-ii"},
+      "resumo": "Muda a realidade de um mundo sacrificando material de ficção (merchandise ou doujin) vindo de outro mundo; os efeitos podem ser copiados, removidos e aplicados em paralelos. Nunca resolve um problema sem criar outros equivalentes. Custa 2 IMG.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/exit-stage-left",
+      "nome": "Exit Stage Left",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-travel",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "resumo": "App com uma barra de progresso por mundo visitado; quando enche, abre um portal de ida (dura até 2 minutos) para um mundo novo sorteado, com DR a até 1 ponto de diferença. Se o DR do destino for menor, surge uma barra de penalidade.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/we-will-meet-again",
+      "nome": "We Will Meet Again",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-travel",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"id": "outros-perks/exit-stage-left"},
+      "resumo": "Permite voltar a mundos já visitados, e a mundos que algum subject visitou, pelo app do Exit Stage Left, com o portal a até 2 km do último ponto. Sem Pursued by a Bear, o app mostra o DR do próximo mundo.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/pursued-by-a-bear",
+      "nome": "Pursued by a Bear",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-travel",
+      "custo": {"tipo": "fixo", "valor": 40},
+      "requisitos": {"id": "outros-perks/exit-stage-left"},
+      "resumo": "O app do Exit Stage Left oferece sete mundos para escolher, com o DR à vista; ele pode guardar uma opção para depois ou recusá-la de vez.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/blank-slate",
+      "nome": "Blank Slate",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-travel",
+      "custo": {"tipo": "fixo", "valor": 75},
+      "requisitos": {
+        "todos": [
+          {
+            "qualquerDe": [
+              {"id": "outros-perks/we-will-meet-again"},
+              {
+                "todos": [
+                  {"id": "intensity/not-in-kansas-anymore"},
+                  {"declarado": "Ter algum Dominion (Not in Kansas Anymore dispensa We Will Meet Again)"}
+                ]
+              }
+            ]
+          },
+          {"id": "outros-perks/universal-calibration-ii"}
+        ]
+      },
+      "resumo": "O app gera, a qualquer hora, um paralelo novo e intocado de qualquer mundo já visitado; com Meta Shift, ganha colas detalhadas das mudanças de cada mundo. Not in Kansas Anymore dispensa We Will Meet Again, com algum Dominion.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/memoria",
+      "nome": "Memoria",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-miscellaneous",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "requisitos": {"origem": "possess"},
+      "resumo": "Baixa no corpo possuído as memórias episódicas e os laços emocionais do alvo, junto com a personalidade do contractor, que continua separando as duas memórias sem dificuldade. Só na criação e só com a origem Possess.",
+      "verificado": true,
+      "soNaCriacao": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/body-tune-up",
+      "nome": "Body Tune-Up",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-miscellaneous",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "resumo": "Corpo em forma e saúde perfeitas, com músculos a mais, e cura de todas as condições indesejadas (uma vez por membro do séquito); imune a doenças leves, e curas e operações saem sem complicação. Ele decide quais subjects recebem os benefícios.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/everlasting-tune-up",
+      "nome": "Everlasting Tune-Up",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-miscellaneous",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Imortalidade fraca e juventude eterna: o corpo vai à idade de auge da espécie e para de envelhecer, sem desgaste de habilidades sem uso. Não impede morte por outras causas nem ressuscita. Vale para os subjects, exceto quem ele desligar.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/talent-sharing",
+      "nome": "Talent Sharing",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-miscellaneous",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "repeticao": {"max": null},
+      "escolha": {"rotulo": "Talent compartilhado", "tipo": "opcao"},
+      "resumo": "O efeito de um Talent que ele comprou passa a valer igualmente para todo o séquito. Compra-se uma vez para cada Talent; fica obsoleto com Controls ou Heritages que já compartilham Talents, e então pode ser devolvido com reembolso total.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/inexhaustible",
+      "nome": "Inexhaustible",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-miscellaneous",
+      "custo": {"tipo": "fixo", "valor": 140},
+      "requisitos": {
+        "todos": [
+          {"id": "outros-perks/everlasting-tune-up"},
+          {"compras": {"id": "defenses/drain-defense", "minimo": 2}}
+        ]
+      },
+      "resumo": "A energia das habilidades sobrenaturais dele nunca acaba (vital, mágica, psíquica, de alma ou mais exótica), dentro do limite da reserva dele; não vale para o fôlego comum nem dispensa comida. Passa aos subjects ligados a ele pela alma.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/warranty-plan",
+      "nome": "Warranty Plan",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-miscellaneous",
+      "custo": {"tipo": "fixo", "valor": 160},
+      "resumo": "Todo subject comprado ou capturado que morrer renasce num corpo novo, sem custo extra, em 90 dias (cada amazona do séquito tira 1 dia, até 60). Não vale se o próprio contractor morrer. Quem ele tirou do Everlasting Tune-Up fica sem o renascimento automático.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/express-delivery",
+      "nome": "Express Delivery",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-miscellaneous",
+      "custo": {"tipo": "fixo", "valor": 640},
+      "requisitos": {"id": "outros-perks/warranty-plan"},
+      "resumo": "Coloca ele na lista de prioridade da garantia: o renascimento cai para 72 horas, e cada amazona comprada ou capturada tira 1 hora, até 48 horas.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/yeet",
+      "nome": "Yeet",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "percentualDoTier", "percentual": 40, "minimo": 0},
+      "repeticao": {"max": null},
+      "resumo": "Aplicado na compra de um subject: ele é solto no mundo atual, a pelo menos um dia de viagem, marcado com meia-tatuagem e sem saber que pertence ao séquito; não rende crédito de captura. Desconto de 40% sobre o preço do tier. Não combina com Slightly Used nem com Yoink.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/yoink",
+      "nome": "Yoink",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {
+        "tipo": "formula",
+        "descricao": "acréscimo de 20% sobre o preço normal do tier do subject comprado (acréscimo mínimo de 1)"
+      },
+      "repeticao": {"max": null},
+      "requisitos": {"declarado": "O subject comprado é do mundo de partida"},
+      "resumo": "Só na criação: o subject comprado é, na verdade, uma captura local do mundo de partida, teletransportada até ele; uma compra por subject do mundo de partida. Custa 20% a mais sobre o preço do tier (no mínimo 1). Não combina com Slightly Used nem com Yeet.",
+      "verificado": true,
+      "regraEspecial": "custo-textual",
+      "soNaCriacao": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/adoption",
+      "nome": "Adoption",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "fixo", "valor": 1},
+      "repeticao": {"max": null},
+      "resumo": "Faz a Company tratar uma criança adotada como descendente dele, pelas regras de Offspring, em vez de follower para sempre. Custa 1 por subject.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/bifurcation",
+      "nome": "Bifurcation",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "repeticao": {"max": null},
+      "requisitos": {
+        "declarado": "A pessoa tem várias formas distintas, no máximo uma humanoide (transformista genérico não se qualifica)"
+      },
+      "resumo": "Dá a um membro com várias formas distintas (no máximo uma humanoide) a capacidade de manifestar a forma alternativa junto com a humanoide, cada uma com cerca de metade do desempenho e dividindo o dano. Dez compras valem para todo o séquito que se qualifica.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/pattern-collection",
+      "nome": "Pattern Collection",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "porEscolha"},
+      "repeticao": {"max": null},
+      "requisitos": {"id": "sanctuaries-e-strongholds/shipwright-access"},
+      "escolha": {
+        "rotulo": "Item",
+        "tipo": "lista",
+        "opcoes": [
+          {"valor": "Retinue Pattern", "custo": 3},
+          {"valor": "Grade 1 vehicle", "custo": 1},
+          {"valor": "Grade 2 vehicle", "custo": 9},
+          {"valor": "Grade 3 vehicle", "custo": 25},
+          {"valor": "Grade 4 vehicle", "custo": 49},
+          {"valor": "Grade 5 vehicle", "custo": 81},
+          {"valor": "Grade X vehicle", "custo": 361}
+        ]
+      },
+      "resumo": "Dá os moldes (Patterns) dos veículos icônicos de um membro do séquito (3) ou um molde avulso conforme o grade: G1 1, G2 9, G3 25, G4 49, G5 81 e GX 361. Os moldes ainda precisam de um Shipwright autorizado.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/slightly-used",
+      "nome": "Slightly Used",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "percentualDoTier", "percentual": 30, "base": "passo3", "minimo": 0},
+      "repeticao": {"max": null},
+      "resumo": "O subject é comprado já usado, revendido por outro contractor: 30% mais barato (sobre o tier no passo 3), com efeitos diretos dos controles anteriores removidos e a contagem de templates zerada. Dá acesso a cópias dos mundos que ele visitou. Não combina com Yeet nem com Yoink.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/paper-trail",
+      "nome": "Paper Trail",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "fixo", "valor": 1},
+      "repeticao": {"max": null},
+      "resumo": "Cria registros falsos retroativos que dão a um membro do séquito uma existência legal no mundo, com os documentos esperados. Custa 1 por subject; dez compras valem para todo o séquito. Ele pode aplicar a si mesmo.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/added-potential",
+      "nome": "Added Potential",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "repeticao": {"max": null},
+      "escolha": {"rotulo": "Habilidade", "tipo": "texto"},
+      "resumo": "Libera para uma pessoa o desenvolvimento de uma habilidade local de qualquer mundo visitado, que começa adormecida e exige treino do zero. Compra-se para cada habilidade; dez pessoas com a mesma dão o perk ao resto do séquito.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/template-stacking-i",
+      "nome": "Template Stacking I",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "porEscolha"},
+      "repeticao": {"max": null},
+      "escolha": {
+        "rotulo": "Cópia na mesma pessoa",
+        "tipo": "lista",
+        "multipla": true,
+        "opcoes": [
+          {"valor": "1ª cópia na pessoa", "custo": 20},
+          {"valor": "2ª cópia na pessoa", "custo": 40},
+          {"valor": "3ª cópia na pessoa", "custo": 80},
+          {"valor": "4ª cópia na pessoa", "custo": 160},
+          {"valor": "5ª cópia na pessoa", "custo": 320},
+          {"valor": "6ª cópia na pessoa", "custo": 640},
+          {"valor": "7ª cópia na pessoa", "custo": 1280},
+          {"valor": "8ª cópia na pessoa", "custo": 2560},
+          {"valor": "9ª cópia na pessoa", "custo": 5120},
+          {"valor": "10ª cópia na pessoa", "custo": 10240}
+        ]
+      },
+      "resumo": "Copia um conjunto de poderes (de tier 4 a 10, reduzido a tier 4), com base de habilidades e equipamento icônico. O preço dobra a cada cópia comprada para a mesma pessoa: escolha quais cópias (20, 40, 80...); a lista vai até a 10ª.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/template-stacking-ii",
+      "nome": "Template Stacking II",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "repeticao": {"max": null},
+      "requisitos": {
+        "todos": [
+          {"id": "outros-perks/template-stacking-i"},
+          {"declarado": "A cópia de Template Stacking I é do mesmo template"}
+        ]
+      },
+      "escolha": {"rotulo": "Template", "tipo": "texto"},
+      "resumo": "Sobe o template da pessoa para uma versão de tier 5, com aumento fixo de poder, perícia e função do equipamento. Compra-se para cada uso, exige a cópia de Template Stacking I do mesmo template e não vale para tier 4 ou menos.",
+      "verificado": true,
+      "referencia": "outros-perks.md"
+    },
+    {
+      "id": "outros-perks/power-swap",
+      "nome": "Power Swap",
+      "categoria": "outros-perks",
+      "grupo": "outros-perks-global",
+      "custo": {"tipo": "diferencaDeTier"},
+      "escolha": {"rotulo": "Poder copiado (dono original e tier)", "tipo": "texto"},
+      "resumo": "Troca poderes, habilidades e equipamento originais de uma pessoa (ele mesmo, se quiser) pelos de outra e muda o tier dela no passo 1a. Custa o preço do dono original do poder menos o do tier da pessoa, podendo dar negativo; em quem já está no séquito, soma 20% do preço do tier dela no passo 1a. Não aceita poderes do catálogo nem de outros CYOAs.",
+      "verificado": true,
+      "regraEspecial": "diferenca-de-tier",
+      "referencia": "outros-perks.md"
+    }
+  ]
+}

@@ -1,0 +1,916 @@
+{
+  "categoria": "bindings",
+  "titulo": "Bindings",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "bindings/empty-hand",
+      "nome": "Empty Hand",
+      "categoria": "bindings",
+      "grupo": "bindings-regras-gerais",
+      "custo": {"tipo": "fixo", "valor": 0},
+      "grupoExclusivo": "binding-ativa",
+      "resumo": "Não é binding de verdade: é ficar sem nenhuma ferramenta de binding. Lures, outros controles, métodos de captura de heritage e controle mental de terceiros continuam valendo.",
+      "verificado": true,
+      "referencia": "bindings/regras-gerais.md"
+    },
+    {
+      "id": "bindings/canvas",
+      "nome": "Canvas",
+      "categoria": "bindings",
+      "grupo": "bindings-regras-gerais",
+      "custo": {"tipo": "fixo", "valor": 1},
+      "repeticao": {"max": 10},
+      "requisitos": {
+        "qualquerDe": [
+          {"id": "bindings/empty-hand"},
+          {"id": "bindings/shroud-of-power"},
+          {"id": "bindings/tormentors-toolbox"},
+          {"id": "bindings/tempest-jewelry"}
+        ]
+      },
+      "resumo": "Torna permanente a tatuagem do Seal na pessoa escolhida, mesmo com outra binding; é só estético. Custa 1 por subject e, na décima compra, passa a valer para todo o séquito.",
+      "verificado": true,
+      "referencia": "bindings/regras-gerais.md"
+    },
+    {
+      "id": "bindings/seal-of-approval",
+      "nome": "Seal of Approval",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "gratis"},
+      "grupoExclusivo": "binding-ativa",
+      "resumo": "Binding básica e grátis: uma tatuagem aplicada com um pincel que nunca fica sem tinta, com só os efeitos mentais comuns a todas as bindings. A pessoa só conta como capturada 72 horas depois, quando a tatuagem se completa.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/mystic-tattoo",
+      "nome": "Mystic Tattoo",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {"id": "bindings/seal-of-approval"},
+      "gratis": [{"id": "talents/aesthetic-talent", "quantidade": 1}],
+      "resumo": "A tinta passa a gravar encantamentos na pele: cada Mystic Tattoo dá à pessoa um efeito simples de tier 4 ou menos. Cada pessoa aguenta um peso total de tatuagens de 12 mais o próprio tier.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/slave-to-art",
+      "nome": "Slave to Art",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "bindings/mystic-tattoo"},
+      "gratis": [{"id": "defenses/mind-defense", "quantidade": 1}],
+      "resumo": "Libera encantamentos mais complexos, até tier 5, que guardam emoções e pensamentos curtos, e permite defeitos e maldições criados por ele. A capacidade-base de tatuagens sobe para 15.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/elemental-inkarnation",
+      "nome": "Elemental Inkarnation",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "sequencia", "valores": [60, 30], "depois": {"incremento": 10}},
+      "repeticao": {"max": 12},
+      "requisitos": {"id": "bindings/slave-to-art"},
+      "escolha": {
+        "rotulo": "Elemento",
+        "tipo": "lista",
+        "opcoes": [
+          {"valor": "Luminal"},
+          {"valor": "Umbral"},
+          {"valor": "Volcanic"},
+          {"valor": "Boreal"},
+          {"valor": "Xeric"},
+          {"valor": "Pelagic"},
+          {"valor": "Storm"},
+          {"valor": "Bestial"},
+          {"valor": "Jungle"},
+          {"valor": "Burial"},
+          {"valor": "Cyber"},
+          {"valor": "Astral"}
+        ]
+      },
+      "resumo": "Cada compra liga um elemento do catálogo à tinta: encantamentos até tier 6, capacidade-base 18 e complexidade livre se ligados a um elemento comprado. A primeira compra custa 60; as recompras, 30, 40, 50 e assim por diante.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/the-world-your-ink-the-soul-your-canvas",
+      "nome": "The World Your Ink, The Soul Your Canvas",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "fixo", "valor": 125},
+      "requisitos": {"id": "bindings/elemental-inkarnation"},
+      "resumo": "O pincel converte matéria do mundo em tinta especial e a guarda. Encantamentos chegam a tier 7 por padrão (até 10 com materiais raros e poderosos), com complexidade livre, e a capacidade-base vai a 21.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/eye-of-the-beholder",
+      "nome": "Eye of the Beholder",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"id": "bindings/mystic-tattoo"},
+      "resumo": "A arte feita com o pincel passa emoção sobrenatural a quem olha: nas Mystic Tattoos o efeito é fixo (forte, mas resistível); nas outras obras, cresce com o tempo gasto para criá-las.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/world-of-your-own-design",
+      "nome": "World of Your Own Design",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "fixo", "valor": 85},
+      "requisitos": {"todos": [{"id": "bindings/eye-of-the-beholder"}, {"id": "bindings/elemental-inkarnation"}]},
+      "gratis": [{"id": "defenses/polymorph-defense", "quantidade": 1}],
+      "resumo": "Permite entrar nas obras que ele criou ou marcou com a tinta como se fossem mundos reais, mandar objetos e seres para dentro delas e congelar o mundo pintado por até 24 horas.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/inkling-of-the-future",
+      "nome": "Inkling of the Future",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "requisitos": {"id": "bindings/mystic-tattoo"},
+      "resumo": "Cria Mystic Tattoos temporárias, tão capazes quanto as permanentes: duram até uma semana (ou 24 horas, na versão instantânea) e se aplicam em segundos. Aplicar pode dar prazer à pessoa.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/no-faster-tattoo",
+      "nome": "No Faster Tattoo",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "fixo", "valor": 120},
+      "requisitos": {"id": "bindings/inkling-of-the-future"},
+      "resumo": "Transforma folhas de papel em cartelas de adesivos, que o pincel enche sozinho com cópias de uma tatuagem temporária de tier 5 ou menos; cada folha traz 4 cópias.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/words-can-hurt-you",
+      "nome": "Words Can Hurt You",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "fixo", "valor": 75},
+      "requisitos": {"id": "bindings/inkling-of-the-future"},
+      "gratis": [
+        {"id": "talents/communication-talent", "quantidade": 1},
+        {"id": "defenses/mind-defense", "quantidade": 1}
+      ],
+      "resumo": "Escrever uma palavra no corpo de alguém com o pincel leva a pessoa a agir de modo a se encaixar nela; a influência cresce com o tempo, e a pessoa tem muita dificuldade de interromper a escrita.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/piece-sans-resistance",
+      "nome": "Pièce sans Résistance",
+      "categoria": "bindings",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"id": "bindings/mystic-tattoo"},
+      "resumo": "Torna permanente a tinta dele, menos a das tatuagens temporárias: uma arte começada não pode mais ser interrompida e pode ficar incompleta na pessoa para sempre, até receber tinta nova.",
+      "verificado": true,
+      "referencia": "bindings/mystic-tattoo.md"
+    },
+    {
+      "id": "bindings/shroud-of-power",
+      "nome": "Shroud of Power",
+      "categoria": "bindings",
+      "grupo": "bindings-shroud-of-power",
+      "custo": {"tipo": "fixo", "valor": 40},
+      "gratis": [
+        {"id": "outros-perks/body-tune-up", "quantidade": 1},
+        {"id": "talents/athletic-talent", "quantidade": 1},
+        {"id": "talents/soul-talent", "quantidade": 1}
+      ],
+      "grupoExclusivo": "binding-ativa",
+      "resumo": "Binding em que o poder dele vira uma capa de energia que envolve a pessoa e a prende à vontade dele (shroud-bound). O tier dele sobe para 5 no passo 4; a binding pode falhar em quem tem poder pessoal demais perto do dele.",
+      "verificado": true,
+      "referencia": "bindings/shroud-of-power.md"
+    },
+    {
+      "id": "bindings/three-piece-suit",
+      "nome": "Three-Piece Suit",
+      "categoria": "bindings",
+      "grupo": "bindings-shroud-of-power",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "repeticao": {"max": 9},
+      "requisitos": {"id": "bindings/shroud-of-power"},
+      "resumo": "Divide o Shroud em partes separadas, como se ele tivesse vários, que podem ser dadas como roupa e chamadas de volta. Cada compra rende mais partes; na nona, ele separa quantas quiser.",
+      "verificado": true,
+      "referencia": "bindings/shroud-of-power.md"
+    },
+    {
+      "id": "bindings/dancing-on-threads",
+      "nome": "Dancing on Threads",
+      "categoria": "bindings",
+      "grupo": "bindings-shroud-of-power",
+      "custo": {"tipo": "fixo", "valor": 40},
+      "requisitos": {"id": "bindings/three-piece-suit"},
+      "resumo": "Controla as partes separadas do Shroud sem precisar percebê-las e pode deixá-las agir sozinhas com ordens permanentes. Em contato com um alvo, mudam o corpo como Advanced Runes: Body.",
+      "verificado": true,
+      "referencia": "bindings/shroud-of-power.md"
+    },
+    {
+      "id": "bindings/elemental-shroud",
+      "nome": "Elemental Shroud",
+      "categoria": "bindings",
+      "grupo": "bindings-shroud-of-power",
+      "custo": {"tipo": "fixo", "valor": 65},
+      "requisitos": {"id": "bindings/shroud-of-power"},
+      "escolha": {
+        "rotulo": "Elemento",
+        "tipo": "lista",
+        "opcoes": [
+          {
+            "valor": "Luminal",
+            "gratis": [
+              {"id": "talents/communication-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "talents/blessed-talent", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Umbral",
+            "gratis": [
+              {"id": "talents/covert-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "talents/blessed-talent", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Volcanic",
+            "gratis": [
+              {"id": "talents/athletic-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 2}
+            ]
+          },
+          {
+            "valor": "Boreal",
+            "gratis": [
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 2}
+            ]
+          },
+          {
+            "valor": "Xeric",
+            "gratis": [
+              {"id": "talents/martial-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/aesthetic-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 1},
+              {"id": "defenses/creature-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Pelagic",
+            "gratis": [
+              {"id": "talents/martial-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 1},
+              {"id": "defenses/creature-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Storm",
+            "gratis": [
+              {"id": "talents/athletic-talent", "quantidade": 1},
+              {"id": "talents/communication-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 1},
+              {"id": "defenses/stress-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Bestial",
+            "gratis": [
+              {"id": "talents/martial-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/communication-talent", "quantidade": 1},
+              {"id": "talents/covert-talent", "quantidade": 1},
+              {"id": "defenses/body-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Jungle",
+            "gratis": [
+              {"id": "talents/athletic-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/aesthetic-talent", "quantidade": 1},
+              {"id": "talents/land-talent", "quantidade": 1},
+              {"id": "defenses/body-defense", "quantidade": 1},
+              {"id": "defenses/creature-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Burial",
+            "gratis": [
+              {"id": "outros-perks/everlasting-tune-up", "quantidade": 1},
+              {"id": "defenses/body-defense", "quantidade": 1},
+              {"id": "defenses/stress-defense", "quantidade": 1},
+              {"id": "defenses/drain-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Cyber",
+            "gratis": [
+              {"id": "talents/algorithm-talent", "quantidade": 1},
+              {"id": "talents/engineering-talent", "quantidade": 1},
+              {"id": "talents/administrative-talent", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Astral",
+            "gratis": [
+              {"id": "talents/covert-talent", "quantidade": 1},
+              {"id": "defenses/paradox-defense", "quantidade": 1}
+            ]
+          }
+        ]
+      },
+      "resumo": "Faz o Shroud pessoal dele ser de um elemento do catálogo, com afinidade e controle sobre ele e manifestação sempre intensa. Cada elemento dá de graça certos Talents e Defenses.",
+      "verificado": true,
+      "referencia": "bindings/shroud-of-power.md"
+    },
+    {
+      "id": "bindings/prismatic-shroud",
+      "nome": "Prismatic Shroud",
+      "categoria": "bindings",
+      "grupo": "bindings-shroud-of-power",
+      "custo": {"tipo": "sequencia", "valores": [75], "depois": {"incremento": 10}},
+      "repeticao": {"max": 11},
+      "requisitos": {"id": "bindings/elemental-shroud"},
+      "escolha": {
+        "rotulo": "Elemento",
+        "tipo": "lista",
+        "opcoes": [
+          {"valor": "Luminal"},
+          {"valor": "Umbral"},
+          {"valor": "Volcanic"},
+          {"valor": "Boreal"},
+          {"valor": "Xeric"},
+          {"valor": "Pelagic"},
+          {"valor": "Storm"},
+          {"valor": "Bestial"},
+          {"valor": "Jungle"},
+          {"valor": "Burial"},
+          {"valor": "Cyber"},
+          {"valor": "Astral"}
+        ]
+      },
+      "resumo": "Acrescenta mais um elemento do catálogo ao Shroud, que alterna entre eles, um de cada vez, sem fundi-los. Compra-se até ter todos os elementos: a primeira custa 75 e cada nova, 10 a mais.",
+      "verificado": true,
+      "referencia": "bindings/shroud-of-power.md"
+    },
+    {
+      "id": "bindings/complementary-colors",
+      "nome": "Complementary Colors",
+      "categoria": "bindings",
+      "grupo": "bindings-shroud-of-power",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "repeticao": {"max": 10},
+      "requisitos": {"id": "bindings/elemental-shroud"},
+      "escolha": {"rotulo": "Subject", "tipo": "texto"},
+      "resumo": "Torna uma subject shroud-bound, sem chance de falha, com um elemento só dela, deduzido da personalidade. Com dez compras, toda nova shroud-bound ganha elemento e as compras já chegam presas.",
+      "verificado": true,
+      "referencia": "bindings/shroud-of-power.md"
+    },
+    {
+      "id": "bindings/grand-tapestry",
+      "nome": "Grand Tapestry",
+      "categoria": "bindings",
+      "grupo": "bindings-shroud-of-power",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {"todos": [{"id": "bindings/complementary-colors"}, {"id": "outros-controles/conjunction"}]},
+      "resumo": "Ele e as subjects com Shroud elemental acessam os elementos uns dos outros, limitados pela intimidade da relação, e ele pode sobrepor por um tempo o elemento delas ao seu. Traz brindes de Talent Sharing e de Psychic Talent que a build não calcula.",
+      "verificado": true,
+      "regraEspecial": "custo-textual",
+      "referencia": "bindings/shroud-of-power.md"
+    },
+    {
+      "id": "bindings/elemental-loom",
+      "nome": "Elemental Loom",
+      "categoria": "bindings",
+      "grupo": "bindings-shroud-of-power",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "bindings/elemental-shroud"},
+      "resumo": "Faz o Shroud virar uma aura gasosa, com manifestações discretas do elemento (só para ele), um sentido extra ligado ao elemento e a capacidade de se infundir com ele. Prender só pela aura leva de horas a anos.",
+      "verificado": true,
+      "referencia": "bindings/shroud-of-power.md"
+    },
+    {
+      "id": "bindings/deep-weave",
+      "nome": "Deep Weave",
+      "categoria": "bindings",
+      "grupo": "bindings-shroud-of-power",
+      "custo": {"tipo": "fixo", "valor": 150},
+      "requisitos": {"id": "bindings/elemental-loom"},
+      "resumo": "O Shroud passa a ser parte do ser dele: transforma partes do corpo no elemento, absorve manifestações dele para se curar e permite absorver seres ligados ao elemento para prender, recriar ou roubar a forma e as habilidades.",
+      "verificado": true,
+      "referencia": "bindings/shroud-of-power.md"
+    },
+    {
+      "id": "bindings/tormentors-toolbox",
+      "nome": "Tormentor’s Toolbox",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "gratis"},
+      "grupoExclusivo": "binding-ativa",
+      "resumo": "Binding grátis: uma caixa de ferramentas de bolso com equipamento de vigilância para juntar material de chantagem (Blackmail). Quem cede entra em Compliance e obedece; na quinta vez, fica capturada para sempre.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/metamorphosis-inducing-mixtures",
+      "nome": "Metamorphosis Inducing Mixtures",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "requisitos": {"id": "bindings/tormentors-toolbox"},
+      "resumo": "Dá um catálogo de substâncias transformadoras, físicas e mentais, de efeito curto ou longo. Até cinco ficam em acesso rápido, sem poder trocar por uma semana, e dose demais causa Overdose.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/shoot-to-thrill",
+      "nome": "Shoot to Thrill",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 45},
+      "requisitos": {"id": "bindings/metamorphosis-inducing-mixtures"},
+      "resumo": "Acrescenta uma arma de raios que aplica à distância, com efeito de curto prazo, qualquer produto do acesso rápido. Não usa munição, não causa overdose e o fogo amigo está sempre ligado.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/augmented-revisions",
+      "nome": "Augmented Revisions",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"id": "bindings/tormentors-toolbox"},
+      "resumo": "Dá 12 capacetes de realidade virtual que levam o alvo direto à Compliance, por realidade aumentada ou mergulho completo, e também levam a espaços digitais. Quem está de fora vê que o capacete está em uso.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/eve-chip",
+      "nome": "EVE Chip",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"id": "bindings/tormentors-toolbox"},
+      "resumo": "Dá um implante que controla o alvo por recompensa e castigo, empurrando-o para a Compliance e impedindo que pense em vingança. Fica em rede com os outros aparelhos e é programado de longe pelo Smart Device.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/all-seeing-eye",
+      "nome": "All Seeing Eye",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "bindings/tormentors-toolbox"},
+      "resumo": "Dá vigilância remota e invasão de redes de segurança: registros de terceiros passam a contar como Blackmail ativo, e ele manda mensagens anônimas ao alvo para chantageá-lo à distância.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/your-worst-nightmare",
+      "nome": "Your Worst Nightmare",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 45},
+      "requisitos": {"id": "bindings/all-seeing-eye"},
+      "resumo": "Permite usar Blackmail falsificado ou muito alterado, se for verossímil, e gastar quatro registros ativos para criar um Negative: a pior prova possível contra o alvo ou contra a relação dele com alguém.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/lewd-model-decoy",
+      "nome": "Lewd Model Decoy",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"id": "bindings/all-seeing-eye"},
+      "resumo": "Projetor de hologramas que cria sósias do alvo a partir de Blackmail gasto (quanto mais, mais fiel) para arruinar a reputação dele. A projeção dura tantas horas quanto a última Compliance do alvo.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/hypno-app",
+      "nome": "Hypno App",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 65},
+      "requisitos": {"todos": [{"id": "bindings/eve-chip"}, {"id": "bindings/all-seeing-eye"}]},
+      "resumo": "App do Smart Device cuja espiral hipnotiza quem olha e leva à Compliance em até tantos minutos quanto o tier do alvo. Depois molda a mente da pessoa e guarda um perfil editável dela.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/shareware",
+      "nome": "Shareware",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 85},
+      "requisitos": {"id": "bindings/hypno-app"},
+      "resumo": "Espalha o Hypno App por qualquer sistema dele ou invadido com All Seeing Eye, com monitoramento remoto, e torna os EVE Chips contagiosos por nanomáquinas.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/hypno-correction-tank",
+      "nome": "Hypno-Correction Tank",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"todos": [{"id": "bindings/hypno-app"}, {"id": "bindings/metamorphosis-inducing-mixtures"}]},
+      "resumo": "Tanque de estase que reescreve a mente do alvo em quatro semanas com as alterações do Hypno App, deixando-o capturado como se tivesse passado por todas as Compliances. Tirá-lo antes do fim causa uma overdose mental.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/label-maker-of-accuracy",
+      "nome": "Label Maker of Accuracy",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "requisitos": {"id": "bindings/tormentors-toolbox"},
+      "resumo": "Etiquetas sempre verdadeiras: coladas numa pessoa, levam-na a mudar até a etiqueta ficar certa; em lugares e objetos, mudam a função deles e, num Dominion dele, a própria realidade. Quem já passou por Compliance toma como verdade o que ele escrever.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/normalcy-earrings",
+      "nome": "Normalcy Earrings",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "bindings/label-maker-of-accuracy"},
+      "resumo": "Joias que fazem quem já esteve em Compliance achar normal tudo que ele disser que é normal. O efeito cresce com o Blackmail ativo que ele tem sobre o alvo e Mind Defense o bloqueia.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/time-turn-on-er",
+      "nome": "Time Turn-On-Er",
+      "categoria": "bindings",
+      "grupo": "bindings-tormentors-toolbox",
+      "custo": {"tipo": "fixo", "valor": 40},
+      "requisitos": {"id": "bindings/label-maker-of-accuracy"},
+      "resumo": "Cronômetro que para o tempo numa área em que só ele se mexe, por no mínimo 3 horas, uma vez a cada 24 horas. Quando o tempo volta, o prazer causado dentro da área atinge todos de uma vez.",
+      "verificado": true,
+      "referencia": "bindings/tormentors-toolbox.md"
+    },
+    {
+      "id": "bindings/tempest-jewelry",
+      "nome": "Tempest Jewelry",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "grupoExclusivo": "binding-ativa",
+      "escolha": {
+        "rotulo": "Tipo de joia",
+        "tipo": "lista",
+        "opcoes": [
+          {"valor": "Choker"},
+          {"valor": "Ring"},
+          {"valor": "Bracelet and Anklet"},
+          {"valor": "Armlet and Thighlet"},
+          {"valor": "Headpiece"},
+          {"valor": "Facepiece"}
+        ]
+      },
+      "resumo": "Binding por joias que recompensam a obediência com prazer: ele ganha uma joia por dia (estoque de 5 sem uso, que cresce com quem veste joia) e escolhe o tipo inicial. A captura se completa após uma semana de uso.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/luxury-goods",
+      "nome": "Luxury Goods",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "repeticao": {"max": 5},
+      "requisitos": {"id": "bindings/tempest-jewelry"},
+      "escolha": {
+        "rotulo": "Tipo de joia",
+        "tipo": "lista",
+        "opcoes": [
+          {"valor": "Choker"},
+          {"valor": "Ring"},
+          {"valor": "Bracelet and Anklet"},
+          {"valor": "Armlet and Thighlet"},
+          {"valor": "Headpiece"},
+          {"valor": "Facepiece"}
+        ]
+      },
+      "resumo": "Libera mais um tipo de joia por compra (são seis tipos, e cinco compras extras custam 25 no total) e dá mais uma joia por dia, com estoque máximo 5 maior.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/additional-stock",
+      "nome": "Additional Stock",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "repeticao": {"max": null},
+      "requisitos": {"compras": {"id": "bindings/luxury-goods", "minimo": 5}},
+      "resumo": "Dá mais uma joia por dia e eleva em 5 o estoque máximo a cada compra, quantas vezes quiser.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/shackles",
+      "nome": "Shackles",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "bindings/luxury-goods"},
+      "resumo": "Libera correntes e arreios como tipo especial de joia e trava as pulseiras e tornozeleiras para prender subjects e alvos; a corrente também serve de chicote. Dá mais uma joia por dia e +5 de estoque.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/designer-set",
+      "nome": "Designer Set",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 35},
+      "requisitos": {"id": "bindings/luxury-goods"},
+      "resumo": "Cada joia em uso projeta escudos invisíveis em três níveis (corpo inteiro, por parte do corpo e barreira de emergência, que exige 6 ou mais peças), com armadura estética combinando com a joia.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/aggressive-initiations",
+      "nome": "Aggressive Initiations",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"id": "bindings/tempest-jewelry"},
+      "resumo": "A captura por joia pode cair a zero de tempo se o alvo se submeter sexualmente a ele ou a alguém mais dominante do séquito, e fica mais rápida quanto mais orgasmos.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/absolute-order",
+      "nome": "Absolute Order",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 40},
+      "requisitos": {"id": "bindings/aggressive-initiations"},
+      "resumo": "Quem usa joia e já foi capturado cumpre qualquer ordem direta dele, pela palavra exata e não pela intenção, sem testes de resistência nem reinterpretação.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/assuming-direct-control",
+      "nome": "Assuming Direct Control",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {
+        "todos": [
+          {"compras": {"id": "bindings/luxury-goods", "minimo": 5}},
+          {"id": "bindings/shackles"},
+          {"id": "bindings/designer-set"},
+          {"id": "bindings/absolute-order"}
+        ]
+      },
+      "gratis": [{"id": "defenses/possession-defense", "quantidade": 1}],
+      "resumo": "Projeta a consciência dele para controlar o corpo de quem usa um conjunto completo de joias, um corpo por vez no básico. A pessoa controlada pode viver isso como sonho, pesadelo ou sono.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/jewels-of-discord",
+      "nome": "Jewels of Discord",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {"id": "bindings/tempest-jewelry"},
+      "resumo": "As joias combinam com o resto da roupa, e quem tenta tirá-las não percebe a falha. Numa joia sem uso, ele pode torná-la atraente para possíveis alvos, que sentem vontade de vesti-la por 48 horas ou até alguém usá-la.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/golden-idol",
+      "nome": "Golden Idol",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 65},
+      "requisitos": {"id": "bindings/jewels-of-discord"},
+      "gratis": [{"id": "defenses/polymorph-defense", "quantidade": 1}],
+      "resumo": "Transforma um membro do séquito que use joia em objeto (de 10% a 100% da altura), enfeite ou ferramenta, num estado de fluxo. Confissões de amor às subjects dele também passam a contar como captura.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/backseat-driver",
+      "nome": "Backseat Driver",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "requisitos": {"id": "bindings/golden-idol"},
+      "resumo": "Quem virou objeto influencia e mistura a consciência com a de quem o usa, com controles de grau (mais finos com as Runes de Body, Mind e Dream). Com Assuming Direct Control, pode tentar controlar o usuário.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/basic-runes",
+      "nome": "Basic Runes",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "bindings/tempest-jewelry"},
+      "resumo": "Dá usos comuns às joias: pulseiras inteligentes, tradução automática, tela de informações nas peças de rosto, comunicação e monitoramento a qualquer distância e app de disfarce.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/advanced-runes-body",
+      "nome": "Advanced Runes: Body",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 35},
+      "requisitos": {"id": "bindings/basic-runes"},
+      "gratis": [
+        {"id": "outros-perks/body-tune-up", "quantidade": 1},
+        {"id": "outros-perks/everlasting-tune-up", "quantidade": 1},
+        {"id": "talents/athletic-talent", "quantidade": 1}
+      ],
+      "resumo": "Permite transformar fisicamente quem usa joia pelos controles do app (idade, altura, gênero, medidas) e, em certos casos, mudar a raça. Com Absolute Order, os limites sobem muito e dá para misturar raças.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/advanced-runes-mind",
+      "nome": "Advanced Runes: Mind",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 35},
+      "requisitos": {"id": "bindings/basic-runes"},
+      "gratis": [{"id": "defenses/mind-defense", "quantidade": 1}],
+      "resumo": "Libera transformações mentais pelo app: atenção, inteligência, gostos, fetiches, personalidade, memórias e outros traços. O séquito não muda as próprias ordens nem edita o perfil dele sem permissão.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/expert-runes-logic",
+      "nome": "Expert Runes: Logic",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {"qualquerDe": [{"id": "bindings/advanced-runes-body"}, {"id": "bindings/advanced-runes-mind"}]},
+      "gratis": [{"id": "talents/algorithm-talent", "quantidade": 1}],
+      "resumo": "Dá um ambiente de programação para criar macros, gatilhos e condições nas joias, e permite definir procs (efeitos com chance de disparar, no máximo 33% e um por joia).",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/advanced-runes-spark",
+      "nome": "Advanced Runes: Spark",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"id": "bindings/basic-runes"},
+      "resumo": "Permite transferir encantamentos de itens de terceiros para as joias (um por peça), destruindo o item original; com Jewels of Discord, também dá para fundir uma joia num item encantado.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/expert-runes-dream",
+      "nome": "Expert Runes: Dream",
+      "categoria": "bindings",
+      "grupo": "bindings-tempest-jewelry",
+      "custo": {"tipo": "fixo", "valor": 60},
+      "requisitos": {"id": "bindings/advanced-runes-spark"},
+      "gratis": [
+        {"id": "talents/soul-talent", "quantidade": 1},
+        {"id": "talents/engineering-talent", "quantidade": 1}
+      ],
+      "resumo": "Abre o encantamento das joias para os encantadores e artífices do séquito, com biblioteca de receitas e até três encantamentos por peça. Com Golden Idol, uma subject objetificada de tier 3 ou mais vira receita.",
+      "verificado": true,
+      "referencia": "bindings/tempest-jewelry.md"
+    },
+    {
+      "id": "bindings/tantric-arts",
+      "nome": "Tantric Arts",
+      "categoria": "bindings",
+      "grupo": "bindings-tantric-arts",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "grupoExclusivo": "binding-ativa",
+      "resumo": "Binding por rituais sexuais e simpáticos: ele lança feitiços de amarração sobre mente, corpo e alma, mirados por um Arcane Link e movidos por Ressonância. Vem com a Art of Binding, que inclui a Art of Enslavement, a que captura.",
+      "verificado": true,
+      "referencia": "bindings/tantric-arts.md"
+    },
+    {
+      "id": "bindings/art-of-awareness",
+      "nome": "Art of Awareness",
+      "categoria": "bindings",
+      "grupo": "bindings-tantric-arts",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "bindings/tantric-arts"},
+      "resumo": "Arte que percebe o alvo à distância como pelos próprios sentidos (1 de Ressonância), revela ilusões e permite ver, e até lançar feitiços, no passado do alvo.",
+      "verificado": true,
+      "referencia": "bindings/tantric-arts.md"
+    },
+    {
+      "id": "bindings/art-of-summoning",
+      "nome": "Art of Summoning",
+      "categoria": "bindings",
+      "grupo": "bindings-tantric-arts",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"id": "bindings/tantric-arts"},
+      "resumo": "Arte que traz um alvo a um lugar ou a uma pessoa (3 de Ressonância) ou abre um portal entre dois lugares; exige pelo menos dois Arcane Links.",
+      "verificado": true,
+      "referencia": "bindings/tantric-arts.md"
+    },
+    {
+      "id": "bindings/art-of-sympathies",
+      "nome": "Art of Sympathies",
+      "categoria": "bindings",
+      "grupo": "bindings-tantric-arts",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "bindings/tantric-arts"},
+      "resumo": "Arte que liga alvos entre si ou a objetos (pensamentos, energia, estado físico), em geral por uma semana; a maioria dos usos custa de 2 a 6 de Ressonância.",
+      "verificado": true,
+      "referencia": "bindings/tantric-arts.md"
+    },
+    {
+      "id": "bindings/art-of-transformation",
+      "nome": "Art of Transformation",
+      "categoria": "bindings",
+      "grupo": "bindings-tantric-arts",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"id": "bindings/tantric-arts"},
+      "resumo": "Arte que muda a forma do alvo, de mudanças estéticas (1 de Ressonância) até espécie, tier e transformação em objeto (5). Em geral é instantânea, com duração opcional.",
+      "verificado": true,
+      "referencia": "bindings/tantric-arts.md"
+    },
+    {
+      "id": "bindings/art-of-warding",
+      "nome": "Art of Warding",
+      "categoria": "bindings",
+      "grupo": "bindings-tantric-arts",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"id": "bindings/tantric-arts"},
+      "resumo": "Arte que cria proteções em lugares ou estruturas, barrando a passagem ou a ação através delas conforme o tier dos alvos (de 3 a 13 de Ressonância); duram uma semana por padrão.",
+      "verificado": true,
+      "referencia": "bindings/tantric-arts.md"
+    },
+    {
+      "id": "bindings/magic-focus",
+      "nome": "Magic Focus",
+      "categoria": "bindings",
+      "grupo": "bindings-tantric-arts",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {"id": "bindings/tantric-arts"},
+      "resumo": "Itens feitos para fortalecer rituais, com a proteção do Smart Device: só dão Ressonância se custaram esforço a quem conjura e são usados na conjuração. Há cinco formas comuns: espelhos, moedas, taças, athames e martelos.",
+      "verificado": true,
+      "referencia": "bindings/tantric-arts.md"
+    },
+    {
+      "id": "bindings/art-of-domains",
+      "nome": "Art of Domains",
+      "categoria": "bindings",
+      "grupo": "bindings-tantric-arts",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {
+        "todos": [
+          {"id": "bindings/tantric-arts"},
+          {
+            "qualquerDe": [{"id": "sanctuaries-e-strongholds/stronghold"}, {"id": "sanctuaries-e-strongholds/sanctuary"}]
+          }
+        ]
+      },
+      "resumo": "Arte que toma um item, lugar ou área como espaço dele, contando como Stronghold ou Sanctuary. Custa 3 de Ressonância de base, mais se o local for muito poderoso.",
+      "verificado": true,
+      "referencia": "bindings/tantric-arts.md"
+    },
+    {
+      "id": "bindings/art-of-destruction",
+      "nome": "Art of Destruction",
+      "categoria": "bindings",
+      "grupo": "bindings-tantric-arts",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"id": "bindings/tantric-arts"},
+      "resumo": "Arte que danifica, destrói ou suprime alvos e habilidades: reduzir o tier custa Ressonância igual à redução (por 24 horas) e matar custa, em geral, o tier do alvo.",
+      "verificado": true,
+      "referencia": "bindings/tantric-arts.md"
+    }
+  ]
+}
