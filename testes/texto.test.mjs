@@ -5,17 +5,20 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { exportarTexto, importarTexto, importarEConferir, ErroDeImportacao } from '../fonte/texto.js';
 import { dados } from './fixtures/dados-exemplo.mjs';
+import { carregarDados } from '../ferramentas/montar.mjs';
 import { estadoPequeno, estadoMedio } from './exemplos.mjs';
 
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..');
 const le = (rel) => readFileSync(join(raiz, rel), 'utf8');
+// Os exemplos de docs/ são gerados com os dados reais de dados/.
+const dadosReais = carregarDados();
 
 test('exemplo pequeno: o texto exportado é o de docs/exemplos/build-pequena.txt', () => {
-  assert.equal(exportarTexto(estadoPequeno(), dados), le('docs/exemplos/build-pequena.txt'));
+  assert.equal(exportarTexto(estadoPequeno(), dadosReais), le('docs/exemplos/build-pequena.txt'));
 });
 
 test('exemplo médio: o texto exportado é o de docs/exemplos/build-media.txt', () => {
-  assert.equal(exportarTexto(estadoMedio(), dados), le('docs/exemplos/build-media.txt'));
+  assert.equal(exportarTexto(estadoMedio(), dadosReais), le('docs/exemplos/build-media.txt'));
 });
 
 for (const [nome, arq, fn] of [
@@ -23,13 +26,13 @@ for (const [nome, arq, fn] of [
   ['médio', 'docs/exemplos/build-media.txt', estadoMedio],
 ]) {
   test('ida e volta do exemplo ' + nome + ': exportar, importar e exportar dá o mesmo texto', () => {
-    const t1 = exportarTexto(fn(), dados);
-    const { estado } = importarTexto(t1, dados);
-    assert.equal(exportarTexto(estado, dados), t1);
+    const t1 = exportarTexto(fn(), dadosReais);
+    const { estado } = importarTexto(t1, dadosReais);
+    assert.equal(exportarTexto(estado, dadosReais), t1);
     assert.equal(t1, le(arq));
   });
   test('importar o arquivo de exemplo ' + nome + ' não acusa diferença com o recalculado', () => {
-    const r = importarEConferir(le(arq), dados);
+    const r = importarEConferir(le(arq), dadosReais);
     assert.deepEqual(r.diferencas, []);
   });
 }
