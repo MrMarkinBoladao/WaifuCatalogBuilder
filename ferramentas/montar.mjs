@@ -9,7 +9,7 @@ import { dirname, join, resolve } from 'node:path';
 const raiz = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 // Ordem dos módulos: cada um só usa o que vem antes.
-export const MODULOS = ['motor.js', 'texto.js', 'idiomas.js', 'interface.js'];
+export const MODULOS = ['motor.js', 'texto.js', 'idiomas.js', 'saves.js', 'interface.js'];
 
 // Campos dos dados que não vão para a página (só o conferidor de dados usa).
 const CAMPOS_FORA_DA_PAGINA = ['referencia'];
