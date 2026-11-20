@@ -1,0 +1,47 @@
+WAIFU CATALOG BUILD
+Formato: wcb/1
+Documento: Main Sourcebook (Current_unstable ver.), export de 2026-11-20
+Builder: 0.1.0
+
+## Resumo
+Contractor: Aiko Exemplo
+Mundo inicial: Mundo Exemplo
+DR: 3
+Intensity: 2
+Budget inicial: 60
+Empréstimo na criação: 0
+Limite de empréstimo: 400
+
+## Intensity
+- Hardcore | valor +3
+- Open Exploration | valor -2
+Soma das cláusulas: +1
+Conta: 1 + 1 = 2
+
+## Origin
+- Drop-In | custo 0 | saldo 60
+
+## Talents
+- Athletic Talent | custo 5 | saldo 55
+- Martial Talent | custo 10 | saldo 45
+Subtotal: 15
+
+## Other Perks
+- Body Tune-Up | custo 5 | saldo 40
+Subtotal: 5
+
+## Companions
+- Hoshi Mirei | obra Obra Exemplo | tier 3 | entrada compra | papel companion | estado no séquito | custo 5 | saldo 35
+- Ren Tachibana | obra Obra Exemplo | tier 4 | entrada compra | papel companion | estado no séquito | custo 10 | saldo 25
+Subtotal: 15
+
+## Conferência
+Budget inicial: 60
+Empréstimo: 0
+Ganhos: 0
+Gastos: 35
+Saldo final: 25
+Dívida: não
+
+## Avisos
+- [NÃO CONFIRMADO] Preço por tier (1, 2, 5, 10, 20, 50, 100, 200, 500, 1000): a tabela do documento é uma imagem e não vem no texto exportado. Afeta: Hoshi Mirei, Ren Tachibana.
