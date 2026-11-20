@@ -15,6 +15,7 @@
         {"id": "defenses/environmental-defense", "quantidade": 1},
         {"id": "defenses/stress-defense", "quantidade": 1}
       ],
+      "grupoExclusivo": "heritages-raiz",
       "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
       "resumo": "Raiz da Dragon: ganha uma segunda forma, de dragão em tamanho real (cerca de 25 m no começo), com afinidade a um Primal Element e um sopro. Cada ataque deixa uma Dragon Mark, que age como lure. Eleva o tier a 6 no passo 1b. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
       "verificado": true,
@@ -87,7 +88,7 @@
         {"id": "defenses/polymorph-defense", "quantidade": 1}
       ],
       "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
-      "resumo": "A natureza de dragão fica maleável: segundo Aspect junto ao Primal Element, dragão de gato doméstico a avião de carga, aparência humanoide livre e uma terceira forma híbrida. Ao soltar o poder, causa reflexo de medo. Eleva o tier a 7. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "resumo": "A natureza de dragão fica maleável: um Aspect junto ao Primal Element, dragão de gato doméstico a avião de carga, aparência humanoide livre e uma terceira forma híbrida. Ao soltar o poder, causa reflexo de medo. Eleva o tier a 7. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
       "verificado": true,
       "regraEspecial": "desconto-por-arquetipo",
       "tipo": ["Self"],
@@ -204,6 +205,7 @@
         {"id": "talents/soul-talent", "quantidade": 1},
         {"id": "defenses/mind-defense", "quantidade": 1}
       ],
+      "grupoExclusivo": "heritages-raiz",
       "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
       "resumo": "Raiz da Lunarian: fonte de poder feérico chamada Glamour, de início uma aura que amplifica emoções. Ele canaliza uma de três Faces (Maiden, Mother, Crone), ligadas às fases da lua, cada uma com idade aparente e efeitos próprios e de alcance curto. Eleva o tier a 5. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
       "verificado": true,
@@ -292,10 +294,10 @@
         {"id": "talents/administrative-talent", "quantidade": 1},
         {"id": "lures/sticky-fingers", "quantidade": 1},
         {"id": "lures/alluring-whisper", "quantidade": 1},
-        {"id": "outros-perks/talent-sharing", "quantidade": 3}
+        {"id": "outros-perks/talent-sharing", "quantidade": 11}
       ],
       "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
-      "resumo": "Ele tece Glamour na própria perícia e a leva a usos mágicos. Forma um Coven: ensina novatas a produzir Glamour, e as que completam o treino viram Lunarians do séquito. Dá Talent Sharing dos Talents que o perk concede (o texto diz \"desta heritage\"; ver relatório). Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "resumo": "Ele tece Glamour na própria perícia e a leva a usos mágicos. Forma um Coven: ensina novatas a produzir Glamour, e as que completam o treino viram Lunarians do séquito. Dá Talent Sharing de todos os Talents que a Heritage Lunarian concede (11, na leitura literal do texto). Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
       "verificado": true,
       "regraEspecial": "desconto-por-arquetipo",
       "tipo": ["Full Moon", "Self", "Party"],
@@ -439,6 +441,7 @@
         {"id": "defenses/stress-defense", "quantidade": 1},
         {"id": "defenses/environmental-defense", "quantidade": 1}
       ],
+      "grupoExclusivo": "heritages-raiz",
       "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
       "resumo": "Raiz da Machina: vira uma construção artificial avançada, com um Spark no centro, sem sono nem exaustão, autorreparo e controle total dos dados sensoriais. Escolhe um Material e uma Specialty, que definem a tecnologia do corpo. Eleva o tier a 5. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
       "verificado": true,
@@ -669,6 +672,7 @@
         {"id": "defenses/body-defense", "quantidade": 1},
         {"id": "defenses/creature-defense", "quantidade": 1}
       ],
+      "grupoExclusivo": "heritages-raiz",
       "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
       "resumo": "Raiz da Theos: vira um Demigod, com um Domain (conceito à escolha) e uma Sacred Beast de espécie de tier 5 ou menos. Muda de forma para a besta, infunde ou captura bestas da espécie, e a força dele cresce com a crença dos fiéis. Eleva o tier a 5. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
       "verificado": true,
