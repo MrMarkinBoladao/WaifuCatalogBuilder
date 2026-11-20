@@ -1,11 +1,16 @@
 // Interface do Waifu Catalog Builder. Só roda no navegador (WCB.iniciar(document)).
 // Todo texto visível passa por t() (idiomas.js). Nomes de opção ficam em inglês, como no documento.
-import { BLOCOS, calcular, estadoVazio, normalizarNome, requisitoAtendido, indexarDados, regraImplementada } from './motor.js';
+import { BLOCOS, VERSAO_BUILDER, calcular, estadoVazio, normalizarNome, requisitoAtendido, indexarDados, regraImplementada } from './motor.js';
 import { renderizar, importarEConferir, ErroDeImportacao } from './texto.js';
 import { t, definirIdioma, idiomaAtual } from './idiomas.js';
+import {
+  ErroDeBackup, criarSalvamento, apagarSalvamento, acharSalvamento, lerListaGuardada, guardarLista, montarBackup, lerBackup,
+  mesclarSalvamentos, nomeDeArquivoDoSalvamento, nomeDeArquivoDoBackup,
+} from './saves.js';
 
 const CHAVE_RASCUNHO = 'wcb:rascunho';
 const CHAVE_IDIOMA = 'wcb:idioma';
+const CHAVE_SALVAMENTOS = 'wcb:saves';
 const TIERS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'X', 'Y', 'Z'];
 
 let doc = null;
@@ -18,6 +23,9 @@ let busca = '';
 let subLivro = 'livro';
 let livroAberto = false;
 let mensagemImportacao = null; // { erro, textos }
+let salvamentos = []; // versões salvas (fonte/saves.js)
+let mensagemSaves = null; // { erro, textos }
+let confirmandoApagar = null; // id do salvamento à espera de confirmação
 let companionEmEdicao = null; // índice ou null
 const hist = { passado: [], futuro: [] };
 
@@ -577,6 +585,8 @@ function renderLivro() {
       (c.img.gastos || c.img.ganhos ? '<dt>' + esc(t('livro.imgSaldo')) + '</dt><dd>' + esc(comSinal(c.img.saldo)) + ' IMG</dd>' : '') + '</dl>';
   } else if (subLivro === 'avisos') {
     corpo += renderAvisos();
+  } else if (subLivro === 'saves') {
+    corpo += renderSalvamentos();
   } else {
     const texto = renderizar(R, D);
     corpo +=
@@ -595,10 +605,50 @@ function renderLivro() {
   return (
     '<div class="livro-cabeca"><h2>' + esc(t('topo.livro')) + '</h2><button class="btn mini so-movel" data-a="fechar-livro">' + esc(t('livro.fechar')) + '</button></div>' +
     '<div class="livro-abas" role="tablist">' +
-    [['livro', t('livro.aba.livro')], ['avisos', t('livro.aba.avisos') + (nAv ? ' (' + nAv + ')' : '')], ['texto', t('livro.aba.texto')]]
+    [['livro', t('livro.aba.livro')], ['avisos', t('livro.aba.avisos') + (nAv ? ' (' + nAv + ')' : '')], ['texto', t('livro.aba.texto')], ['saves', t('livro.aba.saves') + (salvamentos.length ? ' (' + salvamentos.length + ')' : '')]]
       .map(([id, rot]) => '<button class="aba" role="tab" data-a="sub-livro" data-id="' + id + '" data-foco="sub:' + id + '" aria-selected="' + (subLivro === id) + '">' + esc(rot) + '</button>')
       .join('') +
     '</div><div class="livro-corpo">' + corpo + '</div>'
+  );
+}
+
+function dataLegivel(isoData) {
+  try {
+    return new Date(isoData).toLocaleString(idiomaAtual(), { dateStyle: 'medium', timeStyle: 'short' });
+  } catch (e) {
+    return isoData;
+  }
+}
+
+function renderSalvamentos() {
+  const lista = salvamentos
+    .map((s) => {
+      const r = s.resumo || {};
+      const fatos = [r.intensity != null ? t('topo.intensity') + ' ' + r.intensity : '', r.saldo != null ? t('topo.saldo') + ' ' + fmt(r.saldo) : ''].filter(Boolean).join(', ');
+      const apagando = confirmandoApagar === s.id;
+      return (
+        '<article class="opcao"><div class="opcao-cabeca"><h3>' + esc(s.nome) + '</h3></div>' +
+        '<p class="dica">' + esc(dataLegivel(s.criadoEm)) + (fatos ? ' — ' + esc(fatos) : '') + '</p>' +
+        '<div class="controles">' +
+        '<button class="btn mini primario" data-a="save-carregar" data-id="' + esc(s.id) + '" data-foco="save-carregar:' + esc(s.id) + '">' + esc(t('saves.carregar')) + '</button>' +
+        '<button class="btn mini" data-a="save-baixar" data-id="' + esc(s.id) + '" data-foco="save-baixar:' + esc(s.id) + '">' + esc(t('saves.baixar')) + '</button>' +
+        (apagando
+          ? '<button class="btn mini perigo" data-a="save-apagar-sim" data-id="' + esc(s.id) + '" data-foco="save-apagar-sim:' + esc(s.id) + '">' + esc(t('saves.apagarSim')) + '</button>' +
+            '<button class="btn mini" data-a="save-apagar-nao" data-foco="save-apagar-nao">' + esc(t('saves.apagarNao')) + '</button>'
+          : '<button class="btn mini perigo" data-a="save-apagar" data-id="' + esc(s.id) + '" data-foco="save-apagar:' + esc(s.id) + '">' + esc(t('saves.apagar')) + '</button>') +
+        '</div></article>'
+      );
+    })
+    .join('');
+  return (
+    '<p class="dica">' + esc(t('saves.dica')) + '</p>' +
+    '<div class="formulario"><label class="campo largo">' + esc(t('saves.nome')) + '<input type="text" id="save-nome" maxlength="80" placeholder="' + esc(t('saves.nomePlaceholder')) + '"></label></div>' +
+    '<div class="linha-botoes"><button class="btn primario" data-a="save-criar" data-foco="save-criar">' + esc(t('saves.salvar')) + '</button></div>' +
+    (mensagemSaves ? '<div class="mensagem' + (mensagemSaves.erro ? ' erro' : '') + '" role="status">' + mensagemSaves.textos.map((x) => '<p style="margin:2px 0">' + esc(x) + '</p>').join('') + '</div>' : '') +
+    '<div class="opcoes">' + (lista || '<p class="vazio">' + esc(t('saves.vazio')) + '</p>') + '</div>' +
+    '<h2 style="font-size:1.05rem;margin-top:18px">' + esc(t('saves.backupTitulo')) + '</h2><p class="dica">' + esc(t('saves.backupDica')) + '</p>' +
+    '<div class="linha-botoes"><button class="btn" data-a="backup-baixar" data-foco="backup-baixar">' + esc(t('saves.backupBaixar')) + '</button>' +
+    '<label class="btn" style="display:inline-flex;align-items:center">' + esc(t('saves.backupCarregar')) + '<input type="file" accept=".json,application/json" data-a="backup-arquivo" class="visualmente-oculto"></label></div>'
   );
 }
 
@@ -677,8 +727,8 @@ function copiar() {
   else falha();
 }
 
-function baixar(nome, texto) {
-  const blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+function baixar(nome, texto, tipo) {
+  const blob = new Blob([texto], { type: (tipo || 'text/plain') + ';charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = doc.createElement('a');
   a.href = url;
@@ -709,6 +759,69 @@ function importar(texto) {
   renderizarTudo();
 }
 
+function guardarSalvamentos() {
+  return gravarLocal(CHAVE_SALVAMENTOS, guardarLista(salvamentos));
+}
+
+function criarVersao() {
+  const campo = $('#save-nome');
+  const resumo = { contractor: E.contractor || '', intensity: R.resumo.intensity, saldo: R.conferencia.saldoFinal };
+  try {
+    salvamentos = criarSalvamento(salvamentos, { nome: campo ? campo.value : '', texto: renderizar(R, D), resumo });
+    mensagemSaves = guardarSalvamentos() ? { erro: false, textos: [t('saves.salvo')] } : { erro: true, textos: [t('saves.naoGuardou')] };
+  } catch (err) {
+    mensagemSaves = { erro: true, textos: [err instanceof ErroDeBackup ? err.message : t('saves.falhou')] };
+  }
+  renderizarTudo();
+}
+
+function carregarVersao(id) {
+  const s = acharSalvamento(salvamentos, id);
+  if (!s) return;
+  try {
+    const r = importarEConferir(s.texto, D);
+    aplicar((e) => {
+      const novo = normalizarEstado(r.estado);
+      for (const k of Object.keys(e)) delete e[k];
+      Object.assign(e, novo);
+    });
+    mensagemSaves = { erro: false, textos: [t('saves.carregado', s.nome)].concat(r.avisos.map((a) => a.texto)) };
+  } catch (err) {
+    mensagemSaves = { erro: true, textos: [err instanceof ErroDeImportacao ? err.message : t('importar.falhou')] };
+  }
+  renderizarTudo();
+}
+
+function baixarBackup() {
+  const json = montarBackup({ salvamentos, rascunho: renderizar(R, D), idioma: idiomaAtual() }, VERSAO_BUILDER);
+  baixar(nomeDeArquivoDoBackup(), json, 'application/json');
+}
+
+function carregarBackup(texto) {
+  try {
+    const b = lerBackup(texto);
+    let lista = salvamentos;
+    let novos = 0;
+    const m = mesclarSalvamentos(lista, b.salvamentos);
+    lista = m.lista;
+    novos += m.novos;
+    if (b.rascunho && !lista.some((s) => s.texto === b.rascunho)) {
+      const agora = new Date();
+      const resumoRascunho = { contractor: '' };
+      lista = criarSalvamento(lista, { nome: t('saves.rascunhoDoBackup', dataLegivel(agora.toISOString())), texto: b.rascunho, resumo: resumoRascunho }, agora);
+      novos += 1;
+    }
+    salvamentos = lista;
+    const textos = [t('saves.backupLido', novos)];
+    if (b.descartados.length) textos.push(t('saves.descartados', b.descartados.join(', ')));
+    if (!guardarSalvamentos()) textos.push(t('saves.naoGuardou'));
+    mensagemSaves = { erro: false, textos };
+  } catch (err) {
+    mensagemSaves = { erro: true, textos: [err instanceof ErroDeBackup ? err.message : t('saves.falhou')] };
+  }
+  renderizarTudo();
+}
+
 function lerCompanionDoForm() {
   const g = (id) => ($('#' + id) ? $('#' + id).value.trim() : '');
   return {
@@ -729,6 +842,13 @@ function aoClicar(ev) {
     case 'abrir-livro': livroAberto = true; renderizarTudo(); break;
     case 'fechar-livro': livroAberto = false; renderizarTudo(); break;
     case 'idioma': trocarIdioma(); break;
+    case 'save-criar': criarVersao(); break;
+    case 'save-carregar': carregarVersao(id); break;
+    case 'save-baixar': { const s = acharSalvamento(salvamentos, id); if (s) baixar(nomeDeArquivoDoSalvamento(s), s.texto); break; }
+    case 'save-apagar': confirmandoApagar = id; renderizarTudo(); break;
+    case 'save-apagar-nao': confirmandoApagar = null; renderizarTudo(); break;
+    case 'save-apagar-sim': salvamentos = apagarSalvamento(salvamentos, id); confirmandoApagar = null; guardarSalvamentos(); mensagemSaves = { erro: false, textos: [t('saves.apagado')] }; renderizarTudo(); break;
+    case 'backup-baixar': baixarBackup(); break;
     case 'desfazer': desfazer(); break;
     case 'refazer': refazer(); break;
     case 'adicionar': adicionarCompra(id); break;
@@ -824,6 +944,14 @@ function aoMudar(ev) {
     }); break;
     case 'custo-manual': aplicar((e) => { const n = parseInt(v, 10) || 0; if (n) e.compras[i].custoManual = n; else delete e.compras[i].custoManual; }); break;
     case 'desconto-manual': aplicar((e) => { const n = parseInt(v, 10) || 0; if (n > 0) e.compras[i].descontoManual = n; else delete e.compras[i].descontoManual; }); break;
+    case 'backup-arquivo': {
+      const f = el.files && el.files[0];
+      if (!f) break;
+      const leitor = new FileReader();
+      leitor.onload = () => carregarBackup(String(leitor.result));
+      leitor.readAsText(f);
+      break;
+    }
     case 'arquivo': {
       const f = el.files && el.files[0];
       if (!f) break;
@@ -864,6 +992,7 @@ export function iniciar(documento) {
   if (idioma) definirIdioma(idioma);
   else definirIdioma((window.navigator.language || 'pt').toLowerCase().startsWith('en') ? 'en' : 'pt');
   doc.documentElement.lang = idiomaAtual() === 'en' ? 'en' : 'pt-BR';
+  salvamentos = lerListaGuardada(lerLocal(CHAVE_SALVAMENTOS));
   const rasc = lerLocal(CHAVE_RASCUNHO);
   if (rasc) {
     try {
