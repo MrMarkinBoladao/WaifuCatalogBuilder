@@ -98,17 +98,20 @@ Toda linha de compra dos blocos 3 a 13 tem a forma:
 
 | Campo | Valor | Quando aparece |
 |---|---|---|
-| `custo` | Créditos que essa linha custou, depois de brindes e descontos. Inteiro. Pode ser 0 (grátis) ou negativo (Power Swap que devolve crédito). Na linha de uma opção paga em IMG, o campo é `custo-img`. | Toda linha de compra. |
+| `custo` | Créditos que essa linha custou, depois de brindes e descontos. Inteiro. Pode ser 0 (grátis) ou negativo (Power Swap que devolve crédito). | Toda linha de compra, menos a de opção paga só em IMG. |
+| `custo-img` | IMG que essa linha custou. Uma opção paga só em IMG traz `custo-img` no lugar de `custo`, e a linha não tem `saldo`, porque o saldo de créditos não muda. Se custa créditos e IMG, a linha traz `custo N`, depois `custo-img M`. | Opção ou companion paga em IMG. |
 | `ganho` | Créditos recebidos por essa linha (captura, recompensa de missão). Inteiro positivo. | Em vez de `custo`, nas linhas que pagam. |
 | `lista` | Preço de lista, antes de descontos, quando difere de `custo`. | Linha com desconto. |
-| `desconto` | Valor do desconto e o motivo entre parênteses: `desconto 10 (condição declarada)`. | Linha com desconto. |
+| `desconto` | Valor do desconto e o motivo entre parênteses: `desconto 8 (condição declarada: familia)`. O campo se repete, um por motivo (`desconto 5 (informado pelo usuário) | desconto 5 (brinde duplicado de Aesthetic Talent)`). Motivos: `condição declarada: <id>`, `informado pelo usuário`, `brinde duplicado de <opção>`, `50% do mestre <nome>`. | Linha com desconto. |
 | `gratis-de` | Nome da opção que deu esta de graça. | Linha de brinde. |
 | `saldo` | Saldo de créditos logo depois desta linha. | Toda linha com `custo` ou `ganho`. |
 
 Regras:
 
 - A linha de um brinde tem `custo 0` e `gratis-de`. Quando o contractor já tinha comprado o perk que o brinde daria, o brinde vira desconto em outra compra (regra de Compras do documento): o exportador escreve `desconto N (brinde duplicado de X)` na linha da compra que o usuário escolheu. Esse caso é regra especial no esquema de dados.
-- Linhas de `Intensity` não têm `custo`: têm `valor` com sinal (`valor +3`, `valor -1`, `valor +0`).
+- Linhas de `Intensity` não têm `custo`: têm `valor` com sinal (`valor +3`, `valor -1`, `valor +0`). Depois delas vêm `Soma das cláusulas: +N` e `Conta: 1 + N = T` (ou `Conta: 1 - N = T` quando a soma é negativa; se T passa de 10, a linha termina com `(vale 10 para budget e pagamentos)`).
+- **Opção que o Builder não calcula** (custo que depende de regra não implementada, como Power Swap): o `custo` da linha é **entrada**, informado pelo usuário, e a linha vem com `[NÃO IMPLEMENTADA]` em `Avisos`. O mesmo vale para o desconto de um motivo `informado pelo usuário` (Defense Rebates, por exemplo).
+- A escolha de uma origem que paga o preço de um tier (Possess, Substitute) tem a forma `[Nome, tier N]`; é dela que o Builder tira o tier.
 - O bloco `Intensity` não tem `saldo`: Intensity não gasta créditos. Efeitos de uma opção de Intensity sobre créditos (captura, venda, empréstimo) entram nos cálculos do Builder e, quando o Builder não os calcula, em `Avisos`.
 - Campo desconhecido, ou fora da ordem, é erro de importação com a linha e o campo.
 
@@ -131,10 +134,11 @@ O documento guarda a lista de personagens numa planilha externa, que não está 
 | `obra` | Obra de origem (texto livre). Para um companion que não é de obra, `obra -`. |
 | `tier` | `1` a `10`, ou `X`, `Y`, `Z` (tiers imaginários, pagos em IMG, campo `custo-img`). É o tier efetivo no passo 1a, informado pelo usuário. |
 | `entrada` | Como entrou no séquito: `compra`, `captura`, `gratis` (veio de graça de outra opção; vem com `gratis-de`), `origem` (veio com Possess ou Substitute) ou `yeet` (solto por Yeet, ainda não capturado). |
-| `papel` | `companion`, `follower` ou `familiar`. Familiar e follower de um mestre trazem `de Nome` (o mestre); minion de um mestre comprado tem o desconto de 50% da regra de Followers e Familiars, lançado em `desconto`. |
+| `papel` | `companion`, `follower`, `familiar` ou `figurante` (sujeito de Capturing Extras: captura pelo valor de figurante e sem valor de venda). |
+| `de` | Só em `familiar` e `follower` de um mestre: `de Nome`, logo depois de `papel`. Comprado de um mestre que está na build, tem o desconto de 50% da regra de Followers e Familiars, lançado em `desconto`. |
 | `estado` | `no séquito` ou `vendida`. |
-| `custo` / `ganho` | `custo` na compra; `ganho` na captura (o crédito pago pela captura). |
-| `venda` | Quando `estado vendida`: o crédito pago pela venda. |
+| `custo` / `custo-img` / `ganho` / `ganho-img` | `custo` (e `custo-img`, em tier imaginário) na compra; `ganho` (e `ganho-img`) na captura. |
+| `venda` / `venda-img` | Quando `estado vendida`: o crédito (e os IMG) pagos pela venda. |
 | `saldo` | Saldo depois de todas as linhas dessa pessoa (compra, ou captura e venda juntas). |
 
 Uma pessoa capturada e vendida é **uma linha só**, com `ganho` (captura) e `venda`. O `saldo` dela inclui os dois.
@@ -154,6 +158,7 @@ Saldo final: <Budget inicial + Empréstimo + Ganhos − Gastos>
 Dívida: sim | não
 ```
 
+- Se a build moveu IMG, três linhas a mais fecham a conta deles, separada da de créditos: `IMG gastos: N`, `IMG ganhos: N` e `IMG saldo: N`.
 - `Saldo final` é igual ao `saldo` da última linha do texto.
 - `Dívida: sim` quando o saldo final é negativo. Com dívida o contractor não pode fazer compras (regra de Company Services); o texto também traz um `[ERRO]` em `Avisos`.
 - Para conferir sem o Builder, a LLM soma os `custo` e os `ganho` de todas as linhas, compara com `Gastos` e `Ganhos` e confere a equação. Se não fechar, mostra onde e **não conserta sozinha**.
