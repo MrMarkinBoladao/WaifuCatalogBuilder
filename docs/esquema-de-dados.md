@@ -276,7 +276,9 @@ Regras gerais do motor (não são do esquema, mas de toda build): arredondamento
 ```
 
 - Cada bloco tem o seu `verificado`. O valor `false` sempre vem com `aviso` visível no app e no texto exportado.
-- `budgetInicial.porIntensity[N]` é uma lista de 10 valores, DR 1 a DR 10. A mesma convenção vale para a tabela de venda (`porIntensity[N]` é uma lista de 10 valores, tier 1 a 10). Na captura, cada célula é um par `[regular, figurante]`.
+- `budgetInicial.porIntensity[N]` é uma lista de 10 valores, DR 1 a DR 10. A mesma convenção vale para a venda (`venda.porIntensity[N]`, tier 1 a 10). A captura tem duas tabelas do mesmo formato: `captura.regular[N]` e `captura.figurante[N]` (o valor do figurante que não passa no teste de três de quatro). Intensity 0 existe nas três.
+- `tiersImaginarios.captura.porIntensity[N]` e `tiersImaginarios.venda.porIntensity[N]` trazem, por tier `X`, `Y`, `Z`, `{ creditos, img }`; na captura, `figurante` traz o mesmo par do figurante. `creditosPorImg` é 1000.
+- `emprestimo.limiteBuildInicial[N]` é o limite do empréstimo na build inicial, de Intensity 0 a 10; `acrescimoPorMundo`, `maximo` e `jurosPor30Dias` são do documento. O motor só usa o limite da build inicial.
 - Preços por tier são o único bloco `verificado: false` de economia (a tabela do documento é uma imagem).
 
 ---
