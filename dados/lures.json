@@ -1,0 +1,432 @@
+{
+  "categoria": "lures",
+  "titulo": "Lures",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "lures/sticky-fingers",
+      "nome": "Sticky Fingers",
+      "categoria": "lures",
+      "grupo": "lures-sensory",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "resumo": "O toque dele é eletrizante e ele é um gênio do sexo: mantida à beira do orgasmo, a waifu promete qualquer coisa para parar, e cumpre. Não afeta quem não tem tato.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/faerie-feast",
+      "nome": "Faerie Feast",
+      "categoria": "lures",
+      "grupo": "lures-sensory",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "A comida dele é sobrenaturalmente boa: uma provada prende a waifu pela vida toda, e com o tempo a dependência vira obediência e carinho. Pede ingredientes e ferramentas reais (cobre bebidas, açougue e química de comida, não plantio nem pesca). Não afeta quem não tem paladar.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/potpourri",
+      "nome": "Potpourri",
+      "categoria": "lures",
+      "grupo": "lures-sensory",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Olfato apurado e controle parcial do próprio cheiro: ele usa aromas para mudar emoções dos outros (baixar a guarda, provocar briga), lê feromônios e pode ignorar cheiros específicos. Não afeta quem não tem olfato.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/alluring-whisper",
+      "nome": "Alluring Whisper",
+      "categoria": "lures",
+      "grupo": "lures-sensory",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "resumo": "A voz dele é sedutora: um sussurro derrete o alvo. Efeito ativo, em qualquer tom ou volume, melhor com treino de voz. Quem tem força de vontade suficiente resiste ou bloqueia; não afeta quem não ouve.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/love-spot",
+      "nome": "Love Spot",
+      "categoria": "lures",
+      "grupo": "lures-sensory",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "resumo": "Uma pinta sob um dos olhos (ou outra parte do corpo, se ele preferir) fascina quem a vê e o deixa apaixonado na hora. Cobri-la reduz o efeito; a exposição o reforça, e vale por transmissão ao vivo. Resistência mágica suficiente o reduz; não afeta quem não vê.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/arlo",
+      "nome": "Arlo",
+      "categoria": "lures",
+      "grupo": "lures-other",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"declarado": "pelo menos um membro do séquito com aparência mais nova que a dele"},
+      "resumo": "Um membro do séquito de aparência mais nova serve de isca: os dois se aproximam do alvo, e a isca joga com o instinto de cuidar. Mais forte com isca parente, mais fofa ou bem mais nova que o alvo; bicho de estimação também serve. Não afeta raça incapaz de ter filhos.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/bad-medicine",
+      "nome": "Bad Medicine",
+      "categoria": "lures",
+      "grupo": "lures-other",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "resumo": "Quem o trata, ou é tratado por ele, em qualquer doença, ferimento ou procedimento, começa a se apaixonar: a atenção cresce e vira algo romântico ou sexual. Mais forte quanto mais longo, pessoal e intenso o cuidado, e melhor de um para um.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/dont-stand-so-close-to-me",
+      "nome": "Don’t Stand So Close to Me",
+      "categoria": "lures",
+      "grupo": "lures-other",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "resumo": "Quem o ensina, ou aprende com ele, em qualquer assunto, começa a se apaixonar: ele toma o primeiro lugar nos pensamentos e a atenção à matéria vira algo romântico ou sexual. Mais forte quanto mais longa, pessoal e intensa a instrução, e em quem já gosta da matéria.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/open-secret",
+      "nome": "Open Secret",
+      "categoria": "lures",
+      "grupo": "lures-other",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "resumo": "Qualquer indício de que ele guarda segredos atrai muito quem gosta de segredos (detetives, espiões, criminosos). Sempre ativo e cada vez mais forte; ele pode focar o efeito num alvo, que fica obcecado e faz favores e confissões para saber mais. Só o segredo mais convincente conta.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/other-people-s-prize",
+      "nome": "Other People's Prize",
+      "categoria": "lures",
+      "grupo": "lures-other",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "resumo": "Quando ele demonstra afeto romântico por alguém do séquito, quem vê sente ciúme possessivo e quer o lugar da outra pessoa. Vale por transmissão ao vivo, não por gravação, e é mais forte em rivais, inimigos e quem já tem tendência a trair.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/stacys-dad-has-me-down-bad",
+      "nome": "Stacy’s Dad Has Me Down Bad",
+      "categoria": "lures",
+      "grupo": "lures-other",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "resumo": "Quem é mais novo que ele, de fato ou na aparência, passa a ver nele sabedoria, confiança e atração madura, e busca atenção, elogio e até disciplina dele, mais quanto mais tempo passa por perto. Efeito dobrado em quem procura uma figura de pai ou de mãe.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/zenryoku-zenkai",
+      "nome": "Zenryoku Zenkai",
+      "categoria": "lures",
+      "grupo": "lures-other",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "resumo": "Quem ele derrota em combate ou outra disputa (física, mental ou social) se apaixona com mais força, e a vontade de revanche vira desejo. Mais forte quanto mais decisiva e importante a vitória; ideal em duelo um contra um na especialidade do alvo, aceito por ele livremente. Trapaça muda o resultado.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/sticky-fingers-brown-sugar",
+      "nome": "Sticky Fingers: Brown Sugar",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"id": "lures/sticky-fingers"},
+      "resumo": "Um afrodisíaco natural nas veias dele intensifica qualquer experiência sexual com os fluidos dele, e ele é imune. Se tem genitália masculina, secreta também um lubrificante natural com o afrodisíaco. Exige Sticky Fingers.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/sticky-fingers-under-my-thumb",
+      "nome": "Sticky Fingers: Under My Thumb",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "requisitos": {"id": "lures/sticky-fingers"},
+      "resumo": "Sticky Fingers fica bem mais intenso: cada pico de prazer desequilibra o cérebro do alvo (erros, fala enrolada, segredos soltos), sem dano permanente. Em alvos do séquito, ele aplica efeitos precisos e temporários e absorve as competências transferidas, com retorno decrescente.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/faerie-feast-master-chef",
+      "nome": "Faerie Feast: Master Chef",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "lures/faerie-feast"},
+      "resumo": "Quando ele comanda ou supervisiona a equipe de uma cozinha, o efeito de Faerie Feast vale para toda a comida feita ali. Se a equipe é de waifus dele, nem precisa estar presente, desde que sigam o cardápio que ensinou. Não vale para produção industrial.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/faerie-feast-the-secret-ingredient-is-love",
+      "nome": "Faerie Feast: The Secret Ingredient is Love",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "requisitos": {"id": "lures/faerie-feast-master-chef"},
+      "resumo": "Membros do séquito que já cozinham bem não precisam mais da orientação dele para a comida ter o efeito de Faerie Feast, desde que parte da refeição seja para ele ou para o séquito. Exige Master Chef.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/potpourri-smells-like-teen-spirit",
+      "nome": "Potpourri: Smells Like Teen Spirit",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"id": "lures/potpourri"},
+      "resumo": "Ele carrega o cheiro de feromônios fortes, trocando sutileza por força bruta, ou os usa como almíscar viciante que aumenta aos poucos o desejo do alvo e fica em roupas e lugares. Não afeta quem não tem olfato.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/alluring-whisper-dirty-minds",
+      "nome": "Alluring Whisper: Dirty Minds",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "porEscolha"},
+      "requisitos": {"id": "lures/alluring-whisper"},
+      "escolha": {
+        "rotulo": "Controle da ativação",
+        "tipo": "lista",
+        "opcoes": [
+          {"valor": "Sem controle da ativação", "custo": 20},
+          {"valor": "Com controle da ativação", "custo": 30}
+        ]
+      },
+      "resumo": "Ao falar pessoalmente com alguém que acha atraente, a pessoa ouve sugestões safadas no lugar das palavras e concorda. Nunca vai contra o que alguém jamais faria nem o trabalho de ninguém; psíquicos e quem tem social density resistem. Custa 20, ou 30 com controle total da ativação.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/alluring-whisper-sirens-song",
+      "nome": "Alluring Whisper: Siren’s Song",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "fixo", "valor": 40},
+      "requisitos": {"id": "lures/alluring-whisper"},
+      "gratis": [{"id": "talents/performance-talent", "quantidade": 1}],
+      "resumo": "A voz dele fica irresistível: dá força às palavras para ordenar algo a uma pessoa ou empolgar uma multidão com uma canção. Quem tem força de vontade resiste; não afeta quem não ouve. Dá Performance Talent de graça.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/love-spot-your-wings-are-beautiful",
+      "nome": "Love Spot: Your Wings Are Beautiful",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"id": "lures/love-spot"},
+      "resumo": "Cobrir a Love Spot passa a acumular carga: quanto mais tempo coberta e mais dramática a revelação, mais forte o impacto em quem vê. Com carga máxima (168 horas), a beleza atordoa por um instante. Pode atravessar resistência mágica forte, com efeito reduzido.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/open-secret-private-affairs",
+      "nome": "Open Secret: Private Affairs",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "lures/open-secret"},
+      "resumo": "Atributos sexuais, proeza, conquistas e experiências dele viram segredos válidos para Open Secret, e stalkers, yanderes e quem se interessa pelos assuntos íntimos dele passam a ser alvos. O fascínio leva a comportamento cada vez mais invasivo, até propor sexo a três.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/tsundere-service",
+      "nome": "Tsundere Service",
+      "categoria": "lures",
+      "grupo": "lures-expansions",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"qualquerDe": [{"id": "lures/alluring-whisper"}, {"id": "lures/zenryoku-zenkai"}]},
+      "resumo": "Enquanto ativo, a agressão contra ele vinda de quem ele acha atraente vira tsun-tsun: a pessoa só está sendo tsundere. Quando fica sozinha, o pêndulo volta e gera o mesmo tanto de carinho dere-dere. Mais forte com provocação deliberada; soma aos efeitos dos requisitos.",
+      "verificado": true,
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin",
+      "nome": "Space Truckin’",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {
+        "qualquerDe": [
+          {
+            "todos": [
+              {"declarado": "ter uma Scanned land Ride (veículo terrestre com Pattern no Shipwright)"},
+              {"declarado": "ter no séquito uma divindade ou alguém capaz de ressurreição de verdade"}
+            ]
+          },
+          {
+            "declarado": "ter o perk In Another World Once Again (But This Time I…), que o documento só cita pelo nome"
+          }
+        ]
+      },
+      "resumo": "O Truck-kun: quem ele ou o séquito atropela com uma Scanned land Ride e morre do impacto é capturado, ganha tatuagem dormente e vai para um mundo aleatório a que ele não tem acesso. O limite de vítimas ativas soma o de cada divindade do séquito, por tier (tabela em imagem, não conferida).",
+      "verificado": false,
+      "tipo": ["Other Capture Method"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-highway-star",
+      "nome": "Space Truckin’: Highway Star",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {"id": "lures/space-truckin"},
+      "resumo": "Vítimas ativas capturam por ele: até concluírem uma história local, ou morrerem, a confissão de amor sincera feita a elas prende quem confessou a ele. Elas também recebem os efeitos dos Lures e Lure Expansions dele.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-strange-kind-of-woman",
+      "nome": "Space Truckin’: Strange Kind of Woman",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"todos": [{"id": "lures/space-truckin"}, {"id": "outros-perks/paper-trail"}]},
+      "resumo": "Estende às vítimas uma cópia temporária de Paper Trail (documentos e um lugar no mundo novo, até o fim do isekai). Pagando mais, integra a vítima como na origem Extra. Com certos perks de corpo (Sanctuary Laws, Art of Transformation e outros), ganha um prazo para personalizar o corpo novo.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-anyone-s-daughter",
+      "nome": "Space Truckin’: Anyone's Daughter",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {
+        "todos": [
+          {"id": "lures/space-truckin-strange-kind-of-woman"},
+          {"id": "outros-perks/universal-calibration-ii"}
+        ]
+      },
+      "resumo": "Num prazo de decisão, ele define a história e as ligações da vítima em vez de deixar o Paper Trail escrever sozinho. Pagando o valor certo, pode escrevê-la no lugar de um personagem canônico, como na origem Substitute, escolhendo quanto a memória e a personalidade dele pesam.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-all-the-time-in-the-world",
+      "nome": "Space Truckin’: All The Time In The World",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"todos": [{"id": "lures/space-truckin"}, {"id": "outros-perks/universal-calibration-i"}]},
+      "resumo": "Depois da morte da vítima, num prazo de decisão, um app mostra o mundo de destino e permite ajustar idade, sexo, sexualidade e beleza de personagens canônicos, como em Universal Calibration I, e a idade da vítima. Com viagem no tempo, também o ponto de chegada.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-demon-s-eye",
+      "nome": "Space Truckin’: Demon's Eye",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "requisitos": {"id": "lures/space-truckin-highway-star"},
+      "resumo": "Num prazo antes do envio, quem cuida da vítima conversa com ela: ela aceita as explicações e não consegue machucá-lo. Ele pode comprar perks para a vítima (inclusive Talent Sharing e Template Stacking), válidos só no destino; se o isekai falha, voltam com reembolso total.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-mistreated",
+      "nome": "Space Truckin’: Mistreated",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 40},
+      "requisitos": {"id": "lures/space-truckin"},
+      "resumo": "Ele manda em isekai uma, várias ou todas as vítimas fatais de um acidente de veículo que ele ou o séquito causou de propósito. Todas de um acidente vão ao mesmo mundo, e perks de prazo por pessoa dão um prazo por vítima.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-time-for-bedlam",
+      "nome": "Space Truckin’: Time For Bedlam",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"todos": [{"id": "lures/space-truckin"}, {"id": "outros-perks/pursued-by-a-bear"}]},
+      "resumo": "Depois da morte da vítima, ele recebe um prazo de decisão e uma lista de mundos: o sorteio normal de Space Truckin’ e os que Exit Stage Left ofereceria. Mandar para um destino escolhido tira esse mundo da lista dele até o isekai terminar.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-pictures-of-home",
+      "nome": "Space Truckin’: Pictures of Home",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "lures/space-truckin"},
+      "resumo": "As vítimas são monitoradas: uma transmissão ao vivo do que fazem, arquivada sem parar, fica no Smart Device dele. Com Pocket Apartment, passa nos aparelhos do apartamento; com Grand Manor, a casa monta um resumo editado do que importa.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-i-got-your-number",
+      "nome": "Space Truckin’: I Got Your Number",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"todos": [{"id": "lures/space-truckin-pictures-of-home"}, {"id": "talents/communication-talent"}]},
+      "resumo": "A Company dá um jeito, adequado ao mundo, de o subject divino e a vítima que ele cuida conversarem (por padrão, oração e resposta mental). O membro do séquito pode bloquear; a vítima não. Com Demon’s Eye, a vítima começa confiando muito nele.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-child-in-time",
+      "nome": "Space Truckin’: Child in Time",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "requisitos": {"todos": [{"id": "lures/space-truckin"}, {"id": "lures/arlo"}]},
+      "resumo": "Nos possíveis alvos em quem ele presta atenção ao dirigir, o instinto de proteger joga contra a sobrevivência: com uma criança por perto que serviria de isca de Arlo, eles se põem em perigo ou entram na frente da Ride para salvá-la. Quem é imune a Arlo é imune a isso.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-not-responsible",
+      "nome": "Space Truckin’: Not Responsible",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"todos": [{"id": "lures/space-truckin"}, {"id": "defenses/destiny-defense"}]},
+      "resumo": "Como membro do séquito, a vítima é protegida pelas Defenses dele, de forma seletiva. Num prazo antes da chegada, ele pode inverter a Destiny Defense para impor eventos canônicos (por sorte e coincidência); com uma segunda compra de Destiny Defense, a vítima é forçada a agir ou não agir.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-perfect-strangers",
+      "nome": "Space Truckin’: Perfect Strangers",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "requisitos": {"todos": [{"id": "lures/space-truckin"}, {"id": "defenses/information-defense"}]},
+      "resumo": "A menos que alguém conte com todas as letras, as vítimas não conseguem ligar a própria morte a ele nem ao séquito.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "lures/space-truckin-hush",
+      "nome": "Space Truckin’: Hush",
+      "categoria": "lures",
+      "grupo": "lures-space-truckin",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "requisitos": {"todos": [{"id": "lures/space-truckin-pictures-of-home"}, {"id": "outros-perks/meta-shift"}]},
+      "resumo": "A especulação à toa e a narração interna das vítimas, gravadas por Pictures of Home, valem como material de doujin para Meta Shift no mundo novo delas. Quem aplica é o supervisor da vítima, mas ele sempre pode vetar; a mudança não resolve um problema sem criar pelo menos outro igual.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    }
+  ]
+}

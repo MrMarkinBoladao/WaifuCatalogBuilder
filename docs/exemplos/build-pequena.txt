@@ -13,8 +13,8 @@ Empréstimo na criação: 0
 Limite de empréstimo: 400
 
 ## Intensity
-- Hardcore | valor +3
 - Open Exploration | valor -2
+- Hardcore | valor +3
 Soma das cláusulas: +1
 Conta: 1 + 1 = 2
 

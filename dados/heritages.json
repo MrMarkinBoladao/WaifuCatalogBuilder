@@ -1,0 +1,854 @@
+{
+  "categoria": "heritages",
+  "titulo": "Heritage",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "heritages/dragon-heart",
+      "nome": "Dragon Heart",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 60},
+      "gratis": [
+        {"id": "outros-perks/body-tune-up", "quantidade": 1},
+        {"id": "outros-perks/everlasting-tune-up", "quantidade": 1},
+        {"id": "defenses/environmental-defense", "quantidade": 1},
+        {"id": "defenses/stress-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Raiz da Dragon: ganha uma segunda forma, de dragão em tamanho real (cerca de 25 m no começo), com afinidade a um Primal Element e um sopro. Cada ataque deixa uma Dragon Mark, que age como lure. Eleva o tier a 6 no passo 1b. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Root"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/power-overwhelming",
+      "nome": "Power Overwhelming",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "heritages/dragon-heart"},
+      "gratis": [
+        {"id": "talents/athletic-talent", "quantidade": 1},
+        {"id": "talents/martial-talent", "quantidade": 1},
+        {"id": "talents/soul-talent", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "O coração vira um reator de energia mística: muito mais reserva e recuperação rápida. Ele trava um elemento para envolver o corpo e reforçar tudo, e em último caso abre mão de todos por 24 horas por uma versão turbinada, por minutos iguais ao tier. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/elemental-infusion",
+      "nome": "Elemental Infusion",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "heritages/dragon-heart"},
+      "gratis": [{"id": "defenses/information-defense", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Qualquer parte do corpo dele serve de material de fabricação e passa o poder ao produto pronto (garras que nunca cegam, escamas em armadura). O séquito pode pôr nelas os elementos dele; armas assim causam Dragon Marks, e o interior de armaduras e construções conta como Dominion. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Party", "Territory"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/volui-vici-veni",
+      "nome": "Volui, Vici, Veni",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {"id": "heritages/elemental-infusion"},
+      "gratis": [
+        {"id": "defenses/mind-defense", "quantidade": 1},
+        {"id": "defenses/polymorph-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele cobiça uma pessoa, objeto ou lugar que esteja vendo e o marca com uma Dragon Mark enquanto durar a cobiça (mais forte contra tier menor). Lugar cobiçado vira Dominion ao ser conquistado, e depois da conquista ele pode infundir um elemento no alvo. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Lure"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/scaleborn-majesty",
+      "nome": "Scaleborn Majesty",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {"todos": [{"id": "heritages/dragon-heart"}, {"id": "outros-perks/bifurcation"}]},
+      "gratis": [
+        {"id": "talents/exploration-talent", "quantidade": 1},
+        {"id": "defenses/body-defense", "quantidade": 1},
+        {"id": "defenses/polymorph-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "A natureza de dragão fica maleável: segundo Aspect junto ao Primal Element, dragão de gato doméstico a avião de carga, aparência humanoide livre e uma terceira forma híbrida. Ao soltar o poder, causa reflexo de medo. Eleva o tier a 7. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/dragon-thrall",
+      "nome": "Dragon Thrall",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 65},
+      "requisitos": {"todos": [{"id": "heritages/scaleborn-majesty"}, {"id": "heritages/elemental-infusion"}]},
+      "gratis": [
+        {"id": "defenses/mind-defense", "quantidade": 1},
+        {"id": "defenses/possession-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Captura por mordida: ele morde, tira sangue e engole um pouco. Os fluidos dele viciam e mutam quem bebe (1 litro dá traços de dragão); quem bebe o próprio peso é capturado. Os subjects ganham força dos elementos, com teto de um tier abaixo do dele. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Capture", "Party"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/bulwark-of-terror",
+      "nome": "Bulwark of Terror",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "heritages/scaleborn-majesty"},
+      "gratis": [{"id": "defenses/drain-defense", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Perto de um marcado, ele usa a sombra deixada no coração da pessoa para ficar mais forte e se curar mais rápido; magia benéfica no marcado passa parte do efeito a ele. Pode consumir a marca de uma pessoa viva para encher quem vê de terror, por minutos iguais ao tier. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self", "Lure"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/dragon-break",
+      "nome": "Dragon Break",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 150},
+      "requisitos": {"id": "heritages/scaleborn-majesty"},
+      "gratis": [{"id": "defenses/paradox-defense", "quantidade": 2}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Dispensa o app para viajar entre mundos: ele abre uma fenda e leva a comitiva (sem Brave New Worlds, o portal fecha depois da passagem). A forma de dragão ganha uma dimensão de bolso para passageiros e carga, protegidos pelas Defenses dele. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self", "Travel"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/inescapable-presence",
+      "nome": "Inescapable Presence",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {"id": "heritages/scaleborn-majesty"},
+      "gratis": [{"id": "defenses/drain-defense", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "A aura dele carrega os elementos e afeta quem o vê, até por transmissão ao vivo: conforta e fortalece quem o quer bem, sufoca quem o odeia, vicia e empurra os atraídos a se oferecer. O eco da aura acompanha itens, pessoas e terras tocados pelo poder dele e os marcados. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Lure"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/elder-dragon",
+      "nome": "Elder Dragon",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 275},
+      "requisitos": {
+        "todos": [
+          {"id": "heritages/inescapable-presence"},
+          {"id": "heritages/dragon-thrall"},
+          {"id": "heritages/volui-vici-veni"}
+        ]
+      },
+      "gratis": [
+        {"id": "defenses/fatality-defense", "quantidade": 1},
+        {"id": "defenses/information-defense", "quantidade": 1},
+        {"id": "defenses/destiny-defense", "quantidade": 2}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Segundo Primal Element e segundo Aspect, e Dragon Thrall deixa de ter teto de tier. Ele transforma subjects mutados em dragões (ovo, renascem após tantos dias quanto o tier) e pode travar elementos deles. Exige os três perks citados. Eleva o tier a 8. Origem do arquétipo Dragon abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self", "Party"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/eternal-enmity",
+      "nome": "Eternal Enmity",
+      "categoria": "heritages",
+      "grupo": "heritages-dragon",
+      "custo": {"tipo": "fixo", "valor": 1, "moeda": "IMG"},
+      "requisitos": {"id": "heritages/scaleborn-majesty"},
+      "resumo": "Capstone de 1 IMG: mais um par de Primal Element e Aspect, combináveis à vontade, e domínio dos elementos mil vezes mais rápido. Põe Dragon Mark em instituições que ferir em público, cobiça 3 coisas ao mesmo tempo e trava os elementos sem prazo com Power Overwhelming.",
+      "verificado": true,
+      "tipo": ["Capstone"],
+      "referencia": "heritages/dragon.md"
+    },
+    {
+      "id": "heritages/the-threefold-path",
+      "nome": "The Threefold Path",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 65},
+      "gratis": [
+        {"id": "outros-perks/body-tune-up", "quantidade": 1},
+        {"id": "talents/soul-talent", "quantidade": 1},
+        {"id": "defenses/mind-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Raiz da Lunarian: fonte de poder feérico chamada Glamour, de início uma aura que amplifica emoções. Ele canaliza uma de três Faces (Maiden, Mother, Crone), ligadas às fases da lua, cada uma com idade aparente e efeitos próprios e de alcance curto. Eleva o tier a 5. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Root"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/moontouched-champions",
+      "nome": "Moontouched Champions",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 60},
+      "requisitos": {"id": "heritages/the-threefold-path"},
+      "gratis": [
+        {"id": "talents/communication-talent", "quantidade": 1},
+        {"id": "talents/exploration-talent", "quantidade": 1},
+        {"id": "defenses/creature-defense", "quantidade": 2}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Na forma Maiden, reforça as habilidades que combinam com os temas dela. O Glamour fica bem mais forte sobre animais e criaturas, e ele liga uma criatura disposta como Lunar Champion (captura no séquito, com telepatia e controle). Máximo de Champions igual ao tier efetivo no passo 4. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Waxing Moon", "Familiar", "Capture"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/princess-darling",
+      "nome": "Princess Darling",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 70},
+      "requisitos": {"id": "heritages/moontouched-champions"},
+      "gratis": [{"id": "talents/performance-talent", "quantidade": 1}, {"id": "lures/arlo", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Glamour gentil e de longo alcance: quem o prende ou o combate sente simpatia, culpa e até amor por ele. Convencer um inimigo a largar a causa começa uma demi-tattoo, e concluir a captura pode torná-lo Lunar Champion. A forma Maiden sempre vale como isca de Arlo. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Waxing Moon", "Lure", "Capture"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/wyrdling-lords",
+      "nome": "Wyrdling Lords",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 85},
+      "requisitos": {"id": "heritages/princess-darling"},
+      "gratis": [{"id": "defenses/environmental-defense", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Tira o limite de Lunar Champions e permite reforçá-los com Glamour em três Castes (Full Moon, Waning Moon, Waxing Moon), trocáveis por ritual de uma hora. Champions não humanoides podem adotar traços humanoides à vontade. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Waxing Moon", "Familiar"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/fairest-of-them-all",
+      "nome": "Fairest of Them All",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "heritages/the-threefold-path"},
+      "gratis": [
+        {"id": "outros-perks/everlasting-tune-up", "quantidade": 1},
+        {"id": "defenses/stress-defense", "quantidade": 2},
+        {"id": "lures/stacys-dad-has-me-down-bad", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Na forma Mother, reforça as habilidades que combinam com os temas dela. A beleza dele vira fato objetivo: é o tipo de todo mundo e nunca se deteriora, e quem o encontra busca a aprovação e os ensinamentos dele, mais ainda quem é inexperiente. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Full Moon", "Lure"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/mother-mighty",
+      "nome": "Mother, Mighty",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 75},
+      "requisitos": {"id": "heritages/fairest-of-them-all"},
+      "gratis": [
+        {"id": "talents/athletic-talent", "quantidade": 1},
+        {"id": "talents/aesthetic-talent", "quantidade": 1},
+        {"id": "talents/administrative-talent", "quantidade": 1},
+        {"id": "lures/sticky-fingers", "quantidade": 1},
+        {"id": "lures/alluring-whisper", "quantidade": 1},
+        {"id": "outros-perks/talent-sharing", "quantidade": 3}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele tece Glamour na própria perícia e a leva a usos mágicos. Forma um Coven: ensina novatas a produzir Glamour, e as que completam o treino viram Lunarians do séquito. Dá Talent Sharing dos Talents que o perk concede (o texto diz \"desta heritage\"; ver relatório). Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Full Moon", "Self", "Party"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/hidden-gates",
+      "nome": "Hidden Gates",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 75},
+      "requisitos": {"id": "heritages/fairest-of-them-all"},
+      "gratis": [
+        {"id": "talents/martial-talent", "quantidade": 1},
+        {"id": "defenses/polymorph-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele infunde Glamour direto em seres e objetos, raspando a sujeira mortal e liberando o potencial escondido (arma enferrujada volta à perfeição, pele resiste a lâminas). Com o tempo o que recebe Glamour assume formas prateadas, que ele desliga à vontade. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Full Moon", "Self"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/hexennacht",
+      "nome": "Hexennacht",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 125},
+      "requisitos": {"todos": [{"id": "heritages/hidden-gates"}, {"id": "heritages/mother-mighty"}]},
+      "gratis": [
+        {"id": "defenses/information-defense", "quantidade": 1},
+        {"id": "defenses/paradox-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele voa com o Glamour e, na lua nova, reunido com o Coven num rito, atravessa o véu para um novo mundo; as emoções do Coven na passagem guiam o destino. Exige Hidden Gates e Mother, Mighty. Eleva o tier a 7. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Full Moon", "Self", "Travel"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/toil-and-trouble",
+      "nome": "Toil and Trouble",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 70},
+      "requisitos": {"id": "heritages/the-threefold-path"},
+      "gratis": [
+        {"id": "talents/algorithm-talent", "quantidade": 1},
+        {"id": "defenses/possession-defense", "quantidade": 1},
+        {"id": "defenses/information-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Na forma Crone, reforça as habilidades que combinam com os temas dela. Ele cria Effigies, objetos que guardam Glamour e dão uma bênção ou praga ligada ao uso comum; restringir o efeito o deixa mais forte. Eleva o tier a 6. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Waning Moon", "Self"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/moonlit-mist",
+      "nome": "Moonlit Mist",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 95},
+      "requisitos": {"id": "heritages/toil-and-trouble"},
+      "gratis": [
+        {"id": "talents/covert-talent", "quantidade": 1},
+        {"id": "defenses/body-defense", "quantidade": 1},
+        {"id": "defenses/trace-defense", "quantidade": 1},
+        {"id": "lures/faerie-feast", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "O Glamour passa a manipular os sentidos de quem está sob ele (ilusões) e pode alimentar qualquer habilidade dele em nível baixo, sem lançar magias. Ilusões também disfarçam as Effigies. Com Wyrdling Lords, os Champions também usam isso. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Waning Moon", "Self"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/what-rightfully-be",
+      "nome": "What Rightfully Be",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 90},
+      "requisitos": {"id": "heritages/moonlit-mist"},
+      "gratis": [{"id": "defenses/polymorph-defense", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "As ilusões ganham substância: uma ponte ilusória aguenta peso, um escudo ilusório para flechas, e ilusões ofensivas ferem (menos que o real). Effigies mantêm ilusões estáticas, mas só o Glamour dele cria visões em mudança. Eleva o tier a 8. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Waning Moon", "Self"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/silver-palace",
+      "nome": "Silver Palace",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 140},
+      "requisitos": {
+        "todos": [
+          {"id": "heritages/wyrdling-lords"},
+          {"id": "heritages/hexennacht"},
+          {"id": "heritages/what-rightfully-be"}
+        ]
+      },
+      "gratis": [
+        {"id": "talents/land-talent", "quantidade": 1},
+        {"id": "defenses/corruption-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Com um ritual de um ciclo lunar, ele enche de Glamour uma terra, que vira Dominion e abriga um palácio de Glamour, sede do Coven onde se formam novas Lunarians. Também separa o poder em três Faces, que renascem na noite seguinte se caírem e seguram o espírito dele. Origem do arquétipo Lunarian abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Territory", "Capstone"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/the-triple-goddess",
+      "nome": "The Triple Goddess",
+      "categoria": "heritages",
+      "grupo": "heritages-lunarian",
+      "custo": {"tipo": "fixo", "valor": 1, "moeda": "IMG"},
+      "requisitos": {"id": "heritages/silver-palace"},
+      "resumo": "Capstone de 1 IMG: todo luar dos mundos que ele visitou conta como Glamour e o corpo dele vira Glamour puro (tier efetivo Y). Ele pode forçar noite eterna e erguer a lua a qualquer hora em qualquer mundo visitado.",
+      "verificado": true,
+      "tipo": ["Capstone"],
+      "referencia": "heritages/lunarian.md"
+    },
+    {
+      "id": "heritages/its-alive",
+      "nome": "IT’S ALIVE",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 60},
+      "gratis": [
+        {"id": "outros-perks/body-tune-up", "quantidade": 1},
+        {"id": "defenses/body-defense", "quantidade": 1},
+        {"id": "defenses/stress-defense", "quantidade": 1},
+        {"id": "defenses/environmental-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Raiz da Machina: vira uma construção artificial avançada, com um Spark no centro, sem sono nem exaustão, autorreparo e controle total dos dados sensoriais. Escolhe um Material e uma Specialty, que definem a tecnologia do corpo. Eleva o tier a 5. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Root"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/weakness-of-flesh-certainty-of-steel",
+      "nome": "Weakness of Flesh, Certainty of Steel",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 45},
+      "requisitos": {"id": "heritages/its-alive"},
+      "gratis": [{"id": "defenses/information-defense", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Quem o vê fazer o que não consegue fica fascinado, com inveja e desejo. Ele projeta um campo hipnótico em quem sabe que ele é artificial: passam a vê-lo como máquina obediente e sem mente, e ele desliga o campo quando quiser. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Lure", "Self"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/bimbot-virus",
+      "nome": "Bimbot Virus",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 70},
+      "requisitos": {"id": "heritages/its-alive"},
+      "gratis": [
+        {"id": "defenses/environmental-defense", "quantidade": 1},
+        {"id": "defenses/mind-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele ganha um Viral Agent (vírus tecnorgânico ou maldição) que converte alvos em Machinas do mesmo Material; contato, borrifo ou inserção infectam. Ao fim da conversão o alvo é capturado e obedece, com Root Control dele a até tantos km quanto o tier. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Recruitment", "Capture"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/enchanting-physique",
+      "nome": "Enchanting Physique",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 80},
+      "requisitos": {"id": "heritages/its-alive"},
+      "gratis": [{"id": "talents/soul-talent", "quantidade": 1}, {"id": "defenses/mind-defense", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele ajusta à vontade a sensibilidade mágica de si, dos objetos que constrói e dos feitos do Material dele (de inerte a tela perfeita para encantamentos) e usa o simbolismo mágico do Material como parte da Specialty. Com Bimbot Virus, os subjects Machinae também usam isso. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self", "Party"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/glitch-in-the-matrix",
+      "nome": "Glitch in the Matrix",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 60},
+      "requisitos": {"todos": [{"id": "heritages/enchanting-physique"}, {"id": "heritages/bimbot-virus"}]},
+      "gratis": [{"id": "talents/land-talent", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele separa o Spark de uma Machina do corpo, criando um Ascended Intellect: espírito ou IA que atravessa matéria e age por outros sistemas, mas que precisa se ligar a um corpo, uma área ou um sistema digital depois de alguns minutos. Volta à forma Machina tocando o corpo original. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Party"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/machines-in-disguise",
+      "nome": "Machines in Disguise",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "heritages/its-alive"},
+      "gratis": [
+        {"id": "outros-perks/everlasting-tune-up", "quantidade": 1},
+        {"id": "talents/athletic-talent", "quantidade": 1},
+        {"id": "talents/martial-talent", "quantidade": 1},
+        {"id": "talents/covert-talent", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "O corpo mecânico se reformata devagar (dias para trocar o corpo inteiro). Ganha Mechashift: transformação instantânea numa forma humanoide que engana os locais e numa máquina da Specialty, mais uma máquina secundária registrada. Vale também aos subjects de Bimbot Virus. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self", "Party"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/mighty-merging-machina-ruler",
+      "nome": "Mighty Merging Machina Ruler",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 80},
+      "requisitos": {"id": "heritages/machines-in-disguise"},
+      "gratis": [
+        {"id": "talents/algorithm-talent", "quantidade": 1},
+        {"id": "defenses/possession-defense", "quantidade": 1},
+        {"id": "defenses/drain-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ao tocar uma máquina, ele se liga aos sistemas dela e a controla com a mente; a tecnologia ligada usa a energia dele e pode ser integrada ao corpo. Transmuta peças em objetos menores que o corpo cujo projeto conheça. Eleva o tier a 6. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self", "Party"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/spark-of-life",
+      "nome": "Spark of Life",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 110},
+      "requisitos": {"todos": [{"id": "heritages/bimbot-virus"}, {"id": "heritages/machines-in-disguise"}]},
+      "gratis": [{"id": "defenses/fatality-defense", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "O Spark fica estável o bastante para existir fora do corpo: ele o move dentro do corpo, o injeta numa máquina próxima e a reformata como novo corpo (dias a semanas). Os subjects Machinae também podem trocar de Material ao mudar de máquina. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self", "Party"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/ghost-in-the-shell",
+      "nome": "Ghost in the Shell",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 150},
+      "requisitos": {"id": "heritages/spark-of-life"},
+      "gratis": [
+        {"id": "defenses/paradox-defense", "quantidade": 1},
+        {"id": "defenses/polymorph-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele recebe o projeto da Paradox Seed, superestrutura que leva a influência das criações dele a um novo mundo (ruínas, recursos, perigos) e espalha os subjects Machinae pela história dele. O Spark vira Quantum Spark, que age em dois corpos ao mesmo tempo, mais um por ativação. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Travel"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/world-wide-web",
+      "nome": "World Wide Web",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 75},
+      "requisitos": {"id": "heritages/bimbot-virus"},
+      "gratis": [
+        {"id": "talents/communication-talent", "quantidade": 1},
+        {"id": "talents/psychic-talent", "quantidade": 1},
+        {"id": "defenses/addiction-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "O Root Control passa a cobrir as áreas do Dominion dele, e cada Machina no raio o estende pelo tier dela em km. Ele fala com qualquer infectado e usa outras Machinas como processadores remotos. Máquinas infectadas pelo vírus passam a agir a favor dele. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/artificial-gains",
+      "nome": "Artificial Gains",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 90},
+      "requisitos": {"id": "heritages/machines-in-disguise"},
+      "gratis": [
+        {"id": "talents/exploration-talent", "quantidade": 1},
+        {"id": "lures/sticky-fingers", "quantidade": 1},
+        {"id": "defenses/polymorph-defense", "quantidade": 1},
+        {"id": "defenses/creature-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "O Mechashift humanoide imita vida biológica sem falhas, e ele recria habilidades biológicas por meios mecânicos a partir de dados de observação ou análise. Com Bimbot Virus, a conversão fica sutil e esconde sintomas. Vale também aos subjects Machinae. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self", "Party"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/grey-gooliath",
+      "nome": "Grey Gooliath",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 130},
+      "requisitos": {
+        "todos": [
+          {"id": "heritages/mighty-merging-machina-ruler"},
+          {"id": "heritages/world-wide-web"},
+          {"id": "heritages/artificial-gains"}
+        ]
+      },
+      "gratis": [
+        {"id": "talents/engineering-talent", "quantidade": 1},
+        {"id": "defenses/body-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele híbrida duas máquinas numa nova (tão forte quanto a mais forte das duas) e ganha Titanização: o corpo cresce de escala, dobrando de tamanho ou chegando a prédios, melhorando as habilidades, ao custo de sobrecarga de processamento. Eleva o tier a 7. Origem do arquétipo Machina abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/the-world-engine-roars",
+      "nome": "The World Engine Roars",
+      "categoria": "heritages",
+      "grupo": "heritages-machina",
+      "custo": {"tipo": "fixo", "valor": 1, "moeda": "IMG"},
+      "requisitos": {"todos": [{"id": "heritages/ghost-in-the-shell"}, {"id": "heritages/grey-gooliath"}]},
+      "resumo": "Capstone de 1 IMG: toda máquina que ele toque conta como Specialty; Mighty Merging Machina Ruler pede só projetos, sem materiais nem limite de tamanho. Titanização sem desgaste e liberada aos subjects; o corpo é uma Paradox Seed própria, e ele divide e converte Sparks em Quantum Sparks.",
+      "verificado": true,
+      "tipo": ["Capstone"],
+      "referencia": "heritages/machina.md"
+    },
+    {
+      "id": "heritages/ascension",
+      "nome": "Ascension",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 60},
+      "gratis": [
+        {"id": "outros-perks/body-tune-up", "quantidade": 1},
+        {"id": "talents/exploration-talent", "quantidade": 1},
+        {"id": "talents/martial-talent", "quantidade": 1},
+        {"id": "defenses/body-defense", "quantidade": 1},
+        {"id": "defenses/creature-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Raiz da Theos: vira um Demigod, com um Domain (conceito à escolha) e uma Sacred Beast de espécie de tier 5 ou menos. Muda de forma para a besta, infunde ou captura bestas da espécie, e a força dele cresce com a crença dos fiéis. Eleva o tier a 5. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Root"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/beast-unburdened",
+      "nome": "Beast Unburdened",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 85},
+      "requisitos": {"id": "heritages/ascension"},
+      "gratis": [
+        {"id": "talents/athletic-talent", "quantidade": 1},
+        {"id": "defenses/creature-defense", "quantidade": 1},
+        {"id": "defenses/polymorph-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Além da Sacred Beast, ele tem uma Divine Beast (evolução mitológica dela) em que pode se transformar, e infunde exemplares nativos. Pode abençoar fiéis para que assumam as duas bestas. A forma da Divine Beast conta como Ride para Space Truckin’. Eleva o tier a 6. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/symbols-of-power",
+      "nome": "Symbols of Power",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "heritages/ascension"},
+      "gratis": [{"id": "talents/soul-talent", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele escolhe um Holy Symbol, objeto por onde o poder divino é canalizado; quem segura ou usa um vaso do símbolo controla melhor o Domain. Para cada Domain, uma representação pode virar Divine Artifact, que multiplica o controle (um por Domain de cada vez). Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Party"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/family-bonds",
+      "nome": "Family Bonds",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {"id": "heritages/ascension"},
+      "gratis": [
+        {"id": "lures/sticky-fingers", "quantidade": 1},
+        {"id": "defenses/mind-defense", "quantidade": 1},
+        {"id": "defenses/polymorph-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Pelo sexo com essência divina empoderada, ele faz de mortais Demigods e família dele: pelo menos 5 sessões ou tantas quanto o tier (dobra em tier imaginário), e então são capturados como no Seal of Approval. Também passa traços hereditários e escolhe uma Sacred Plant. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Party", "Capture"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/god-of-many-things",
+      "nome": "God of Many Things",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 150},
+      "requisitos": {"id": "heritages/symbols-of-power"},
+      "gratis": [
+        {"id": "talents/communication-talent", "quantidade": 1},
+        {"id": "talents/performance-talent", "quantidade": 1},
+        {"id": "defenses/stress-defense", "quantidade": 2},
+        {"id": "defenses/addiction-defense", "quantidade": 2},
+        {"id": "defenses/drain-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele vira deus completo: segundo Domain e mais um Sacred Animal, refletidos no corpo, e conta como divindade para os perks do catálogo que pedem uma. Quem ingere os fluidos dele pode ser chamado ao Dominion por até 24 h por ingestão anterior. Eleva o tier a 7. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/avatars-of-divinity",
+      "nome": "Avatars of Divinity",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 90},
+      "requisitos": {"todos": [{"id": "heritages/god-of-many-things"}, {"id": "heritages/beast-unburdened"}]},
+      "gratis": [{"id": "talents/land-talent", "quantidade": 1}, {"id": "defenses/mind-defense", "quantidade": 1}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele manifesta avatares extras nas formas de Sacred e Divine Beast, um de cada, e vê e pensa por todos. Cada avatar vira o Theos por dez minutos por dia por tier (dobra em tier imaginário). Estruturas com o Symbol of Power passam benefícios aos fiéis em 100 m por tier e marcam Dominion. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/sacrificed-sheep-please-respond",
+      "nome": "Sacrificed Sheep, Please Respond",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 70},
+      "requisitos": {"id": "heritages/god-of-many-things"},
+      "gratis": [
+        {"id": "talents/blessed-talent", "quantidade": 1},
+        {"id": "outros-perks/talent-sharing", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ajudar mortais gera adoração: a fé dos fiéis redobra, e orações ao Pantheon são sempre ouvidas por quem melhor puder responder. Se o fiel sacrifica uma pessoa, é capturado quando o pedido é atendido. Fiéis recebem Talent Sharing (Blessed), só com o Domain e as bênçãos dele. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Lure"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/not-blood-related",
+      "nome": "“Not” Blood-Related",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 120},
+      "requisitos": {"todos": [{"id": "heritages/god-of-many-things"}, {"id": "heritages/family-bonds"}]},
+      "gratis": [
+        {"id": "outros-perks/everlasting-tune-up", "quantidade": 1},
+        {"id": "talents/aesthetic-talent", "quantidade": 1},
+        {"id": "defenses/possession-defense", "quantidade": 2},
+        {"id": "lures/faerie-feast", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Os Demigods viram deuses matando alguém dois tiers acima ou tendo sexo com ele três vezes o tier (dobra em tier imaginário). Filhos ainda não nascidos de alvos de captura podem nascer adultos como Demigods. Sexo com outra divindade dá acesso ao Domain dela. Mais uma Sacred Plant. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Party"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/need-faith-will-travel",
+      "nome": "Need Faith, Will Travel",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 140},
+      "requisitos": {
+        "todos": [{"id": "heritages/avatars-of-divinity"}, {"id": "heritages/sacrificed-sheep-please-respond"}]
+      },
+      "gratis": [
+        {"id": "defenses/destiny-defense", "quantidade": 1},
+        {"id": "defenses/environmental-defense", "quantidade": 1}
+      ],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Ele cria caminhos divinos ligando lugares onde os Domains pessoais dele têm influência e pode manifestar um Avatar em outros universos onde um Domain pesa. O resto do séquito só entra depois que um nativo oferece um sacrifício e pede ajuda. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Travel"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/olympuss-mons",
+      "nome": "Olympus’s Mons",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 135},
+      "requisitos": {"todos": [{"id": "heritages/need-faith-will-travel"}, {"id": "heritages/not-blood-related"}]},
+      "gratis": [{"id": "defenses/fatality-defense", "quantidade": 2}],
+      "descontos": [{"id": "arquetipo", "tipo": "porArquetipo"}],
+      "resumo": "Mais um Domain e mais uma Divine Beast. A presença dele e dos avatares reforça os Domains na área, e ele aprende e transmite habilidades pelo sexo (sessões iguais ao tier da habilidade). Estruturas com o Symbol of Power ampliam o raio dos benefícios e do Dominion. Eleva o tier a 8. Origem do arquétipo Theos abate o preço do tier (passo 1a); a sobra passa aos perks seguintes.",
+      "verificado": true,
+      "regraEspecial": "desconto-por-arquetipo",
+      "tipo": ["Self", "Territory"],
+      "referencia": "heritages/theos.md"
+    },
+    {
+      "id": "heritages/head-of-the-pantheon",
+      "nome": "Head of the Pantheon",
+      "categoria": "heritages",
+      "grupo": "heritages-theos",
+      "custo": {"tipo": "fixo", "valor": 1, "moeda": "IMG"},
+      "requisitos": {"todos": [{"id": "heritages/not-blood-related"}, {"id": "heritages/need-faith-will-travel"}]},
+      "resumo": "Capstone de 1 IMG: ao fazer sexo, ele aumenta muito a influência de um Domain na região (efeito multiplicativo a cada hora). Domains ganhos por sexo ficam permanentes, e ele pode tomar também as Sacred e Divine Beasts e Sacred Plants de outro deus.",
+      "verificado": true,
+      "tipo": ["Capstone"],
+      "referencia": "heritages/theos.md"
+    }
+  ]
+}

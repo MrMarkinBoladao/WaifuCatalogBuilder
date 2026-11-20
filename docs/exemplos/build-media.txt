@@ -13,9 +13,9 @@ Empréstimo na criação: 100
 Limite de empréstimo: 200
 
 ## Intensity
-- Hardcore | valor +3
-- Is There Anybody Out There? | valor -1
 - 50%/50% | valor -1
+- Is There Anybody Out There? | valor -1
+- Hardcore | valor +3
 - Interesting Times | valor +1
 - Intact Weaknesses | valor +1
 Soma das cláusulas: +3
@@ -35,13 +35,13 @@ Subtotal: 75
 Subtotal: 5
 
 ## Talents
-- Aesthetic Talent | custo 0 | gratis-de Mystic Tattoo | saldo 70
 - Athletic Talent | custo 5 | saldo 65
+- Aesthetic Talent | custo 0 | gratis-de Mystic Tattoo | saldo 65
 Subtotal: 5
 
 ## Defenses
-- Mind Defense | custo 0 | gratis-de Slave to Art | saldo 65
 - Body Defense x2 | custo 30 | saldo 35
+- Mind Defense | custo 0 | gratis-de Slave to Art | saldo 35
 Subtotal: 30
 
 ## Other Perks

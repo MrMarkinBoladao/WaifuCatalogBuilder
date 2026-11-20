@@ -1,0 +1,73 @@
+{
+  "categoria": "origens",
+  "titulo": "Origin",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "origens/drop-in",
+      "nome": "Drop-In",
+      "categoria": "origens",
+      "grupo": "origens-origem",
+      "custo": {"tipo": "gratis"},
+      "grupoExclusivo": "origens-origem",
+      "resumo": "Ele chega ao mundo como ele mesmo: sem documentos nem vantagem social, só com a roupa do corpo, o que sabe de ficção, as próprias habilidades e o que comprar da Company. Custa 0.",
+      "verificado": true,
+      "referencia": "origens.md"
+    },
+    {
+      "id": "origens/walk-in",
+      "nome": "Walk-In",
+      "categoria": "origens",
+      "grupo": "origens-origem",
+      "custo": {"tipo": "gratis"},
+      "grupoExclusivo": "origens-origem",
+      "resumo": "O contractor é um personagem canônico de uma obra conhecida, que começa no mundo natal (com o DR original) ou em outro lugar. Custa 0 e, para o personagem, não difere do Drop-In; só sabe dos mundos o que viu nas próprias obras e nos spoilers dos sistemas da Company.",
+      "verificado": true,
+      "referencia": "origens.md"
+    },
+    {
+      "id": "origens/extra",
+      "nome": "Extra",
+      "categoria": "origens",
+      "grupo": "origens-origem",
+      "custo": {"tipo": "porEscolha"},
+      "grupoExclusivo": "origens-origem",
+      "escolha": {
+        "rotulo": "Poder do personagem comum do local de partida",
+        "tipo": "lista",
+        "opcoes": [
+          {"valor": "Padrão (tier 2)", "custo": 2},
+          {"valor": "Copper-star (tier 4)", "custo": 10},
+          {"valor": "Silver-star (tier 7)", "custo": 100}
+        ]
+      },
+      "resumo": "Ele reencarna como personagem não canônico do mundo de partida (facção e espécie à escolha, habilidades na média, sem posição de poder), com tier efetivo 2 no passo 1 e custo 2. Se até o personagem comum dali tem poder de copper-star, vira tier 4 e custa 10; se de silver-star, vira tier 7 e custa 100.",
+      "verificado": true,
+      "referencia": "origens.md"
+    },
+    {
+      "id": "origens/possess",
+      "nome": "Possess",
+      "categoria": "origens",
+      "grupo": "origens-origem",
+      "custo": {"tipo": "precoDoTier"},
+      "grupoExclusivo": "origens-origem",
+      "escolha": {"rotulo": "Companion alvo e tier (formato: Nome, tier N)", "tipo": "texto"},
+      "resumo": "Ele vira a companion: a consciência dele substitui a dela no corpo, que ele compra pelo preço cheio do tier dela (a origem em si custa 0). Os outros de um grupo comprado junto e os bichos, montarias e manifestations do alvo vêm de graça. Sem a memória episódica e os laços do alvo (ver Memoria).",
+      "verificado": true,
+      "referencia": "origens.md"
+    },
+    {
+      "id": "origens/substitute",
+      "nome": "Substitute",
+      "categoria": "origens",
+      "grupo": "origens-origem",
+      "custo": {"tipo": "precoDoTier"},
+      "grupoExclusivo": "origens-origem",
+      "escolha": {"rotulo": "Personagem alvo e tier já ajustado (formato: Nome, tier N)", "tipo": "texto"},
+      "resumo": "Ele reencarna num personagem canônico do mundo de partida, vivo no momento escolhido, com os poderes dele e uma base de habilidades. Compra o alvo como companion, pelo preço do tier ajustado ao que ele faz na entrada, muitas vezes menor que o da ficha. Grupos e familiars pessoais vêm de graça; gênero trocado exige Universal Calibration I (salvo alvo andrógino ou personalizável).",
+      "verificado": true,
+      "referencia": "origens.md"
+    }
+  ]
+}

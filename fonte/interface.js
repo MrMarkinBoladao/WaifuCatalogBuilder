@@ -404,6 +404,15 @@ function renderOrigem() {
             '<div class="controles"><label class="campo largo">' + esc(t('origem.nome')) + '<input type="text" data-a="origem-nome" value="' + esc(nome) + '"></label>' +
             '<label class="campo">' + esc(t('origem.tier')) + '<select data-a="origem-tier"><option value="">' + esc(t('op.escolher')) + '</option>' +
             TIERS.map((x) => '<option value="' + x + '"' + (tier === x ? ' selected' : '') + '>' + x + '</option>').join('') + '</select></label></div>';
+        } else if (sel && op.custo && op.custo.tipo === 'porEscolha' && op.escolha && op.escolha.tipo === 'lista') {
+          const valorAtual = (E.origem && E.origem.escolha) || '';
+          extra =
+            '<div class="controles"><label class="campo largo">' + esc(op.escolha.rotulo || t('op.escolher')) +
+            '<select data-a="origem-escolha"><option value="">' + esc(t('op.escolher')) + '</option>' +
+            (op.escolha.opcoes || [])
+              .map((a) => '<option value="' + esc(a.valor) + '"' + (valorAtual === a.valor ? ' selected' : '') + '>' + esc(a.valor) + ' (' + esc(String(a.custo)) + ')</option>')
+              .join('') +
+            '</select></label></div>';
         } else if (sel && op.custo && ['formula', 'diferencaDeTier'].includes(op.custo.tipo)) {
           extra = '<div class="controles"><label class="campo">' + esc(t('op.custoManual')) + '<input type="number" inputmode="numeric" data-a="origem-custo" value="' + esc((E.origem && E.origem.custoManual) || 0) + '"></label></div>';
         }
@@ -925,6 +934,7 @@ function aoMudar(ev) {
       aplicar((e) => { if (e.origem) e.origem.escolha = tier ? nome + ', tier ' + tier : nome; });
       break;
     }
+    case 'origem-escolha': aplicar((e) => { if (e.origem) e.origem.escolha = v; }); break;
     case 'origem-custo': aplicar((e) => { if (e.origem) e.origem.custoManual = parseInt(v, 10) || 0; }); break;
     case 'escolha': aplicar((e) => { e.compras[i].escolha = v; if (!v) delete e.compras[i].escolha; }); break;
     case 'escolha-multi': aplicar((e) => {
