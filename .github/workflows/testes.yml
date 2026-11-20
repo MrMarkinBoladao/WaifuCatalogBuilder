@@ -18,3 +18,5 @@ jobs:
           node-version: 24
       - name: Rodar os testes
         run: npm test
+      - name: Montar a página
+        run: npm run montar

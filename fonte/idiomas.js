@@ -1,0 +1,326 @@
+// Textos da interface, em português e em inglês. Nomes de opção ficam sempre em inglês, como no documento.
+// t(chave, ...args): troca {0}, {1}... pelos argumentos. Um texto com "|" tem singular e plural: o primeiro
+// vale quando o primeiro argumento é 1, o segundo nos outros casos.
+// O texto exportado da build (formato wcb/1) é igual nos dois idiomas, e as frases dos avisos e dos
+// requisitos que o motor monta saem em português nos dois.
+
+export const IDIOMAS = ['pt', 'en'];
+
+export const TEXTOS = {
+  pt: {
+    'app.titulo': 'Waifu Catalog Builder',
+    'app.sub': 'Monte a build, confira o saldo, exporte o texto',
+
+    'topo.saldo': 'Saldo',
+    'topo.divida': 'dívida',
+    'topo.desfazer': 'Desfazer',
+    'topo.refazer': 'Refazer',
+    'topo.livro': 'Livro-caixa',
+    'topo.intensity': 'Intensity',
+    'topo.dr': 'DR',
+    'topo.budget': 'Budget inicial',
+    'topo.emprestimo': 'Empréstimo',
+    'topo.gastos': 'Gastos',
+    'topo.ganhos': 'Ganhos',
+    'topo.img': 'IMG',
+    'topo.erros': '{0} erro|{0} erros',
+    'topo.naoConfirmados': '{0} não confirmado|{0} não confirmados',
+    'topo.idioma': 'EN',
+    'topo.idiomaRotulo': 'Mudar a interface para inglês',
+
+    'aba.contrato': 'Contrato',
+    'aba.companions': 'Companions',
+    'aba.categorias': 'Categorias',
+
+    'marca.soCriacao': 'só na criação',
+    'marca.ncDica': 'O documento não traz este valor em texto: ele está numa imagem.',
+    'marca.naoConfirmado': 'não confirmado',
+    'marca.naoImplementada': 'regra não implementada',
+    'marca.gratisDe': 'grátis de {0}',
+    'marca.falta': 'falta: {0}',
+    'marca.declarado': 'requisito que você declarou: {0}',
+    'marca.efeitoExtra': 'tem outros efeitos além da Intensity',
+
+    'preco.gratis': 'grátis',
+    'preco.porEscolha': 'depende da escolha',
+    'preco.doTier': 'preço do tier',
+    'preco.varia': 'varia',
+
+    'op.menos': 'Uma a menos',
+    'op.quantidade': 'Quantidade',
+    'op.mais': 'Mais uma',
+    'op.escolha': 'Escolha',
+    'op.escolher': 'Escolher…',
+    'op.condicaoVale': 'Desconto de {0}% se vale: {1}',
+    'op.custoManual': 'Custo que você informa',
+    'op.descontoManual': 'Desconto que você informa',
+    'op.remover': 'Remover',
+    'op.adicionarOutra': 'Comprar mais uma',
+    'op.adicionar': 'Adicionar à build',
+
+    'intensity.titulo': 'Intensity',
+    'intensity.dica': 'Marque as cláusulas de Negotiations. A Intensity é 1 mais a soma dos valores.',
+    'intensity.conta': 'Conta: {0} {1} {2} = {3}',
+    'intensity.vale10': '(vale 10 para budget e pagamentos)',
+    'intensity.abaixoDeZero': 'abaixo de zero: erro',
+
+    'origem.titulo': 'Origem',
+    'origem.dica': 'Escolha uma. Possess e Substitute pedem o personagem e o tier dele.',
+    'origem.nome': 'Personagem',
+    'origem.tier': 'Tier',
+
+    'lista.vazia': 'Nenhuma opção encontrada.',
+    'busca.resultados': '{0} resultado|{0} resultados',
+    'busca.refine': 'Mostrando as 80 primeiras. Refine a busca para ver as outras.',
+    'busca.placeholder': 'Buscar opção pelo nome…',
+    'busca.rotulo': 'Buscar opções',
+
+    'contrato.titulo': 'Dados do contrato',
+    'contrato.dica': 'O DR do mundo é informado por você: o Builder não adivinha o DR de um mundo.',
+    'contrato.contractor': 'Nome do contractor',
+    'contrato.mundo': 'Mundo inicial',
+    'contrato.condicao': 'Condição do mundo (opcional)',
+    'contrato.dr': 'DR do mundo',
+    'contrato.emprestimo': 'Empréstimo na criação',
+    'contrato.limite': 'Limite de empréstimo para esta Intensity: {0}.',
+    'contrato.proximos': 'Próximos passos',
+    'contrato.proximosDica': 'Marque as cláusulas na aba Intensity, depois escolha a origem, a binding e o resto. O texto para a LLM sai no Livro-caixa.',
+
+    'cp.adicionar': 'Adicionar companion',
+    'cp.editar': 'Editar',
+    'cp.dica': 'O documento guarda a lista de personagens numa planilha à parte: digite nome, obra e tier. O tier é você quem dá.',
+    'cp.nome': 'Nome',
+    'cp.obra': 'Obra',
+    'cp.tier': 'Tier efetivo',
+    'cp.entrada': 'Como entrou',
+    'cp.entrada.compra': 'Compra',
+    'cp.entrada.captura': 'Captura',
+    'cp.entrada.gratis': 'De graça',
+    'cp.entrada.origem': 'Veio com a origem',
+    'cp.entrada.yeet': 'Yeet (ainda não capturada)',
+    'cp.papel': 'Papel',
+    'cp.papel.companion': 'Companion',
+    'cp.papel.follower': 'Follower',
+    'cp.papel.familiar': 'Familiar',
+    'cp.papel.figurante': 'Figurante (Capturing Extras)',
+    'cp.de': 'Mestre (follower ou familiar)',
+    'cp.estado': 'Estado',
+    'cp.estado.no séquito': 'No séquito',
+    'cp.estado.vendida': 'Vendida',
+    'cp.salvar': 'Salvar alterações',
+    'cp.adicionarBtn': 'Adicionar companion',
+    'cp.cancelar': 'Cancelar',
+    'cp.resumo': '{0}, tier {1}, {2}, {3}.',
+    'cp.deMestre': 'Mestre: {0}.',
+    'cp.vendidaTxt': 'Já vendida.',
+    'cp.vazio': 'Nenhuma companion ainda.',
+    'cp.nomeObrigatorio': 'Escreva o nome da companion.',
+
+    'livro.desconto': 'desconto {0} ({1})',
+    'livro.intensity': 'Intensity',
+    'livro.conta': 'Conta',
+    'livro.opcao': 'Opção',
+    'livro.valor': 'Valor',
+    'livro.saldo': 'Saldo',
+    'livro.subtotal': 'Subtotal',
+    'livro.saldoFinal': 'Saldo final',
+    'livro.imgSaldo': 'Saldo de IMG',
+    'livro.fechar': 'Fechar',
+    'livro.aba.livro': 'Livro',
+    'livro.aba.avisos': 'Avisos',
+    'livro.aba.texto': 'Texto',
+
+    'texto.dica': 'Este é o texto que a LLM lê. Copie e cole no pedido do protocolo.',
+    'texto.copiar': 'Copiar texto',
+    'texto.baixar': 'Baixar .txt',
+    'texto.rotulo': 'Texto da build',
+    'texto.copiado': 'Texto copiado.',
+    'texto.copiarFalhou': 'Não consegui copiar. Selecione o texto e copie à mão.',
+
+    'importar.titulo': 'Importar uma build',
+    'importar.dica': 'Cole um texto wcb/1 exportado por este Builder, ou abra um arquivo .txt. A importação substitui a build atual.',
+    'importar.rotulo': 'Texto para importar',
+    'importar.botao': 'Importar texto',
+    'importar.arquivo': 'Abrir arquivo .txt',
+    'importar.ok': 'Build importada.',
+    'importar.falhou': 'Não consegui ler esse texto.',
+
+    'avisos.nenhum': 'Nenhum aviso.',
+    'etiqueta.NÃO CONFIRMADO': 'Não confirmado',
+    'etiqueta.NÃO IMPLEMENTADA': 'Não implementada',
+    'etiqueta.ERRO': 'Erro',
+    'etiqueta.AVISO': 'Aviso',
+
+    'rodape.aviso': 'Projeto de fã, sem ligação com os autores do Waifu Catalog. O texto do documento não está aqui: só nomes de opção, números e resumos próprios.',
+  },
+
+  en: {
+    'app.titulo': 'Waifu Catalog Builder',
+    'app.sub': 'Build it, check the balance, export the text',
+
+    'topo.saldo': 'Balance',
+    'topo.divida': 'in debt',
+    'topo.desfazer': 'Undo',
+    'topo.refazer': 'Redo',
+    'topo.livro': 'Ledger',
+    'topo.intensity': 'Intensity',
+    'topo.dr': 'DR',
+    'topo.budget': 'Starting budget',
+    'topo.emprestimo': 'Loan',
+    'topo.gastos': 'Spent',
+    'topo.ganhos': 'Earned',
+    'topo.img': 'IMG',
+    'topo.erros': '{0} error|{0} errors',
+    'topo.naoConfirmados': '{0} unconfirmed|{0} unconfirmed',
+    'topo.idioma': 'PT',
+    'topo.idiomaRotulo': 'Switch the interface to Portuguese',
+
+    'aba.contrato': 'Contract',
+    'aba.companions': 'Companions',
+    'aba.categorias': 'Categories',
+
+    'marca.soCriacao': 'creation only',
+    'marca.ncDica': 'The document does not give this value as text: it is in an image.',
+    'marca.naoConfirmado': 'unconfirmed',
+    'marca.naoImplementada': 'rule not implemented',
+    'marca.gratisDe': 'free from {0}',
+    'marca.falta': 'missing: {0}',
+    'marca.declarado': 'requirement you declared: {0}',
+    'marca.efeitoExtra': 'has other effects besides Intensity',
+
+    'preco.gratis': 'free',
+    'preco.porEscolha': 'depends on the choice',
+    'preco.doTier': 'tier price',
+    'preco.varia': 'varies',
+
+    'op.menos': 'One fewer',
+    'op.quantidade': 'Quantity',
+    'op.mais': 'One more',
+    'op.escolha': 'Choice',
+    'op.escolher': 'Choose…',
+    'op.condicaoVale': '{0}% discount if this holds: {1}',
+    'op.custoManual': 'Cost you enter',
+    'op.descontoManual': 'Discount you enter',
+    'op.remover': 'Remove',
+    'op.adicionarOutra': 'Buy another',
+    'op.adicionar': 'Add to build',
+
+    'intensity.titulo': 'Intensity',
+    'intensity.dica': 'Tick the Negotiations clauses. Intensity is 1 plus the sum of their values.',
+    'intensity.conta': 'Sum: {0} {1} {2} = {3}',
+    'intensity.vale10': '(counts as 10 for budget and payments)',
+    'intensity.abaixoDeZero': 'below zero: error',
+
+    'origem.titulo': 'Origin',
+    'origem.dica': 'Pick one. Possess and Substitute need the character and their tier.',
+    'origem.nome': 'Character',
+    'origem.tier': 'Tier',
+
+    'lista.vazia': 'No options found.',
+    'busca.resultados': '{0} result|{0} results',
+    'busca.refine': 'Showing the first 80. Narrow the search to see the rest.',
+    'busca.placeholder': 'Search options by name…',
+    'busca.rotulo': 'Search options',
+
+    'contrato.titulo': 'Contract details',
+    'contrato.dica': 'You enter the world’s DR: the Builder does not guess the DR of a world.',
+    'contrato.contractor': 'Contractor name',
+    'contrato.mundo': 'Starting world',
+    'contrato.condicao': 'World condition (optional)',
+    'contrato.dr': 'World DR',
+    'contrato.emprestimo': 'Loan at creation',
+    'contrato.limite': 'Loan limit for this Intensity: {0}.',
+    'contrato.proximos': 'Next steps',
+    'contrato.proximosDica': 'Tick the clauses in the Intensity tab, then pick the origin, the binding and the rest. The text for the LLM is in the Ledger.',
+
+    'cp.adicionar': 'Add companion',
+    'cp.editar': 'Edit',
+    'cp.dica': 'The document keeps its character list in a separate spreadsheet: type the name, the work and the tier. The tier is yours to set.',
+    'cp.nome': 'Name',
+    'cp.obra': 'Work',
+    'cp.tier': 'Effective tier',
+    'cp.entrada': 'How they joined',
+    'cp.entrada.compra': 'Purchase',
+    'cp.entrada.captura': 'Capture',
+    'cp.entrada.gratis': 'Free',
+    'cp.entrada.origem': 'Came with the origin',
+    'cp.entrada.yeet': 'Yeet (not captured yet)',
+    'cp.papel': 'Role',
+    'cp.papel.companion': 'Companion',
+    'cp.papel.follower': 'Follower',
+    'cp.papel.familiar': 'Familiar',
+    'cp.papel.figurante': 'Extra (Capturing Extras)',
+    'cp.de': 'Master (follower or familiar)',
+    'cp.estado': 'State',
+    'cp.estado.no séquito': 'In the retinue',
+    'cp.estado.vendida': 'Sold',
+    'cp.salvar': 'Save changes',
+    'cp.adicionarBtn': 'Add companion',
+    'cp.cancelar': 'Cancel',
+    'cp.resumo': '{0}, tier {1}, {2}, {3}.',
+    'cp.deMestre': 'Master: {0}.',
+    'cp.vendidaTxt': 'Already sold.',
+    'cp.vazio': 'No companions yet.',
+    'cp.nomeObrigatorio': 'Enter the companion’s name.',
+
+    'livro.desconto': 'discount {0} ({1})',
+    'livro.intensity': 'Intensity',
+    'livro.conta': 'Sum',
+    'livro.opcao': 'Option',
+    'livro.valor': 'Value',
+    'livro.saldo': 'Balance',
+    'livro.subtotal': 'Subtotal',
+    'livro.saldoFinal': 'Final balance',
+    'livro.imgSaldo': 'IMG balance',
+    'livro.fechar': 'Close',
+    'livro.aba.livro': 'Ledger',
+    'livro.aba.avisos': 'Warnings',
+    'livro.aba.texto': 'Text',
+
+    'texto.dica': 'This is the text the LLM reads. Copy it and paste it into the protocol request.',
+    'texto.copiar': 'Copy text',
+    'texto.baixar': 'Download .txt',
+    'texto.rotulo': 'Build text',
+    'texto.copiado': 'Text copied.',
+    'texto.copiarFalhou': 'Copy failed. Select the text and copy it by hand.',
+
+    'importar.titulo': 'Import a build',
+    'importar.dica': 'Paste a wcb/1 text exported by this Builder, or open a .txt file. Importing replaces the current build.',
+    'importar.rotulo': 'Text to import',
+    'importar.botao': 'Import text',
+    'importar.arquivo': 'Open .txt file',
+    'importar.ok': 'Build imported.',
+    'importar.falhou': 'Could not read that text.',
+
+    'avisos.nenhum': 'No warnings.',
+    'etiqueta.NÃO CONFIRMADO': 'Unconfirmed',
+    'etiqueta.NÃO IMPLEMENTADA': 'Not implemented',
+    'etiqueta.ERRO': 'Error',
+    'etiqueta.AVISO': 'Notice',
+
+    'rodape.aviso': 'Fan project, not affiliated with the Waifu Catalog authors. The document text is not included: only option names, numbers and our own summaries.',
+  },
+};
+
+let atual = 'pt';
+
+export function definirIdioma(codigo) {
+  atual = IDIOMAS.includes(codigo) ? codigo : 'pt';
+  return atual;
+}
+
+export function idiomaAtual() {
+  return atual;
+}
+
+// Texto no idioma atual. Chave que falta no idioma cai no português; a que falta nos dois volta como a própria chave.
+export function t(chave, ...args) {
+  let modelo = TEXTOS[atual][chave];
+  if (modelo === undefined) modelo = TEXTOS.pt[chave];
+  if (modelo === undefined) return chave;
+  if (modelo.includes('|')) {
+    const partes = modelo.split('|');
+    modelo = Number(args[0]) === 1 ? partes[0] : partes[1];
+  }
+  return modelo.replace(/\{(\d+)\}/g, (m, i) => (args[Number(i)] === undefined ? m : String(args[Number(i)])));
+}

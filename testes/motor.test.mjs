@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { calcular, estadoVazio, intensityDaConta, distribuirDesconto, precoDaCompra, REGRAS_ESPECIAIS } from '../fonte/motor.js';
+import { calcular, estadoVazio, intensityDaConta, distribuirDesconto, precoDaCompra, requisitoAtendido, REGRAS_ESPECIAIS } from '../fonte/motor.js';
 import { exportarTexto, importarTexto } from '../fonte/texto.js';
 import { dados, economia } from './fixtures/dados-exemplo.mjs';
 
@@ -244,4 +244,23 @@ test('ordem dos avisos: ERRO, NÃO CONFIRMADO, NÃO IMPLEMENTADA, AVISO', () => 
   const ordem = calcular(e, dados).avisos.map((a) => a.etiqueta);
   const peso = { ERRO: 0, 'NÃO CONFIRMADO': 1, 'NÃO IMPLEMENTADA': 2, AVISO: 3 };
   for (let i = 1; i < ordem.length; i++) assert.ok(peso[ordem[i - 1]] <= peso[ordem[i]], ordem.join(','));
+});
+
+test('requisitoAtendido: diz o que falta antes da compra e libera depois dela', () => {
+  const ix = (id) => dados.categorias[id.split('/')[0]].opcoes.find((o) => o.id === id);
+  const tatuagem = ix('bindings/mystic-tattoo');
+  const vazio = calcular(base(), dados);
+  const antes = requisitoAtendido(tatuagem, vazio, dados);
+  assert.equal(antes.ok, false);
+  assert.match(antes.falta, /Seal of Approval/);
+  const e = base();
+  e.compras = [{ id: 'bindings/seal-of-approval' }];
+  const depois = requisitoAtendido(tatuagem, calcular(e, dados), dados);
+  assert.deepEqual(depois, { ok: true, falta: '' });
+  // opção sem requisito está sempre liberada
+  assert.deepEqual(requisitoAtendido(ix('lures/sticky-fingers'), vazio, dados), { ok: true, falta: '' });
+  // requisito só declarado pelo usuário: libera, e devolve o texto declarado
+  const declarado = requisitoAtendido(ix('lures/dirty-minds'), vazio, dados);
+  assert.equal(declarado.ok, true);
+  assert.deepEqual(declarado.declarado, ['alguém com a mente suja']);
 });

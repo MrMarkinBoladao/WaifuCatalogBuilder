@@ -295,6 +295,20 @@ function textosDeclarados(r, acc) {
   return acc;
 }
 
+// Diz se uma opção que ainda não está na build teria o requisito atendido com a posse atual.
+// Devolve { ok, falta } em que `falta` descreve o que falta (texto para a interface).
+export function requisitoAtendido(op, resultado, dados) {
+  if (!op.requisitos) return { ok: true, falta: '' };
+  const ix = indexarDados(dados);
+  const contagem = new Map(Object.entries(resultado.posse || {}));
+  const ctx = { contagem, intensity: resultado.resumo.intensityConta, origemSlug: resultado.origemSlug };
+  if (avaliar(op.requisitos, ctx, ix, op.id, false)) return { ok: true, falta: '' };
+  if (temDeclarado(op.requisitos) && avaliar(op.requisitos, ctx, ix, op.id, true)) {
+    return { ok: true, falta: '', declarado: textosDeclarados(op.requisitos, []) };
+  }
+  return { ok: false, falta: descreverRequisito(op.requisitos, ix) };
+}
+
 // ---------------------------------------------------------------------------
 // Estado
 
@@ -837,7 +851,11 @@ export function calcular(estado, dados) {
   avisos.sort((a, b) => ordemEtiqueta[a.etiqueta] - ordemEtiqueta[b.etiqueta] || a.__i - b.__i);
   avisos.forEach((a) => delete a.__i);
 
+  const posseObj = {};
+  for (const [id, n] of contagem) if (n > 0) posseObj[id] = n;
   return {
+    posse: posseObj,
+    origemSlug,
     resumo: {
       contractor: estado.contractor || '',
       mundo: estado.mundo || '',
