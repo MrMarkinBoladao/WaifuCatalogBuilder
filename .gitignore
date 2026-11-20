@@ -1,0 +1,4 @@
+.cache-vigia/
+.vigia-saida/
+_site/
+node_modules/

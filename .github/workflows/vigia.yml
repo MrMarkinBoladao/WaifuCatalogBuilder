@@ -1,0 +1,117 @@
+# Vigia do documento: uma vez por semana, baixa o Main Sourcebook, calcula um hash por seção e compara com
+# docs/vigia/secoes.json. Se algo mudou, abre ou atualiza UMA issue "Documento oficial mudou". Só avisa: não altera dados.
+# Se o download não devolver o documento, abre ou atualiza a issue "Vigia do documento falhou" e o estado não é tocado.
+# O texto anterior fica no cache do GitHub Actions (nunca no repositório). Também roda à mão:
+# aba Actions → "Vigia do documento" → Run workflow. Explicação em docs/vigia/LEIA-ME.md.
+name: Vigia do documento
+
+on:
+  schedule:
+    - cron: '41 7 * * 1' # segunda-feira, 07:41 UTC (04:41 em Brasília)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: vigia-documento
+  cancel-in-progress: false
+
+jobs:
+  vigiar:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Testes do vigia
+        run: node --test testes/vigia.test.mjs
+
+      # O texto das seções da última checagem boa. Na primeira vez não existe, e a issue diz só que a seção mudou.
+      - name: Restaurar o texto anterior (cache)
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache-vigia
+          key: vigia-documento-${{ github.run_id }}
+          restore-keys: vigia-documento-
+
+      - name: Baixar e comparar
+        id: checar
+        run: |
+          set +e
+          node ferramentas/vigiar-documento.mjs
+          echo "codigo=$?" >> "$GITHUB_OUTPUT"
+          if [ -f .vigia-saida/resultado.json ]; then
+            echo "resultado=$(node -p "JSON.parse(require('fs').readFileSync('.vigia-saida/resultado.json','utf8')).resultado")" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Issue "Vigia do documento falhou"
+        if: steps.checar.outputs.codigo != '0'
+        run: |
+          titulo="Vigia do documento falhou"
+          numero=$(gh issue list --state open --search "\"$titulo\" in:title" --json number,title --jq "[.[] | select(.title == \"$titulo\")][0].number // empty")
+          if [ -n "$numero" ]; then
+            gh issue comment "$numero" --body-file .vigia-saida/issue-falhou.md
+          else
+            gh issue create --title "$titulo" --body-file .vigia-saida/issue-falhou.md
+          fi
+
+      - name: Falha visível
+        if: steps.checar.outputs.codigo != '0'
+        run: |
+          echo "::error::O vigia não conseguiu ler o documento. Veja a issue 'Vigia do documento falhou'."
+          exit 1
+
+      - name: Fechar a issue de falha, se havia uma
+        run: |
+          titulo="Vigia do documento falhou"
+          numero=$(gh issue list --state open --search "\"$titulo\" in:title" --json number,title --jq "[.[] | select(.title == \"$titulo\")][0].number // empty")
+          if [ -n "$numero" ]; then
+            gh issue close "$numero" --comment "A checagem de hoje leu o documento normalmente. Fechando."
+          fi
+
+      - name: Issue "Documento oficial mudou"
+        if: steps.checar.outputs.resultado == 'mudou'
+        run: |
+          titulo="Documento oficial mudou"
+          numero=$(gh issue list --state open --search "\"$titulo\" in:title" --json number,title --jq "[.[] | select(.title == \"$titulo\")][0].number // empty")
+          if [ -n "$numero" ]; then
+            gh issue view "$numero" --json body --jq .body > .vigia-saida/corpo-antigo.md
+            node ferramentas/vigiar-documento.mjs combinar .vigia-saida/issue-mudou.md .vigia-saida/corpo-antigo.md > .vigia-saida/corpo.md
+            gh issue edit "$numero" --body-file .vigia-saida/corpo.md
+          else
+            node ferramentas/vigiar-documento.mjs combinar .vigia-saida/issue-mudou.md > .vigia-saida/corpo.md
+            gh issue create --title "$titulo" --body-file .vigia-saida/corpo.md
+          fi
+
+      # Só chega aqui depois que a issue (se havia mudança) foi aberta ou atualizada.
+      - name: Gravar o estado novo
+        run: |
+          node ferramentas/vigiar-documento.mjs gravar
+          if git diff --quiet -- docs/vigia/secoes.json; then
+            echo "Estado sem alteração."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add docs/vigia/secoes.json
+            git commit -m "Vigia: checagem de $(date -u +%Y-%m-%d) (${{ steps.checar.outputs.resultado }})"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Guardar o texto novo no cache
+        run: node ferramentas/vigiar-documento.mjs promover
+
+      - name: Salvar o cache
+        uses: actions/cache/save@v4
+        with:
+          path: .cache-vigia
+          key: vigia-documento-${{ github.run_id }}
