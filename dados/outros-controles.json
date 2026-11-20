@@ -1,0 +1,45 @@
+{
+  "categoria": "outros-controles",
+  "titulo": "Other Controls",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "outros-controles/apportation",
+      "nome": "Apportation",
+      "categoria": "outros-controles",
+      "grupo": "outros-controles",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {
+        "qualquerDe": [
+          {"id": "bindings/shroud-of-power"},
+          {"id": "bindings/augmented-revisions"},
+          {"id": "bindings/eve-chip"},
+          {"id": "bindings/basic-runes"},
+          {"id": "bindings/art-of-summoning"}
+        ]
+      },
+      "resumo": "Expansão: ele e quem prendeu pelo método que liberou a expansão se teletransportam, sozinhos ou com o que têm na mão, até qualquer pessoa do séquito, com alguns instantes de concentração. Não serve de ataque nem de defesa, e fica desligada no território do oponente numa invasão.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    },
+    {
+      "id": "outros-controles/conjunction",
+      "nome": "Conjunction",
+      "categoria": "outros-controles",
+      "grupo": "outros-controles",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {
+        "qualquerDe": [
+          {"id": "bindings/shroud-of-power"},
+          {"id": "bindings/eve-chip"},
+          {"id": "bindings/art-of-sympathies"}
+        ]
+      },
+      "resumo": "Expansão: além dos outros efeitos, a binding põe os subjects numa mente coletiva empática e telepática centrada nele, com um nível ativo (bate-papo telepático, sentidos compartilhados) e um passivo (as waifus sabem o que ele faz e precisa). Fica desligada no território do oponente numa invasão.",
+      "verificado": true,
+      "tipo": ["Expansion"],
+      "referencia": "lures-e-outros-controles.md"
+    }
+  ]
+}

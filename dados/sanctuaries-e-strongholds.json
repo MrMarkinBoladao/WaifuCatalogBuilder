@@ -1,0 +1,783 @@
+{
+  "categoria": "sanctuaries-e-strongholds",
+  "titulo": "Sanctuaries & Strongholds",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "sanctuaries-e-strongholds/pocket-space",
+      "nome": "Pocket Space",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-demiplane",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "resumo": "Inventário extradimensional sem passagem de tempo, de 1 × 1 × 3 m, acessado por app no Smart Device; guarda também seres vivos dispostos (quem está preso por binding conta como disposto).",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/pocket-apartment",
+      "nome": "Pocket Apartment",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-demiplane",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "repeticao": {"max": 2},
+      "requisitos": {"id": "sanctuaries-e-strongholds/pocket-space"},
+      "resumo": "Apartamento extradimensional de 75 m², acessado por portais gerados em cada mundo que só usuários válidos percebem; o inventário vira um cofre lacrado dentro dele. A 2ª compra dobra a área para 150 m².",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/all-roads-lead-to-home",
+      "nome": "All Roads Lead to Home",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-demiplane",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"id": "sanctuaries-e-strongholds/pocket-apartment"},
+      "resumo": "Os subjects comprados e capturados passam a ser usuários válidos dos portais do apartamento, com os mesmos benefícios do contractor, e vários portais podem ficar abertos ao mesmo tempo.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/sweet-home",
+      "nome": "Sweet Home",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-demiplane",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "repeticao": {"max": 2},
+      "requisitos": {"compras": {"id": "sanctuaries-e-strongholds/pocket-apartment", "minimo": 2}},
+      "resumo": "O apartamento vira uma casa de 300 m² num terreno de 1 hectare, e o Pocket Space pode ser qualquer cômodo delimitado. A 2ª compra dobra todas as medidas (600 m², 2 hectares).",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/grand-manor",
+      "nome": "Grand Manor",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-demiplane",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "repeticao": {"max": 2},
+      "requisitos": {"compras": {"id": "sanctuaries-e-strongholds/sweet-home", "minimo": 2}},
+      "resumo": "Mansão de 1.200 m² com áreas de moradia, treino e oficina, e uma sala de controle para remodelar a estrutura; equipamento especializado depende de alguém que saiba usá-lo. A 2ª compra dobra as medidas (2.400 m², 40 hectares).",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/lifes-a-beach",
+      "nome": "Life’s A Beach",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-demiplane",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {"compras": {"id": "sanctuaries-e-strongholds/sweet-home", "minimo": 2}},
+      "resumo": "O terreno vai a 15,2 km², com uma central para moldar a paisagem (o padrão é uma ilha tropical). Junto com Grand Manor, a central também acrescenta alas e outras partes à mansão.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/rainbow-bridge",
+      "nome": "Rainbow Bridge",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-demiplane",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "requisitos": {
+        "todos": [
+          {"id": "sanctuaries-e-strongholds/all-roads-lead-to-home"},
+          {
+            "qualquerDe": [
+              {"id": "outros-perks/we-will-meet-again"},
+              {
+                "todos": [
+                  {"id": "intensity/not-in-kansas-anymore"},
+                  {"declarado": "Ter algum Dominion (Not in Kansas Anymore dispensa We Will Meet Again)"}
+                ]
+              }
+            ]
+          },
+          {"id": "sanctuaries-e-strongholds/sweet-home"}
+        ]
+      },
+      "resumo": "Sala de portais própria, a pé ou de veículo, para o mundo de partida e todo lugar visitado, mais portais temporários de volta ao demiplane (um por vez). Mundos novos são liberados pelas regras do Exit Stage Left. Not in Kansas Anymore dispensa We Will Meet Again, com algum Dominion.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/warehouse-district",
+      "nome": "Warehouse District",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-demiplane",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {
+        "todos": [
+          {"compras": {"id": "sanctuaries-e-strongholds/grand-manor", "minimo": 2}},
+          {"id": "sanctuaries-e-strongholds/lifes-a-beach"}
+        ]
+      },
+      "resumo": "Acrescenta um distrito de armazéns (20 m de altura e cerca de 50.000 m² cada, até um por oficina) com o estoque central de recursos, de onde as oficinas do séquito passam a tirar material.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/sweet-home-expansion",
+      "nome": "Sweet Home Expansion",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-planetary",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "repeticao": {"max": 25},
+      "requisitos": {"id": "sanctuaries-e-strongholds/lifes-a-beach"},
+      "resumo": "Cada compra dobra a área da superfície do demiplane; a 25ª o torna um planeta do tamanho da Terra, com atmosfera e órbita baixa e média. Com Personal Shipwright, cada compra soma +60% à velocidade das instalações.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/pocket-star",
+      "nome": "Pocket Star",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-planetary",
+      "custo": {"tipo": "fixo", "valor": 500},
+      "requisitos": {"compras": {"id": "sanctuaries-e-strongholds/sweet-home-expansion", "minimo": 25}},
+      "resumo": "Põe uma estrela amarela no centro do reino pessoal, agora com cerca de 104,45 UA de raio, e o planeta em órbita dela; não traz outros planetas.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/pocket-rocks",
+      "nome": "Pocket Rocks",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-planetary",
+      "custo": {"tipo": "fixo", "valor": 125},
+      "requisitos": {"id": "sanctuaries-e-strongholds/pocket-star"},
+      "resumo": "Acrescenta ao sistema de 1 a 4 planetas rochosos ao acaso, cada um com 0 a 2 luas (uma pode ser um anel). Com Pocket Star II: Voyages, parte das outras estrelas também ganha planetas rochosos.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/pocket-gas",
+      "nome": "Pocket Gas",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-planetary",
+      "custo": {"tipo": "fixo", "valor": 500},
+      "requisitos": {"id": "sanctuaries-e-strongholds/pocket-star"},
+      "resumo": "Acrescenta ao sistema de 1 a 5 planetas gigantes (gasosos, de gelo ou ctônicos), cada um com 10 a 200 luas e anéis. Com Pocket Star II: Voyages, parte das outras estrelas também os ganha.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/pocket-space-dust",
+      "nome": "Pocket Space Dust",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-planetary",
+      "custo": {"tipo": "fixo", "valor": 75},
+      "requisitos": {"id": "sanctuaries-e-strongholds/pocket-star"},
+      "resumo": "Enche o sistema de asteroides, cometas, planetas anões, objetos do Cinturão de Kuiper e poeira (sempre 1 cinturão de asteroides e 1 Nuvem de Oort no sistema central). Com Pocket Star II: Voyages, toda estrela ganha parte disso.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/pocket-star-ii-voyages",
+      "nome": "Pocket Star II: Voyages",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-planetary",
+      "custo": {"tipo": "sequencia", "valores": [200, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, -900]},
+      "repeticao": {"max": 13},
+      "requisitos": {"id": "sanctuaries-e-strongholds/pocket-star"},
+      "resumo": "Estende o reino pessoal além do sistema, com estrelas, galáxias e outros objetos gerados sozinhos; a 1ª compra leva o raio a 2 anos-luz. Até 13 compras: 200, depois 100 (2ª a 12ª); a 13ª custa 1 IMG e devolve 900 créditos. O Builder lança só os créditos (400 no total); o IMG fica por conta do usuário.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/pocket-star-iii",
+      "nome": "Pocket Star III: ∞",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-planetary",
+      "custo": {"tipo": "fixo", "valor": 10, "moeda": "IMG"},
+      "requisitos": {"compras": {"id": "sanctuaries-e-strongholds/pocket-star-ii-voyages", "minimo": 13}},
+      "resumo": "O demiplane passa a se estender ao infinito: por mais longe que se viaje, o sistema da Company gera mais coisas para explorar. Custa 10 IMG.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/niven-never-heard-of-him",
+      "nome": "Niven? Never Heard of Him",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-planetary",
+      "custo": {"tipo": "fixo", "valor": 150},
+      "requisitos": {"id": "sanctuaries-e-strongholds/pocket-star"},
+      "resumo": "O planeta vira um mundo-anel de tamanho completo (cerca de 1,6 milhão de km de largura e 940 milhões de km de circunferência), com paredes externas de 1.600 km. Com Orbital Forge, libera a Ring Forge.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/demiplane.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/shipwright-access",
+      "nome": "Shipwright Access",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-shipwright",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "resumo": "App do Shipwright da Company: ele envia o molde (Pattern) de uma Ride e recebe uma cópia nova de Grade 3 para baixo, uma por vez e com 12 horas entre pedidos. Todo subject comprado já traz o molde de uma Ride icônica. Na criação, dá uma Ride inicial de até Grade 3.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/shipwright.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/one-time-access",
+      "nome": "One Time Access",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-shipwright",
+      "custo": {"tipo": "fixo", "valor": 3},
+      "resumo": "Só na criação: leva um único veículo de Grade 0 ou 1 para o mundo de partida, ou o veículo próprio dele mediante uma taxa simbólica. O molde só pode ser usado depois de comprar Shipwright Access.",
+      "verificado": true,
+      "soNaCriacao": true,
+      "referencia": "sanctuaries-e-strongholds/shipwright.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/high-level-access",
+      "nome": "High-Level Access",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-shipwright",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {"id": "sanctuaries-e-strongholds/shipwright-access"},
+      "resumo": "Remove o limite de grade: libera Rides de Grade 4 a X (espera de 1 mês no Grade 4 e de 6 meses no 5; Grade X exige materiais especiais). Na criação, a Ride inicial pode ser de até Grade 4.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/shipwright.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/roger-roger",
+      "nome": "Roger, Roger",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-shipwright",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "requisitos": {"id": "sanctuaries-e-strongholds/shipwright-access"},
+      "resumo": "As Rides passam a vir com tripulação completa de drones da Company, cada um equivalente a um subject de tier 2, sem identidade própria e sem valor de venda; podem desenvolver personalidade com o tempo.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/shipwright.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/personal-shipwright",
+      "nome": "Personal Shipwright",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-shipwright",
+      "custo": {"tipo": "porEscolha"},
+      "requisitos": {
+        "todos": [
+          {"id": "sanctuaries-e-strongholds/lifes-a-beach"},
+          {"id": "sanctuaries-e-strongholds/shipwright-access"}
+        ]
+      },
+      "escolha": {
+        "rotulo": "Instalação",
+        "tipo": "lista",
+        "multipla": true,
+        "opcoes": [
+          {"valor": "Garage", "custo": 20},
+          {"valor": "Hangar", "custo": 30},
+          {"valor": "Drydock", "custo": 40},
+          {"valor": "Spaceport", "custo": 50}
+        ]
+      },
+      "resumo": "O demiplane ganha instalações próprias do Shipwright, compradas por tipo: Garage (terra) 20, Hangar (ar) 30, Drydock (mar) 40 e Spaceport (espaço) 50; as quatro somam 140. Constroem Rides de Grade 1 a 3 (1 a 5 com High-Level Access) e consertam em um dia a Ride estacionada.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/shipwright.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/orbital-forge",
+      "nome": "Orbital Forge",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-shipwright",
+      "custo": {"tipo": "fixo", "valor": 120},
+      "requisitos": {
+        "todos": [
+          {"id": "sanctuaries-e-strongholds/personal-shipwright"},
+          {"compras": {"id": "sanctuaries-e-strongholds/sweet-home-expansion", "minimo": 25}}
+        ]
+      },
+      "resumo": "As instalações do Personal Shipwright ganham mais +400% de velocidade (Grade 5 em 9 dias) e surge uma instalação própria que constrói uma Ride de Grade X por vez; também permite desmontar moldes em componentes e remontá-los.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/shipwright.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/ring-forge",
+      "nome": "Ring Forge",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-shipwright",
+      "custo": {"tipo": "fixo", "valor": 500},
+      "requisitos": {
+        "todos": [
+          {"id": "sanctuaries-e-strongholds/orbital-forge"},
+          {"id": "sanctuaries-e-strongholds/niven-never-heard-of-him"}
+        ]
+      },
+      "resumo": "Shipwright sem limite de produção no mundo-anel: com o molde certo, produz na hora qualquer quantidade de Rides até Grade 5; Grade X ainda exige materiais especiais, em quantidade bem menor.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/shipwright.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/sanctuary",
+      "nome": "Sanctuary",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-sanctuary",
+      "custo": {"tipo": "porEscolha"},
+      "requisitos": {"id": "sanctuaries-e-strongholds/sweet-home"},
+      "escolha": {
+        "rotulo": "Preço",
+        "tipo": "lista",
+        "opcoes": [{"valor": "15 créditos", "custo": 15}, {"valor": "1 IMG (já tem o Stronghold)", "custo": 0}]
+      },
+      "resumo": "Tranca o demiplane num Sanctuary: ele convida terceiros, expulsa quem quiser, e ele e o séquito se recuperam melhor ali; atacá-lo é Infraction Extreme e toda Infraction sobe um grau de gravidade. Custa 15 créditos, ou 1 IMG se já tiver o Stronghold (o Builder não lança o IMG).",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/persistent-corruption",
+      "nome": "Persistent Corruption",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-sanctuary",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "requisitos": {
+        "qualquerDe": [{"id": "sanctuaries-e-strongholds/sanctuary"}, {"id": "sanctuaries-e-strongholds/stronghold"}]
+      },
+      "resumo": "As mudanças causadas pelas Laws deixam de se desfazer com o tempo fora dos Domains dele, a menos que ele permita pelo app.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/rewards-and-lobbying",
+      "nome": "Rewards and Lobbying",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-sanctuary",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "sanctuaries-e-strongholds/sanctuary"},
+      "resumo": "As Consequences das Laws passam a poder conceder a pessoas, do séquito ou de fora, uma parte dos perks que ele comprou, crescendo até 100% conforme as Infractions se acumulam; a lista de perks elegíveis é maior para quem é de fora.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/laws-of-man",
+      "nome": "Laws of Man",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-laws",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {"id": "sanctuaries-e-strongholds/sanctuary"},
+      "resumo": "Põe na Jurisdiction toda ação que afeta seres sapientes ou os bens deles, acrescenta dor e desconforto às Consequences e permite reparação (preço de sangue). Só pune; gravidade máxima das Infractions: Major.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/laws-of-the-jungle",
+      "nome": "Laws of the Jungle",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-laws",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "repeticao": {"max": 2},
+      "requisitos": {
+        "todos": [{"id": "sanctuaries-e-strongholds/sanctuary"}, {"id": "sanctuaries-e-strongholds/lifes-a-beach"}]
+      },
+      "resumo": "Põe na Jurisdiction as ações de plantas e bichos não sapientes, permite alterar os traços de Advanced Runes: Body (sem hibridizar) e definir clima e ecologia. Flora e fauna ficam até tier 4; a 2ª compra sobe o limite a tier 7. Gravidade máxima: Major.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/laws-of-science",
+      "nome": "Laws of Science",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-laws",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "sanctuaries-e-strongholds/sanctuary"},
+      "resumo": "Põe na Jurisdiction o que caberia em Engineering Talent ou Algorithm Talent; as Consequences incluem falha mecânica ou de magia científica, e a tecnologia proibida acaba falhando na área. Gravidade máxima: Major.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/laws-of-magic",
+      "nome": "Laws of Magic",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-laws",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "sanctuaries-e-strongholds/sanctuary"},
+      "resumo": "Põe na Jurisdiction o que caberia em Soul Talent ou Blessed Talent; as Consequences mexem em mana, chakra e espaços de magia, e a magia proibida fica mais difícil e cara. Gravidade máxima: Major.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/laws-of-cognition",
+      "nome": "Laws of Cognition",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-laws",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "sanctuaries-e-strongholds/sanctuary"},
+      "resumo": "Põe na Jurisdiction o que caberia em Psychic Talent; as Consequences podem mudar os traços de Advanced Runes: Mind e hibridizar como Advanced Runes: Body, e a psiônica proibida fica mais difícil e cara. Gravidade máxima: Major.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/tax-laws",
+      "nome": "Tax Laws",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-laws",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"grupo": "sanctuaries-laws", "minimo": 1, "exceto": "self"},
+      "resumo": "Em vez de só proibir, as Laws passam a poder exigir ações dentro da Jurisdiction da Law correspondente e a impor condições ao uso de equipamentos e fontes de poder; alvos de tier alto conseguem forçar a passagem, com muito mais custo.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/laws-of-reality",
+      "nome": "Laws of Reality",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-laws",
+      "custo": {"tipo": "fixo", "valor": 200},
+      "requisitos": {
+        "todos": [
+          {"id": "sanctuaries-e-strongholds/laws-of-man"},
+          {"id": "sanctuaries-e-strongholds/laws-of-the-jungle"},
+          {"id": "sanctuaries-e-strongholds/laws-of-science"},
+          {"id": "sanctuaries-e-strongholds/laws-of-magic"},
+          {"id": "sanctuaries-e-strongholds/laws-of-cognition"}
+        ]
+      },
+      "resumo": "Põe na Jurisdiction gravidade, distância, temperatura, inércia e densidade de mana ou psi, que ele ajusta à vontade nos próprios espaços (o tempo só acelera ou desacelera, até fator 500). Regras específicas saem pelo Help Desk em até uma semana.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/sanctuary.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/stronghold",
+      "nome": "Stronghold",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "porEscolha"},
+      "requisitos": {"id": "sanctuaries-e-strongholds/sweet-home"},
+      "escolha": {
+        "rotulo": "Preço",
+        "tipo": "lista",
+        "opcoes": [{"valor": "15 créditos", "custo": 15}, {"valor": "1 IMG (já tem o Sanctuary)", "custo": 0}]
+      },
+      "resumo": "Abre o demiplane ao multiverso: a residência vira a Citadel e ele estende Bastions a outros mundos por Gateways. Passa a poder dedicar membros do séquito (DP), e os Dominions corrompem e capturam aos poucos quem não é do séquito (50 de Corruption capturam). Custa 15 créditos, ou 1 IMG se já tiver o Sanctuary (o Builder não lança o IMG).",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/stronghold-themes",
+      "nome": "Stronghold Themes",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "fixo", "valor": 75},
+      "requisitos": {"id": "sanctuaries-e-strongholds/stronghold"},
+      "gratis": [
+        {"id": "outros-perks/body-tune-up", "quantidade": 1},
+        {"id": "outros-perks/sexual-calibration", "quantidade": 1},
+        {"id": "outros-perks/fertility-calibration-i", "quantidade": 1}
+      ],
+      "escolha": {
+        "rotulo": "Elemento",
+        "tipo": "lista",
+        "opcoes": [
+          {
+            "valor": "Luminal (Light)",
+            "gratis": [
+              {"id": "talents/communication-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "talents/blessed-talent", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Umbral (Shadow)",
+            "gratis": [
+              {"id": "talents/covert-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "talents/blessed-talent", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Volcanic (Fire)",
+            "gratis": [
+              {"id": "talents/athletic-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 2}
+            ]
+          },
+          {
+            "valor": "Boreal (Ice)",
+            "gratis": [
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 2}
+            ]
+          },
+          {
+            "valor": "Xeric (Land)",
+            "gratis": [
+              {"id": "talents/martial-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/aesthetic-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 1},
+              {"id": "defenses/creature-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Pelagic (Sea)",
+            "gratis": [
+              {"id": "talents/martial-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 1},
+              {"id": "defenses/creature-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Storm (Sky)",
+            "gratis": [
+              {"id": "talents/athletic-talent", "quantidade": 1},
+              {"id": "talents/communication-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 1},
+              {"id": "defenses/stress-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Bestial (Fauna)",
+            "gratis": [
+              {"id": "talents/martial-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/communication-talent", "quantidade": 1},
+              {"id": "talents/covert-talent", "quantidade": 1},
+              {"id": "defenses/body-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Jungle (Flora)",
+            "gratis": [
+              {"id": "talents/athletic-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/aesthetic-talent", "quantidade": 1},
+              {"id": "talents/land-talent", "quantidade": 1},
+              {"id": "defenses/body-defense", "quantidade": 1},
+              {"id": "defenses/creature-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Burial (Death)",
+            "gratis": [
+              {"id": "outros-perks/everlasting-tune-up", "quantidade": 1},
+              {"id": "defenses/body-defense", "quantidade": 1},
+              {"id": "defenses/stress-defense", "quantidade": 1},
+              {"id": "defenses/drain-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Cyber (Technology)",
+            "gratis": [
+              {"id": "talents/algorithm-talent", "quantidade": 1},
+              {"id": "talents/engineering-talent", "quantidade": 1},
+              {"id": "talents/administrative-talent", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Astral (Space-Time)",
+            "gratis": [
+              {"id": "talents/covert-talent", "quantidade": 1},
+              {"id": "defenses/paradox-defense", "quantidade": 1}
+            ]
+          }
+        ]
+      },
+      "resumo": "Escolhe um elemento do Catalog como tema dos Dominions, com perigos de ambiente e Loot ligados ao tema (pagos em DP). Dá de graça Body Tune-Up, Sexual Calibration, Fertility Calibration I e os Talents e Defenses gratuitos do elemento.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/additional-themes",
+      "nome": "Additional Themes",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "fixo", "valor": 65},
+      "repeticao": {"max": null},
+      "requisitos": {"id": "sanctuaries-e-strongholds/stronghold-themes"},
+      "escolha": {
+        "rotulo": "Elemento",
+        "tipo": "lista",
+        "opcoes": [
+          {
+            "valor": "Luminal (Light)",
+            "gratis": [
+              {"id": "talents/communication-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "talents/blessed-talent", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Umbral (Shadow)",
+            "gratis": [
+              {"id": "talents/covert-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "talents/blessed-talent", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Volcanic (Fire)",
+            "gratis": [
+              {"id": "talents/athletic-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 2}
+            ]
+          },
+          {
+            "valor": "Boreal (Ice)",
+            "gratis": [
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 2}
+            ]
+          },
+          {
+            "valor": "Xeric (Land)",
+            "gratis": [
+              {"id": "talents/martial-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/aesthetic-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 1},
+              {"id": "defenses/creature-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Pelagic (Sea)",
+            "gratis": [
+              {"id": "talents/martial-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 1},
+              {"id": "defenses/creature-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Storm (Sky)",
+            "gratis": [
+              {"id": "talents/athletic-talent", "quantidade": 1},
+              {"id": "talents/communication-talent", "quantidade": 1},
+              {"id": "talents/performance-talent", "quantidade": 1},
+              {"id": "defenses/environmental-defense", "quantidade": 1},
+              {"id": "defenses/stress-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Bestial (Fauna)",
+            "gratis": [
+              {"id": "talents/martial-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/communication-talent", "quantidade": 1},
+              {"id": "talents/covert-talent", "quantidade": 1},
+              {"id": "defenses/body-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Jungle (Flora)",
+            "gratis": [
+              {"id": "talents/athletic-talent", "quantidade": 1},
+              {"id": "talents/exploration-talent", "quantidade": 1},
+              {"id": "talents/aesthetic-talent", "quantidade": 1},
+              {"id": "talents/land-talent", "quantidade": 1},
+              {"id": "defenses/body-defense", "quantidade": 1},
+              {"id": "defenses/creature-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Burial (Death)",
+            "gratis": [
+              {"id": "outros-perks/everlasting-tune-up", "quantidade": 1},
+              {"id": "defenses/body-defense", "quantidade": 1},
+              {"id": "defenses/stress-defense", "quantidade": 1},
+              {"id": "defenses/drain-defense", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Cyber (Technology)",
+            "gratis": [
+              {"id": "talents/algorithm-talent", "quantidade": 1},
+              {"id": "talents/engineering-talent", "quantidade": 1},
+              {"id": "talents/administrative-talent", "quantidade": 1}
+            ]
+          },
+          {
+            "valor": "Astral (Space-Time)",
+            "gratis": [
+              {"id": "talents/covert-talent", "quantidade": 1},
+              {"id": "defenses/paradox-defense", "quantidade": 1}
+            ]
+          }
+        ]
+      },
+      "resumo": "Compra mais um tema (outro elemento) para os Strongholds, com os perks associados, que podem virar Loot em qualquer instância. Cada Layer só pode ter um tema; o documento não diz quantas vezes se compra.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/dungeon-core",
+      "nome": "Dungeon Core",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {"id": "sanctuaries-e-strongholds/stronghold"},
+      "resumo": "Os DP ganham forma física no Dungeon Core: dobram o DP dos dedicados e a força da Corruption, deixam o Stronghold quase indestrutível e dão controle fino por cômodo e propulsão paga em DP (Overland, Wormhole, D-Travel...). Se o Core for destruído, o Stronghold perde a energia.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/stronghold-commander",
+      "nome": "Stronghold Commander",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {"id": "sanctuaries-e-strongholds/stronghold"},
+      "resumo": "Permite nomear um Commander, alguém dedicado ao Stronghold cujo DP triplica; amplia o alcance da Devotion e, com o Commander dentro, o Stronghold fica indestrutível. Até um Commander por Layer.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/commerce-room-hotel-california",
+      "nome": "Commerce Room: Hotel California",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"id": "sanctuaries-e-strongholds/stronghold"},
+      "resumo": "Os DP fazem os Dominions atraírem clientes e serviços comerciais, e tudo comprado ali aumenta a Corruption; possíveis alvos de captura se oferecem como pagamento, e quem vira subject assim conta como capturado por confissão de amor.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/broadcast-room-eye-of-sauron",
+      "nome": "Broadcast Room: Eye of Sauron",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {"id": "sanctuaries-e-strongholds/dungeon-core"},
+      "resumo": "Com o Core, os DP dão vidência, vigilância e projeção de poder dentro e em volta do Stronghold (1 km de alcance que dobra a cada 5 DP, até projetar poderes e a si mesmo). Quem é observado ao vivo acumula Corruption mais rápido.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/icon-of-corruption",
+      "nome": "Icon of Corruption",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "sanctuaries-e-strongholds/stronghold-themes"},
+      "resumo": "O tema do Stronghold se espalha para fora da estrutura, mudando paisagem, plantas e bichos e tomando a área para o Dominion; quem está nela não perde Corruption e ainda ganha +1 por semana, mas os moradores podem reverter a corrupção.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/my-precious-temptation",
+      "nome": "My Precious Temptation",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "requisitos": {"id": "sanctuaries-e-strongholds/stronghold"},
+      "resumo": "Os DP criam tentações: quem se encaixa num critério escolhido e está no alcance ganha um piso de Corruption e é atraído pelo Stronghold. Mais DP ampliam a faixa de tier afetada, o piso (até 35) e o alcance (até todo o universo local).",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    },
+    {
+      "id": "sanctuaries-e-strongholds/spawning-pits",
+      "nome": "Spawning Pits",
+      "categoria": "sanctuaries-e-strongholds",
+      "grupo": "sanctuaries-stronghold",
+      "custo": {"tipo": "fixo", "valor": 50},
+      "requisitos": {"id": "sanctuaries-e-strongholds/stronghold"},
+      "resumo": "Os DP geram minions não sapientes sem parar em spawners (tier 2, 5 ou 8 conforme o investimento; 1 por semana, até 81 com mais investimento); sementes dão formas específicas e, pelo dobro, os minions capturam usando a binding dele.",
+      "verificado": true,
+      "referencia": "sanctuaries-e-strongholds/stronghold.md"
+    }
+  ]
+}

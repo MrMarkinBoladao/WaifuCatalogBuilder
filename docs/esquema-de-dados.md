@@ -82,6 +82,8 @@ Campo desconhecido é erro do conferidor.
 | `porEscolha` | `{ "tipo": "porEscolha" }` | O custo vem de `escolha.opcoes[].custo` (ver abaixo). |
 | `formula` | `{ "tipo": "formula", "descricao": "…" }` | O custo depende de algo que o esquema não descreve. Exige `regraEspecial`. |
 
+**O que o motor calcula hoje:** `fixo`, `gratis`, `sequencia`, `porCompra`, `porEscolha` e `precoDoTier` (este só na origem Possess e Substitute e nas companions). `percentualDoTier`, `diferencaDeTier` e `formula` ainda não são calculados: o app pede o custo à mão e avisa `[NÃO IMPLEMENTADA]` (ver `docs/regras-especiais.md`).
+
 Preço em IMG: `"moeda": "IMG"` dentro de `custo` (`{ "tipo": "fixo", "valor": 2, "moeda": "IMG" }`). IMG tem saldo separado do saldo de créditos e não entra na `Conferência` de créditos.
 
 **Custo que varia com a quantidade.** Duas formas:
@@ -138,7 +140,7 @@ Requisito que aponta para um id inexistente é erro do conferidor. Um requisito 
 
 - Cada item é uma opção que a compra dá de graça, `quantidade` cópias (padrão 1). Brinde **ignora pré-requisito**.
 - A linha do brinde no texto exportado é `custo 0 | gratis-de <opção>`.
-- Se o contractor já tinha comprado o perk, o brinde vira desconto em outra compra pelo valor do brinde. Essa regra é geral (vale para toda opção com `gratis`) e é implementada no motor como regra especial `brinde-duplicado`.
+- Se o contractor já tinha **comprado** o perk antes do brinde, o brinde vira desconto na compra que o deu, pelo valor do perk. Essa regra é geral (vale para toda opção com `gratis`) e está no motor, não é regra especial. Um perk repetível que só veio de brindes (estágios de uma Defense, por exemplo) recebe a cópia grátis normalmente, até o limite de `repeticao`. `quantidade` em `gratis` é o número de cópias.
 - Uma gratuidade condicional (ex.: "o elemento escolhido dá estes Talents") usa `escolha.opcoes[].gratis` com a lista própria de cada alternativa.
 
 ---
@@ -146,13 +148,13 @@ Requisito que aponta para um id inexistente é erro do conferidor. Um requisito 
 ## Exclusões
 
 ```json
-"exclusoes": [ "heritages/dragon-root", "heritages/lunarian-root" ]
+"exclusoes": [ "origens/extra", "origens/substitute", "outros-perks/paper-trail" ]
 ```
 
-Ids que não podem coexistir com esta opção. A exclusão é simétrica: basta escrever de um lado, e o conferidor confirma que o outro lado não a contradiz. Raízes de heritage, as opções de uma categoria de Intensity que se excluem entre si, e as bindings (uma por vez) usam esta lista ou `grupoExclusivo`:
+Ids que não podem coexistir com esta opção. A exclusão é simétrica: basta escrever de um lado, e o conferidor confirma que o outro lado não a contradiz. Twilight Zone, por exemplo, tira Extra, Substitute e Paper Trail (a lista acima). As opções de uma divisão de Intensity que se excluem entre si, as origens (uma só) e as bindings ativas (uma por vez) usam `grupoExclusivo`:
 
 ```json
-"grupoExclusivo": "heritage-root"
+"grupoExclusivo": "binding-ativa"
 ```
 
 Todas as opções com o mesmo `grupoExclusivo` se excluem entre si.
@@ -222,7 +224,7 @@ Opção que muda budget, Intensity, empréstimo ou uma regra geral:
 | `limiteEmprestimo` | `valor` | Soma ao limite de empréstimo. |
 | `regra` | `id` | Liga uma regra geral do motor (por exemplo, "sem R.I.P.", "sem bindings"). Exige `regraEspecial` se a regra mexe em outras opções. |
 
-As opções de Intensity que desligam uma categoria inteira (No Bindings, Heritages Banned, No Defenses) usam `efeitos: [{ "tipo": "regra", "id": "bloqueia-categoria", "categoria": "bindings" }]`: o motor passa a recusar compras dessa categoria.
+As opções de Intensity que desligam uma categoria inteira (No Bindings, Heritages Banned, No Defenses) usam `efeitos: [{ "tipo": "regra", "id": "bloqueia-categoria", "categoria": "bindings" }]`: o motor passa a recusar compras dessa categoria. Um campo `"exceto": ["bindings/empty-hand"]` lista as opções que o bloqueio deixa passar (No Bindings prende a pessoa ao Empty Hand, então ele continua valendo).
 
 ---
 
@@ -307,8 +309,11 @@ Três opções reais, em JSON. Os valores são os da referência na data deste d
       "id": "talents/athletic-talent",
       "nome": "Athletic Talent",
       "categoria": "talents",
-      "custo": { "tipo": "fixo", "valor": 5 },
-      "resumo": "Ele aprende rápido qualquer habilidade atlética não sobrenatural e a leva a níveis sobrenaturais.",
+      "custo": {
+        "tipo": "fixo",
+        "valor": 5
+      },
+      "resumo": "Ele aprende rápido qualquer habilidade atlética não sobrenatural que encontrar: acrobacia, esportes, parkour, natação e afins.",
       "verificado": true,
       "referencia": "talents.md"
     },
@@ -316,11 +321,21 @@ Três opções reais, em JSON. Os valores são os da referência na data deste d
       "id": "bindings/mystic-tattoo",
       "nome": "Mystic Tattoo",
       "categoria": "bindings",
-      "custo": { "tipo": "fixo", "valor": 25 },
-      "requisitos": { "id": "bindings/seal-of-approval" },
-      "gratis": [ { "id": "talents/aesthetic-talent", "quantidade": 1 } ],
-      "grupoExclusivo": "binding-ativa",
-      "resumo": "A binding vira uma tatuagem que marca a pessoa como dele e abre a árvore de perks da tinta.",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {
+        "tipo": "fixo",
+        "valor": 25
+      },
+      "requisitos": {
+        "id": "bindings/seal-of-approval"
+      },
+      "gratis": [
+        {
+          "id": "talents/aesthetic-talent",
+          "quantidade": 1
+        }
+      ],
+      "resumo": "A tinta passa a gravar encantamentos na pele: cada Mystic Tattoo dá à pessoa um efeito simples de tier 4 ou menos. Cada pessoa aguenta um peso total de tatuagens de 12 mais o próprio tier.",
       "verificado": true,
       "referencia": "bindings/mystic-tattoo.md"
     },
@@ -328,10 +343,66 @@ Três opções reais, em JSON. Os valores são os da referência na data deste d
       "id": "bindings/elemental-inkarnation",
       "nome": "Elemental Inkarnation",
       "categoria": "bindings",
-      "custo": { "tipo": "sequencia", "valores": [60, 30], "depois": { "incremento": 10 } },
-      "repeticao": { "max": null },
-      "requisitos": { "id": "bindings/slave-to-art" },
-      "resumo": "Cada compra liga um elemento à tinta; a primeira custa mais e as recompras sobem de 10 em 10.",
+      "grupo": "bindings-mystic-tattoo",
+      "custo": {
+        "tipo": "sequencia",
+        "valores": [
+          60,
+          30
+        ],
+        "depois": {
+          "incremento": 10
+        }
+      },
+      "repeticao": {
+        "max": 12
+      },
+      "requisitos": {
+        "id": "bindings/slave-to-art"
+      },
+      "escolha": {
+        "rotulo": "Elemento",
+        "tipo": "lista",
+        "opcoes": [
+          {
+            "valor": "Luminal"
+          },
+          {
+            "valor": "Umbral"
+          },
+          {
+            "valor": "Volcanic"
+          },
+          {
+            "valor": "Boreal"
+          },
+          {
+            "valor": "Xeric"
+          },
+          {
+            "valor": "Pelagic"
+          },
+          {
+            "valor": "Storm"
+          },
+          {
+            "valor": "Bestial"
+          },
+          {
+            "valor": "Jungle"
+          },
+          {
+            "valor": "Burial"
+          },
+          {
+            "valor": "Cyber"
+          },
+          {
+            "valor": "Astral"
+          }
+        ]
+      },
+      "resumo": "Cada compra liga um elemento do catálogo à tinta: encantamentos até tier 6, capacidade-base 18 e complexidade livre se ligados a um elemento comprado. A primeira compra custa 60; as recompras, 30, 40, 50 e assim por diante.",
       "verificado": true,
       "referencia": "bindings/mystic-tattoo.md"
     }

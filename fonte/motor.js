@@ -379,8 +379,6 @@ export function calcular(estado, dados) {
   }
   const intensity = it.efetiva;
 
-  // exclusões entre opções de Intensity
-  checarExclusoes(intensityLinhas.map((l) => l.op), ix, aviso);
 
   // --- Budget e empréstimo
   const dr = Number.isInteger(estado.dr) ? estado.dr : parseInt(estado.dr, 10);
@@ -459,7 +457,12 @@ export function calcular(estado, dados) {
       const copias = (g.quantidade || 1) * (op.escolha && op.escolha.multipla ? 1 : q);
       for (let i = 0; i < copias; i++) {
         const jaTem = posse.get(alvo.id) || 0;
-        if (jaTem >= 1) {
+        // O documento só dá desconto se o perk foi comprado antes do brinde. Um perk repetível (ex.: estágios
+        // de uma Defense) que só veio de brindes recebe a cópia grátis normalmente, até o limite de repetição.
+        const maxAlvo = alvo.repeticao ? (alvo.repeticao.max === undefined ? 1 : alvo.repeticao.max) : 1;
+        const cabeMais = maxAlvo === null || jaTem < maxAlvo;
+        const compradoAntes = (explicitas.get(alvo.id) || 0) >= 1;
+        if (jaTem >= 1 && (compradoAntes || !cabeMais)) {
           // brinde duplicado: desconto igual ao valor do perk grátis, na compra que o deu
           const preco = precoDaCompra(alvo, jaTem + 1, []);
           const valor = preco.ok ? preco.creditos : 0;
@@ -478,6 +481,11 @@ export function calcular(estado, dados) {
   // --- Requisitos, exclusões e limites das compras explícitas
   const ctx = { contagem, intensity: it.conta, origemSlug };
   const ctxIntensity = { ...ctx, intensity: it.conta };
+  for (const l of intensityLinhas) {
+    if (l.op.requisitos && !avaliar(l.op.requisitos, ctxIntensity, ix, l.op.id, false)) {
+      aviso('ERRO', 'Requisito não atendido: ' + l.op.nome + ' exige ' + descreverRequisito(l.op.requisitos, ix) + '.');
+    }
+  }
   for (const { c, op, q } of ordenadas) {
     if (op.requisitos) {
       const ok = avaliar(op.requisitos, ctxIntensity, ix, op.id, false);
@@ -513,13 +521,15 @@ export function calcular(estado, dados) {
   }
   if (origemOp) opsCompradas.push(origemOp);
   for (const g of gifts) if (!vistos.has(g.op.id)) opsCompradas.push(g.op);
-  checarExclusoes(opsCompradas, ix, aviso);
+  // exclusões entre opções de Intensity e entre estas e as compras (Nomad, Twilight Zone, No Templates etc.)
+  checarExclusoes([...intensityLinhas.map((l) => l.op), ...opsCompradas], ix, aviso);
 
   // opções de Intensity que bloqueiam categorias
   for (const { op: opInt, efeito } of efeitosRegra) {
     if (efeito.id === 'bloqueia-categoria') {
+      const excecoes = efeito.exceto || [];
       for (const o of opsCompradas) {
-        if (o.categoria === efeito.categoria) {
+        if (o.categoria === efeito.categoria && !excecoes.includes(o.id)) {
           aviso('ERRO', opInt.nome + ' bloqueia ' + efeito.categoria + ', mas a build tem ' + o.nome + '.');
         }
       }

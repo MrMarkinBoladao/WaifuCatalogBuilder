@@ -1,0 +1,298 @@
+{
+  "categoria": "defenses",
+  "titulo": "Defenses",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "defenses/body-defense",
+      "nome": "Body Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [15, 15]},
+      "repeticao": {"max": 2},
+      "requisitos": {"id": "outros-perks/body-tune-up"},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por trabalhar com doenças, remédios químicos ou venenos"
+        }
+      ],
+      "resumo": "Protege de todas as doenças e venenos, inclusive o de radiação (o que mataria deixa a pessoa de cama). A primeira compra de cada nível dá uma cura física completa extra, de uso único, a cada membro do séquito.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/environmental-defense",
+      "nome": "Environmental Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [20, 20]},
+      "repeticao": {"max": 2},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém que vem de um clima hostil ou que consegue ignorar ambientes perigosos"
+        }
+      ],
+      "resumo": "Na resistência, conforto em qualquer clima extremo (geleira, deserto, selva, terra radioativa) e mergulho bem mais fundo que o humano; na imunidade, protege até no abismo do oceano, no vácuo e no sol, e de mutações comuns sem propósito.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/creature-defense",
+      "nome": "Creature Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [5, 5]},
+      "repeticao": {"max": 2},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por domar monstros ou ter jeito com bichos"
+        }
+      ],
+      "resumo": "Bichos, plantas e fungos sem inteligência de gente não o atacam sem provocação e tentam espantá-lo antes de qualquer coisa. Fome extrema ainda os faz rondá-lo, mas não o emboscam.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/stress-defense",
+      "nome": "Stress Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [5, 5]},
+      "repeticao": {"max": 2},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por manter a cabeça fria ou ter muita força de vontade"
+        }
+      ],
+      "resumo": "Ele age com calma sob pressão e fica protegido de efeitos mentais degenerativos.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/addiction-defense",
+      "nome": "Addiction Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [10, 10]},
+      "repeticao": {"max": 2},
+      "requisitos": {"id": "defenses/stress-defense"},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por ter um vício material"
+        }
+      ],
+      "resumo": "Protege de dependência física ou psicológica: na resistência ainda restam vontade e abstinência leves. Vale também contra o vício que os próprios lures dele causam.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/mind-defense",
+      "nome": "Mind Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [20, 20]},
+      "repeticao": {"max": 2},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por manipular mentes ou por telepatia"
+        }
+      ],
+      "resumo": "Protege de controle mental vindo de fora do séquito e de tentativas indesejadas de dentro; sempre sobra uma parte da mente livre para lutar contra o controle. Dentro do séquito, controle mental exige o consentimento dele.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/possession-defense",
+      "nome": "Possession Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [10, 10]},
+      "repeticao": {"max": 2},
+      "requisitos": {"qualquerDe": [{"id": "defenses/body-defense"}, {"id": "defenses/mind-defense"}]},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por tomar o corpo dos outros"
+        }
+      ],
+      "resumo": "Ninguém controla o corpo da pessoa além dela: protege de parasitas, possessão espiritual, controle remoto do corpo e troca de corpos, com ela consciente ou não.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/drain-defense",
+      "nome": "Drain Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [20, 20]},
+      "repeticao": {"max": 2},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por drenar ou se alimentar de vida, mana ou almas"
+        }
+      ],
+      "resumo": "Protege de efeitos que drenam vitalidade, mana ou alma; na resistência, quem tenta se alimentar tira cada vez menos e nunca esgota a pessoa. Waifus que se alimentam de vida ou alma podem fazê-lo do séquito sem causar mal.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/fatality-defense",
+      "nome": "Fatality Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [40, 40]},
+      "repeticao": {"max": 2},
+      "requisitos": {"id": "outros-perks/everlasting-tune-up"},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por causar morte instantânea ou por não morrer mesmo quando morto"
+        }
+      ],
+      "resumo": "Morte instantânea conceitual e efeitos que destroem a alma ferem, mas nunca de forma permanente: a pessoa pode ficar como espírito até ter corpo novo. A primeira compra de cada nível dá uma cura única para o espírito.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/polymorph-defense",
+      "nome": "Polymorph Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [40, 40]},
+      "repeticao": {"max": 2},
+      "requisitos": {"qualquerDe": [{"id": "defenses/body-defense"}, {"id": "defenses/corruption-defense"}]},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por transformar os outros, ou que vem de um wyldscape"
+        }
+      ],
+      "resumo": "Resiste a transformações sobrenaturais, diretas ou ambientais, que ficam incompletas e fracas. Na imunidade, ele desfaz à vontade o que já sofreu, e destransformações no séquito exigem o consentimento dele.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/corruption-defense",
+      "nome": "Corruption Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [40, 40]},
+      "repeticao": {"max": 2},
+      "requisitos": {"qualquerDe": [{"id": "defenses/mind-defense"}, {"id": "defenses/polymorph-defense"}]},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por forçar os outros a se curvar à sua vontade, trazendo à tona o lado sombrio ou luminoso das vítimas"
+        }
+      ],
+      "resumo": "Enfraquece efeitos de corrupção metafísica (e de purificação), mentais e físicos, como uma defesa ampla só contra corrupção. Ele pode manter efeitos que seriam permanentes como uma forma alternativa corrompida.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/information-defense",
+      "nome": "Information Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [20, 20]},
+      "repeticao": {"max": 2},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por ler ou sentir as pessoas"
+        }
+      ],
+      "resumo": "Informação sobre ele obtida por leitura de mente, superanálise ou sentidos metafísicos sai confusa, incompleta ou errada, mais ainda quanto mais importante for o segredo. Não vale contra Conjunction.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/trace-defense",
+      "nome": "Trace Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [40, 40]},
+      "repeticao": {"max": 2},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por usar adivinhação ou outra visão remota não tecnológica"
+        }
+      ],
+      "resumo": "Dificulta a visão remota hostil ou neutra (precognição, pós-cognição, vidência, visita em sonho). Na imunidade, observadores sobrenaturais podem ver só um mundo sem ele; não vale contra vigilância comum.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/destiny-defense",
+      "nome": "Destiny Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [40, 40]},
+      "repeticao": {"max": 2},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por manipular o destino ou a sorte"
+        }
+      ],
+      "resumo": "Tentativas de mudar o destino ou a sorte dele ficam mais difíceis, fracas e fáceis de desfazer, mais ainda quanto mais diretas e precisas forem. Efeitos bons desse tipo de manipulação ainda chegam.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    },
+    {
+      "id": "defenses/paradox-defense",
+      "nome": "Paradox Defense",
+      "categoria": "defenses",
+      "custo": {"tipo": "porCompra", "valores": [40, 40]},
+      "repeticao": {"max": 2},
+      "descontos": [
+        {
+          "id": "rebate",
+          "tipo": "porMembro",
+          "percentual": 40,
+          "condicao": "alguém conhecido por manipular o tempo ou o espaço"
+        }
+      ],
+      "resumo": "Resiste a lentidão e parada do tempo, guarda lembranças de linhas do tempo anteriores, atrapalha quem tenta espiá-lo ou apagá-lo da existência e bloqueia teletransporte forçado, para fora ou para dentro do lugar dele.",
+      "verificado": true,
+      "regraEspecial": "defense-rebates",
+      "referencia": "defenses.md"
+    }
+  ]
+}

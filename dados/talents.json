@@ -1,0 +1,135 @@
+{
+  "categoria": "talents",
+  "titulo": "Talents",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "talents/athletic-talent",
+      "nome": "Athletic Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "resumo": "Ele aprende rápido qualquer habilidade atlética não sobrenatural que encontrar: acrobacia, esportes, parkour, natação e afins.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/martial-talent",
+      "nome": "Martial Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Ele tem um talento enorme para lutar e aprende rápido qualquer técnica de combate pessoal, sem magia e sem poder psíquico, que encontrar, corpo a corpo ou à distância.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/exploration-talent",
+      "nome": "Exploration Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 5},
+      "resumo": "Ele tem jeito para explorar: ruínas antigas, terras esquecidas e florestas inexploradas parecem a segunda casa dele.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/aesthetic-talent",
+      "nome": "Aesthetic Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Talento enorme para as artes visuais: pintura, escultura, fotografia, moda, maquiagem e afins.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/communication-talent",
+      "nome": "Communication Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Entende as pessoas: lê o ambiente, percebe e usa mentira, acha as palavras certas e escreve muito bem. Fica fluente em qualquer língua falada na hora (isso vale também para o séquito) e, ao ensinar, divide por um tempo o efeito dos Talents com os alunos.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/performance-talent",
+      "nome": "Performance Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Talento enorme para as artes de apresentação: música, dança, atuação e afins.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/covert-talent",
+      "nome": "Covert Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Talento enorme para furto, invasão de propriedade, roubo, espionagem, contraespionagem e outras atividades às escondidas, a serviço de um governo ou não.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/algorithm-talent",
+      "nome": "Algorithm Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "resumo": "Talento enorme para estatística, programação e outras ciências formais (teoria dos jogos, criptografia), inclusive a magia científica que trata feitiço como equação ou código, e para operar qualquer computador, aparelho ou veículo.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/engineering-talent",
+      "nome": "Engineering Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "resumo": "Talento enorme para as ciências naturais (física, química, geologia, biologia) e para pôr esse conhecimento em uso prático, de oficina artesanal a hipertecnologia. É o Talent do \"cientista louco\".",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/soul-talent",
+      "nome": "Soul Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "resumo": "Talento enorme para as artes de ki (aura, chi, Hamon, Spiral Power e afins) e para magia: ele aprende rápido qualquer arte mística pessoal que encontre e consiga usar. Não vale para magia puramente científica.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/blessed-talent",
+      "nome": "Blessed Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 30},
+      "requisitos": {"qualquerDe": [{"id": "talents/communication-talent"}, {"id": "talents/soul-talent"}]},
+      "resumo": "Poderes maiores (deuses, demônios, grandes espíritos) simpatizam com ele mais rápido: bênçãos saem mais fortes e maldições contra os inimigos, mais eficazes. É o único Talent que não multiplica o aprendizado.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/land-talent",
+      "nome": "Land Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 20},
+      "requisitos": {"id": "talents/exploration-talent"},
+      "resumo": "Mais habilidade com magias que tiram poder do ambiente (geomancia, linhas de ley, a Força, o Warp e afins), que ficam mais eficazes e fáceis de controlar. Também vale para agricultura, mineração e coleta de recursos.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/psychic-talent",
+      "nome": "Psychic Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 25},
+      "resumo": "Talento psíquico enorme: aprende rápido qualquer técnica psíquica, da telepatia e telecinese aos extremos dos quadrinhos. Vale para o sobrenatural sem roupagem mágica ou tecnológica; poderes individuais, como Quirks, ele só ajuda a desenvolver.",
+      "verificado": true,
+      "referencia": "talents.md"
+    },
+    {
+      "id": "talents/administrative-talent",
+      "nome": "Administrative Talent",
+      "categoria": "talents",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Talento enorme para organização, logística e burocracia: ele usa as alavancas que houver para facilitar o que apoia e criar obstáculos para o que não apoia.",
+      "verificado": true,
+      "referencia": "talents.md"
+    }
+  ]
+}

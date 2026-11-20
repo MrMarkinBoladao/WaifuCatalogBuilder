@@ -1,0 +1,47 @@
+{
+  "categoria": "servicos-e-missoes",
+  "titulo": "Company Services",
+  "versaoDocumento": "Main Sourcebook (Current_unstable ver.), export de 2026-11-20",
+  "opcoes": [
+    {
+      "id": "servicos-e-missoes/green-eye-orb",
+      "nome": "Green Eye Orb",
+      "categoria": "servicos-e-missoes",
+      "grupo": "servicos-e-missoes-eye-orbs",
+      "custo": {"tipo": "fixo", "valor": 10},
+      "resumo": "Convite para um dos clubes exclusivos da Company para contractors: ele leva até três membros do séquito para comer, beber, jogar, fazer amigos e rivais e negociar em terreno neutro. As Laws de um Sanctuary impedem briga e roubo de séquito na hora; a Company não garante trocas justas.",
+      "verificado": true,
+      "referencia": "outros-contractors-pvp.md"
+    },
+    {
+      "id": "servicos-e-missoes/red-eye-orb",
+      "nome": "Red Eye Orb",
+      "categoria": "servicos-e-missoes",
+      "grupo": "servicos-e-missoes-eye-orbs",
+      "custo": {"tipo": "fixo", "valor": 100},
+      "resumo": "Permite a ele e a uma força de ataque invadirem o mundo de outro contractor. O alvo é sorteado pela Company, também precisa ter uma Red Eye Orb e ter visitado um paralelo de um mundo que ele visitou, e o PvP Credit Value dele tem de ficar perto do PvP Asset Value da força (o maior não passa do menor em mais de 25%). Não é reembolsável durante um prazo de contra-invasão.",
+      "verificado": true,
+      "referencia": "outros-contractors-pvp.md"
+    },
+    {
+      "id": "servicos-e-missoes/white-eye-orb",
+      "nome": "White Eye Orb",
+      "categoria": "servicos-e-missoes",
+      "grupo": "servicos-e-missoes-eye-orbs",
+      "custo": {"tipo": "fixo", "valor": 75},
+      "resumo": "Permite atender ao pedido de ajuda de quem defende uma invasão, enviando uma força com PvP Asset Value entre 80% do valor maior e 125% do menor. Atender é opcional (há a função Do Not Disturb). Com 90% de vitórias em 20 chamados, o séquito vira Gold e não pode mais recusar chamados.",
+      "verificado": true,
+      "referencia": "outros-contractors-pvp.md"
+    },
+    {
+      "id": "servicos-e-missoes/blue-eye-orb",
+      "nome": "Blue Eye Orb",
+      "categoria": "servicos-e-missoes",
+      "grupo": "servicos-e-missoes-eye-orbs",
+      "custo": {"tipo": "fixo", "valor": 15},
+      "resumo": "Permite convidar um contractor específico para um duelo entre os dois times, sem passar pelo matchmaking das partidas combinadas. Só vale contra quem ele já encontrou pessoalmente (Green Eye Orb, partida combinada ou invasão).",
+      "verificado": true,
+      "referencia": "outros-contractors-pvp.md"
+    }
+  ]
+}
