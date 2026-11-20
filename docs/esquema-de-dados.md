@@ -224,7 +224,14 @@ Opção que muda budget, Intensity, empréstimo ou uma regra geral:
 | `limiteEmprestimo` | `valor` | Soma ao limite de empréstimo. |
 | `regra` | `id` | Liga uma regra geral do motor (por exemplo, "sem R.I.P.", "sem bindings"). Exige `regraEspecial` se a regra mexe em outras opções. |
 
-As opções de Intensity que desligam uma categoria inteira (No Bindings, Heritages Banned, No Defenses) usam `efeitos: [{ "tipo": "regra", "id": "bloqueia-categoria", "categoria": "bindings" }]`: o motor passa a recusar compras dessa categoria. Um campo `"exceto": ["bindings/empty-hand"]` lista as opções que o bloqueio deixa passar (No Bindings prende a pessoa ao Empty Hand, então ele continua valendo).
+As opções de Intensity que desligam uma categoria inteira (No Bindings e Heritages Banned) usam `efeitos: [{ "tipo": "regra", "id": "bloqueia-categoria", "categoria": "bindings" }]`: o motor passa a recusar compras dessa categoria. Um campo `"exceto": ["bindings/empty-hand"]` lista as opções que o bloqueio deixa passar (No Bindings prende a pessoa ao Empty Hand, então ele continua valendo). No Defenses e Resistance Only **não** bloqueiam: as Defenses ainda podem ser compradas, só não funcionam.
+
+Outras duas regras de efeito mexem em requisitos e exclusões, e o motor as lê nas opções de Intensity escolhidas:
+
+| `id` da regra | Campos | O que faz |
+|---|---|---|
+| `libera-grupo-exclusivo` | `grupo` | O `grupoExclusivo` citado deixa de excluir. Ancestral Diversity libera `heritages-raiz` (as quatro raízes de Heritage, exclusivas entre si). |
+| `dispensa-requisito` | `requisito`, `em` | Para cada opção listada em `em`, o requisito pelo id `requisito` vale como atendido. Nomad e Lawless dispensam Pocket Apartment em All Roads Lead to Home e Sweet Home (Pocket Apartment, nesses modos, não pode ser comprado). |
 
 ---
 
@@ -313,7 +320,7 @@ Três opções reais, em JSON. Os valores são os da referência na data deste d
         "tipo": "fixo",
         "valor": 5
       },
-      "resumo": "Ele aprende rápido qualquer habilidade atlética não sobrenatural que encontrar: acrobacia, esportes, parkour, natação e afins.",
+      "resumo": "Ele aprende rápido qualquer habilidade atlética não sobrenatural que encontrar: acrobacia, esportes, parkour, natação e afins. O efeito alcança também faixas sobrenaturais e a capacidade física. Habilidade de combate é do Martial Talent.",
       "verificado": true,
       "referencia": "talents.md"
     },

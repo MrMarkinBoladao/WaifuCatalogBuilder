@@ -42,9 +42,9 @@ Ver `docs/regras-especiais.md` para `defense-rebates`, `desconto-por-arquetipo`,
 
 - **Moeda mista dentro de uma opção.** Sanctuary e Stronghold custam 15 créditos, ou 1 IMG para quem já tem o outro caminho; a 13ª compra de Pocket Star II custa 1 IMG e devolve 900 créditos. Os dados guardam o caminho em créditos; o IMG fica fora do saldo nesses casos.
 - **Bônus de tier dos perks de heritage** (Dragon Heart 6, Scaleborn 7, Elder Dragon 8 e outros): só no `resumo`.
-- **Heritage não reembolsável** e **expansão de lure reembolsada junto com o lure**: só no `resumo`.
+- **Origens, Heritages e a outra metade da Couple's Account não são reembolsáveis** (o reembolso de 80% vale para as demais compras), e a **expansão de lure é reembolsada junto com o lure**: não há campo no esquema, e a regra de reembolso está só em `economia.json`.
 - **Brinde por escolha em Prismatic Shroud e Elemental Inkarnation**: o documento só fala de brindes por elemento no Elemental Shroud.
-- **Nomad e Lawless dispensam o requisito de Pocket Apartment** de All Roads Lead to Home, Rainbow Bridge e Sanctuary "com algum Dominion". Os dados continuam exigindo Pocket Apartment nessas opções.
+- **Nomad e Lawless dispensam o requisito de Pocket Apartment** de All Roads Lead to Home, Rainbow Bridge e Sanctuary "com algum Dominion". Os dados dispensam o requisito em All Roads Lead to Home e Sweet Home (assim a cadeia até o Sanctuary e as melhorias dele continua possível); a condição "ter algum Dominion" não é verificada.
 - **Substitute e Universal Calibration I**: o requisito só vale para alvo de gênero trocado; fica no `resumo`.
 
 ## 5. Requisitos que o Builder não verifica (`declarado`)
@@ -62,8 +62,8 @@ O app pergunta se a pessoa cumpre, e o texto exportado leva um `[AVISO]` com a f
 
 Cada uma pode ser desfeita mudando um campo do JSON da opção.
 
-- **Raízes de heritage.** O documento diz que as raízes são exclusivas e que só Ancestral Diversity libera mais de uma; não diz se Open Heritages também libera. Não há `grupoExclusivo` nem `exclusoes` nas raízes.
-- **Mother, Mighty** (Talent Sharing de todos os Talents da heritage): pode ser a Lunarian inteira (até 11) ou os 3 do perk. Os dados usam 3.
+- **Raízes de heritage.** O documento diz que as quatro raízes são exclusivas e que só Ancestral Diversity libera mais de uma; o texto de Ancestral Diversity diz "como em Open Heritages" sobre outras fontes de Heritage, e não deixa claro se Open Heritages também libera. Nos dados as raízes estão no grupo exclusivo `heritages-raiz`, e só Ancestral Diversity o libera. Para Open Heritages liberar também, acrescente o mesmo efeito `libera-grupo-exclusivo` a ele.
+- **Mother, Mighty** (Talent Sharing de todos os Talents da heritage): pode ser a Lunarian inteira (11 Talents) ou os 3 do perk. Os dados usam 11, a leitura literal do texto. Para a outra leitura, troque a `quantidade` do brinde para 3.
 - **Sacrificed Sheep**: Talent Sharing (Blessed) entrou como 1 cópia, sem escolha.
 - **Need Faith, Will Travel**: o texto do documento está cortado; foi lido como Sacrificed Sheep, Please Respond.
 - **Desconto por arquétipo em capstone de IMG**: não aplicado, o documento não diz.
@@ -76,8 +76,9 @@ Cada uma pode ser desfeita mudando um campo do JSON da opção.
 - **Stronghold Themes**: "Basic Talents or Defenses" deu toda a lista do elemento, inclusive Everlasting Tune-Up no Burial. **Additional Themes** só dá os brindes do elemento, sem os 3 fixos, e não tem limite de compras.
 - **Template Stacking I**: o limite de 10 cópias na mesma pessoa é dos dados; o documento não fixa. **Bifurcation** e **Paper Trail** têm `max` sem limite; o total de dez compras do documento é só conferência.
 - **Pocket Star II**: o documento se contradiz sobre o raio ("dobra" no começo e "x8" no fim). Foram usados os preços; o raio está só no `resumo`.
-- **Nomad e Lawless**: o Stronghold ficou fora das exclusões, porque "but not Stronghold" é ambíguo. Lawless exclui só o Sanctuary.
+- **Nomad e Lawless**: "but not Stronghold" foi lido como Stronghold continuar indisponível (ele depende de Sweet Home, que depende de Pocket Apartment); está nas exclusões dos dois. Lawless exclui também o Sanctuary e, por cadeia, as melhorias dele.
 - **Team Play**: as duas opções cooperativas são compatíveis entre si; só `intensity/me-and-my-girlfriend-s-pve` exclui as outras duas. Para a PvE poder combinar com as outras, tire as `exclusoes` dela.
+- **Yoink** é aplicado de graça a quem começa no mundo natal da companion; isso está só no `resumo`, não no custo.
 - **Yeet, Yoink e Slightly Used** não combinam "na mesma compra", mas o texto não impede usar um em cada subject. Não há bloqueio.
 - **Apportation** cita uma "versão de Tempest Jewelry" que não está no Requires. O Requires foi mantido como está.
 - **Grafias do documento**: "ITS ALIVE", "Machines In Disguise", "Beasts Unburdened" e "Sacrificed Sheep…" (cortado). Os nomes das opções seguem o cabeçalho de cada seção.
