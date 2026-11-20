@@ -2,6 +2,7 @@ name: Site
 
 # Publica a página única (dist/index.html) no GitHub Pages.
 # Os testes rodam antes; se algum falhar, nada é publicado.
+# Se o Pages ainda não estiver ligado no repositório, o workflow avisa e termina sem erro.
 
 on:
   push:
@@ -39,17 +40,33 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 24
+      - name: Ver se o Pages está ligado
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/${{ github.repository }}/pages" > /dev/null 2>&1; then
+            echo "ligado=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ligado=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Pages desligado::Nada foi publicado. Em Settings > Pages, escolha Source: GitHub Actions e rode este workflow de novo (Actions > Site > Run workflow)."
+          fi
       - name: Montar a página
+        if: steps.pages.outputs.ligado == 'true'
         run: npm run montar
       - name: Preparar a pasta do site
+        if: steps.pages.outputs.ligado == 'true'
         run: |
           mkdir -p site
           cp dist/index.html site/index.html
           touch site/.nojekyll
       - uses: actions/configure-pages@v5
+        if: steps.pages.outputs.ligado == 'true'
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outputs.ligado == 'true'
         with:
           path: site
       - name: Publicar
         id: deployment
+        if: steps.pages.outputs.ligado == 'true'
         uses: actions/deploy-pages@v4
