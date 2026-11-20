@@ -18,5 +18,7 @@ jobs:
           node-version: 24
       - name: Rodar os testes
         run: npm test
+      - name: Conferir os dados
+        run: npm run validar
       - name: Montar a página
         run: npm run montar
