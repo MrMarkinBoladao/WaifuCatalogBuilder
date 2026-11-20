@@ -5,6 +5,8 @@
   "description": "Construtor de builds do Waifu Catalog (Main Sourcebook).",
   "scripts": {
     "test": "node --test testes/*.test.mjs",
-    "vigiar": "node ferramentas/vigiar-documento.mjs"
-  }
+    "vigiar": "node ferramentas/vigiar-documento.mjs",
+    "montar": "node ferramentas/montar.mjs"
+  },
+  "version": "0.1.0"
 }
