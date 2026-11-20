@@ -1,0 +1,66 @@
+WAIFU CATALOG BUILD
+Formato: wcb/1
+Documento: Main Sourcebook (Current_unstable ver.), export de 2026-11-20
+Builder: 0.1.0
+
+## Resumo
+Contractor: Kenji Exemplo
+Mundo inicial: Mundo Exemplo [Canon]
+DR: 5
+Intensity: 4
+Budget inicial: 100
+Empréstimo na criação: 100
+Limite de empréstimo: 200
+
+## Intensity
+- Hardcore | valor +3
+- Is There Anybody Out There? | valor -1
+- 50%/50% | valor -1
+- Interesting Times | valor +1
+- Intact Weaknesses | valor +1
+Soma das cláusulas: +3
+Conta: 1 + 3 = 4
+
+## Origin
+- Possess [Mika Exemplo, tier 6] | custo 50 | saldo 150
+
+## Bindings
+- Seal of Approval | custo 0 | saldo 150
+- Mystic Tattoo | custo 25 | saldo 125
+- Slave to Art | custo 50 | saldo 75
+Subtotal: 75
+
+## Lures
+- Sticky Fingers | custo 5 | saldo 70
+Subtotal: 5
+
+## Talents
+- Aesthetic Talent | custo 0 | gratis-de Mystic Tattoo | saldo 70
+- Athletic Talent | custo 5 | saldo 65
+Subtotal: 5
+
+## Defenses
+- Mind Defense | custo 0 | gratis-de Slave to Art | saldo 65
+- Body Defense x2 | custo 30 | saldo 35
+Subtotal: 30
+
+## Other Perks
+- Body Tune-Up | custo 5 | saldo 30
+Subtotal: 5
+
+## Companions
+- Sora Exemplo | obra Obra Exemplo | tier 5 | entrada compra | papel companion | estado no séquito | custo 20 | saldo 10
+- Taro Exemplo | obra Obra Exemplo | tier 4 | entrada captura | papel companion | estado vendida | ganho 1 | venda 4 | saldo 15
+Subtotal: gastos 20, ganhos 5
+
+## Conferência
+Budget inicial: 100
+Empréstimo: 100
+Ganhos: 5
+Gastos: 190
+Saldo final: 15
+Dívida: não
+
+## Avisos
+- [NÃO CONFIRMADO] Preço por tier (1, 2, 5, 10, 20, 50, 100, 200, 500, 1000): a tabela do documento é uma imagem e não vem no texto exportado. Afeta: Mika Exemplo, Sora Exemplo.
+- [NÃO IMPLEMENTADA] Defense Rebates: o Builder não calcula o desconto de Defenses por traços da origem do séquito. Afeta: Body Defense.
