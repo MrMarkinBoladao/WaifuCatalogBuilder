@@ -221,3 +221,40 @@ test('Power Swap e Yoink pedem o custo à mão, e o custo informado vale', () =>
   assert.equal(achar(r, 'Yoink').custo, 6);
   assert.ok(avisosDe(r, 'NÃO IMPLEMENTADA').length >= 1);
 });
+
+// ---------------------------------------------------------------------------
+// Achados da auditoria independente
+
+test('duas raízes de Heritage dão erro, e Ancestral Diversity libera', () => {
+  const duas = [{ id: 'heritages/dragon-heart' }, { id: 'heritages/its-alive' }];
+  const sem = calcular(base({ emprestimo: 400, compras: duas }), dados);
+  assert.ok(avisosDe(sem, 'ERRO').some((t) => /se excluem \(grupo heritages-raiz\)/.test(t)));
+  const com = calcular(base({ emprestimo: 400, intensity: ['intensity/hardcore', 'intensity/ancestral-diversity'], compras: duas }), dados);
+  assert.ok(!avisosDe(com, 'ERRO').some((t) => /heritages-raiz/.test(t)));
+});
+
+test('Mother, Mighty dá Talent Sharing de todos os 11 Talents da Lunarian', () => {
+  const r = calcular(base({ emprestimo: 400, compras: [{ id: 'heritages/mother-mighty' }] }), dados);
+  assert.equal(linhas(r, 'Talent Sharing').filter((l) => l.gratisDe === 'Mother, Mighty').length, 11);
+  assert.ok(linhas(r, 'Talent Sharing').every((l) => l.custo === 0));
+});
+
+test('Nomad: Pocket Apartment e Stronghold ficam fora, mas All Roads Lead to Home, Sweet Home e Sanctuary continuam à venda', () => {
+  const nomad = ['intensity/hardcore', 'intensity/nomad'];
+  const ok = calcular(base({
+    emprestimo: 400,
+    intensity: nomad,
+    compras: [
+      { id: 'sanctuaries-e-strongholds/all-roads-lead-to-home' },
+      { id: 'sanctuaries-e-strongholds/sweet-home', quantidade: 1 },
+      { id: 'sanctuaries-e-strongholds/sanctuary', escolha: ['15 créditos'] },
+    ],
+  }), dados);
+  assert.deepEqual(avisosDe(ok, 'ERRO').filter((t) => /Requisito não atendido/.test(t)), []);
+  const pa = calcular(base({ intensity: nomad, compras: [{ id: 'sanctuaries-e-strongholds/pocket-apartment' }] }), dados);
+  assert.ok(avisosDe(pa, 'ERRO').some((t) => /não podem estar na mesma build/.test(t)));
+  const st = calcular(base({ emprestimo: 400, intensity: nomad, compras: [{ id: 'sanctuaries-e-strongholds/sweet-home' }, { id: 'sanctuaries-e-strongholds/stronghold', escolha: ['15 créditos'] }] }), dados);
+  assert.ok(avisosDe(st, 'ERRO').some((t) => /Nomad e Stronghold não podem estar na mesma build/.test(t)));
+  const lw = calcular(base({ emprestimo: 400, intensity: ['intensity/hardcore', 'intensity/lawless'], compras: [{ id: 'sanctuaries-e-strongholds/sweet-home' }, { id: 'sanctuaries-e-strongholds/sanctuary', escolha: ['15 créditos'] }] }), dados);
+  assert.ok(avisosDe(lw, 'ERRO').some((t) => /Lawless e Sanctuary não podem estar na mesma build/.test(t)));
+});

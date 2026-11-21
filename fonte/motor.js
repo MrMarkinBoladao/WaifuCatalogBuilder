@@ -251,9 +251,14 @@ export function descreverRequisito(r, indice) {
 
 // Avalia a expressão. `ctx` = { contagem: Map id->n, intensity, origemSlug, grupos(opcao)->.., declarados: Set }
 // `declarado` decide o valor das folhas { declarado }.
+function dispensado(ctx, proprio, id) {
+  const d = ctx.dispensas && ctx.dispensas.get(proprio);
+  return !!(d && d.has(id));
+}
+
 function avaliar(r, ctx, indice, proprio, declarado) {
   if (!r) return true;
-  if (r.id) return (ctx.contagem.get(r.id) || 0) >= 1;
+  if (r.id) return (ctx.contagem.get(r.id) || 0) >= 1 || dispensado(ctx, proprio, r.id);
   if (r.todos) return r.todos.every((x) => avaliar(x, ctx, indice, proprio, declarado));
   if (r.qualquerDe) return r.qualquerDe.some((x) => avaliar(x, ctx, indice, proprio, declarado));
   if (r.grupo) {
@@ -266,7 +271,7 @@ function avaliar(r, ctx, indice, proprio, declarado) {
     }
     return n >= (r.minimo || 1);
   }
-  if (r.compras) return (ctx.contagem.get(r.compras.id) || 0) >= r.compras.minimo;
+  if (r.compras) return (ctx.contagem.get(r.compras.id) || 0) >= r.compras.minimo || dispensado(ctx, proprio, r.compras.id);
   if (r.origem) return ctx.origemSlug === r.origem;
   if (r.intensity) {
     const a = r.intensity;
@@ -295,13 +300,38 @@ function textosDeclarados(r, acc) {
   return acc;
 }
 
+// Efeitos de regra das opções de Intensity que mexem em requisitos e exclusões de grupo.
+// `libera-grupo-exclusivo` (grupo): o grupo deixa de excluir (Ancestral Diversity e as raízes de Heritage).
+// `dispensa-requisito` (requisito, em): o requisito de `em` pelo id `requisito` vale como atendido (Nomad e Pocket Apartment).
+export function efeitosDeRegra(idsIntensity, indice) {
+  const liberados = new Set();
+  const dispensas = new Map();
+  for (const id of idsIntensity) {
+    const op = indice.porId.get(id);
+    if (!op) continue;
+    for (const ef of op.efeitos || []) {
+      if (ef.tipo !== 'regra') continue;
+      if (ef.id === 'libera-grupo-exclusivo') liberados.add(ef.grupo);
+      if (ef.id === 'dispensa-requisito') {
+        for (const em of ef.em || []) {
+          if (!dispensas.has(em)) dispensas.set(em, new Set());
+          dispensas.get(em).add(ef.requisito);
+        }
+      }
+    }
+  }
+  return { liberados, dispensas };
+}
+
 // Diz se uma opção que ainda não está na build teria o requisito atendido com a posse atual.
 // Devolve { ok, falta } em que `falta` descreve o que falta (texto para a interface).
 export function requisitoAtendido(op, resultado, dados) {
   if (!op.requisitos) return { ok: true, falta: '' };
   const ix = indexarDados(dados);
   const contagem = new Map(Object.entries(resultado.posse || {}));
-  const ctx = { contagem, intensity: resultado.resumo.intensityConta, origemSlug: resultado.origemSlug };
+  const idsIntensity = Object.keys(resultado.posse || {}).filter((id) => id.startsWith('intensity/'));
+  const { dispensas } = efeitosDeRegra(idsIntensity, ix);
+  const ctx = { contagem, intensity: resultado.resumo.intensityConta, origemSlug: resultado.origemSlug, dispensas };
   if (avaliar(op.requisitos, ctx, ix, op.id, false)) return { ok: true, falta: '' };
   if (temDeclarado(op.requisitos) && avaliar(op.requisitos, ctx, ix, op.id, true)) {
     return { ok: true, falta: '', declarado: textosDeclarados(op.requisitos, []) };
@@ -479,7 +509,8 @@ export function calcular(estado, dados) {
   }
 
   // --- Requisitos, exclusões e limites das compras explícitas
-  const ctx = { contagem, intensity: it.conta, origemSlug };
+  const { liberados, dispensas } = efeitosDeRegra(idsIntensity, ix);
+  const ctx = { contagem, intensity: it.conta, origemSlug, dispensas };
   const ctxIntensity = { ...ctx, intensity: it.conta };
   for (const l of intensityLinhas) {
     if (l.op.requisitos && !avaliar(l.op.requisitos, ctxIntensity, ix, l.op.id, false)) {
@@ -522,7 +553,7 @@ export function calcular(estado, dados) {
   if (origemOp) opsCompradas.push(origemOp);
   for (const g of gifts) if (!vistos.has(g.op.id)) opsCompradas.push(g.op);
   // exclusões entre opções de Intensity e entre estas e as compras (Nomad, Twilight Zone, No Templates etc.)
-  checarExclusoes([...intensityLinhas.map((l) => l.op), ...opsCompradas], ix, aviso);
+  checarExclusoes([...intensityLinhas.map((l) => l.op), ...opsCompradas], ix, aviso, liberados);
 
   // opções de Intensity que bloqueiam categorias
   for (const { op: opInt, efeito } of efeitosRegra) {
@@ -909,7 +940,7 @@ export function distribuirDesconto(itens, totalInteiro) {
   return ints.filter((i) => i.valor > 0);
 }
 
-function checarExclusoes(ops, ix, aviso) {
+function checarExclusoes(ops, ix, aviso, liberados = new Set()) {
   const ids = new Set(ops.map((o) => o.id));
   const grupos = new Map();
   const vistos = new Set();
@@ -923,7 +954,7 @@ function checarExclusoes(ops, ix, aviso) {
         aviso('ERRO', o.nome + ' e ' + (outro ? outro.nome : x) + ' não podem estar na mesma build.');
       }
     }
-    if (o.grupoExclusivo) {
+    if (o.grupoExclusivo && !liberados.has(o.grupoExclusivo)) {
       if (!grupos.has(o.grupoExclusivo)) grupos.set(o.grupoExclusivo, []);
       grupos.get(o.grupoExclusivo).push(o);
     }

@@ -69,7 +69,7 @@
       "custo": {"tipo": "gratis"},
       "grupoExclusivo": "intensity-delivery-speed",
       "efeitos": [{"tipo": "intensity", "valor": 3}],
-      "resumo": "A espera sobe para 1 semana (168 horas). Subjects comprados são entregues no Dominion mais próximo e têm de chegar sozinhos até ele; sem nenhum Dominion, todo subject comprado vem por Yeet, em geral para território hostil, onde tende a ser capturado ou recrutado.",
+      "resumo": "A espera sobe para 1 semana (168 horas). Subjects comprados são entregues no Dominion mais próximo e têm de chegar sozinhos até o contractor; sem nenhum Dominion, todo subject comprado vem por Yeet, em geral para território hostil, onde tende a ser capturado ou recrutado.",
       "verificado": true,
       "referencia": "negociacoes-intensity.md"
     },
@@ -250,7 +250,12 @@
       "grupoExclusivo": "intensity-general-binding-rules",
       "efeitos": [
         {"tipo": "intensity", "valor": 3},
-        {"tipo": "regra", "id": "bloqueia-categoria", "categoria": "bindings", "exceto": ["bindings/empty-hand"]}
+        {
+          "tipo": "regra",
+          "id": "bloqueia-categoria",
+          "categoria": "bindings",
+          "exceto": ["bindings/empty-hand"]
+        }
       ],
       "resumo": "Inclui No Loyalty e ainda prende ele ao Empty Hand, sem poder trocar por uma binding de verdade. Lures, Other Controls, captura por Heritage e controle mental de terceiros continuam valendo; subjects comprados não vêm com Seal of Approval e os filhos não têm binding.",
       "verificado": true,
@@ -275,7 +280,10 @@
       "grupo": "intensity-heritages",
       "custo": {"tipo": "gratis"},
       "grupoExclusivo": "intensity-heritages",
-      "efeitos": [{"tipo": "intensity", "valor": 0}],
+      "efeitos": [
+        {"tipo": "intensity", "valor": 0},
+        {"tipo": "regra", "id": "libera-grupo-exclusivo", "grupo": "heritages-raiz"}
+      ],
       "resumo": "Para cada Heritage comprada por inteiro, sem contar o capstone de IMG, ele pode comprar mais um perk raiz; também pode ganhar Heritages por outros meios. No PvP em time, pode trocar os clones de prêmio pelo perk raiz da Heritage de um oponente que derrotou.",
       "verificado": true,
       "referencia": "negociacoes-intensity.md"
@@ -325,10 +333,18 @@
       "categoria": "intensity",
       "grupo": "intensity-demiplane",
       "custo": {"tipo": "gratis"},
-      "exclusoes": ["sanctuaries-e-strongholds/pocket-apartment"],
+      "exclusoes": ["sanctuaries-e-strongholds/pocket-apartment", "sanctuaries-e-strongholds/stronghold"],
       "grupoExclusivo": "intensity-demiplane",
-      "efeitos": [{"tipo": "intensity", "valor": 1}],
-      "resumo": "Pocket Apartment não pode ser comprado. All Roads Lead to Home, Rainbow Bridge e o Sanctuary com as melhorias (mas não o Stronghold) continuam à venda se ele tiver algum Dominion, e o requisito de Pocket Apartment de perks de Heritage é dispensado.",
+      "efeitos": [
+        {"tipo": "intensity", "valor": 1},
+        {
+          "tipo": "regra",
+          "id": "dispensa-requisito",
+          "requisito": "sanctuaries-e-strongholds/pocket-apartment",
+          "em": ["sanctuaries-e-strongholds/all-roads-lead-to-home", "sanctuaries-e-strongholds/sweet-home"]
+        }
+      ],
+      "resumo": "Pocket Apartment não pode ser comprado. All Roads Lead to Home, Rainbow Bridge e o Sanctuary com as melhorias continuam à venda se ele tiver algum Dominion, sem o requisito de Pocket Apartment; o Stronghold, não. O requisito de Pocket Apartment de perks de Heritage também é dispensado.",
       "verificado": true,
       "referencia": "negociacoes-intensity.md"
     },
@@ -338,9 +354,21 @@
       "categoria": "intensity",
       "grupo": "intensity-demiplane",
       "custo": {"tipo": "gratis"},
-      "exclusoes": ["sanctuaries-e-strongholds/pocket-apartment", "sanctuaries-e-strongholds/sanctuary"],
+      "exclusoes": [
+        "sanctuaries-e-strongholds/pocket-apartment",
+        "sanctuaries-e-strongholds/sanctuary",
+        "sanctuaries-e-strongholds/stronghold"
+      ],
       "grupoExclusivo": "intensity-demiplane",
-      "efeitos": [{"tipo": "intensity", "valor": 2}],
+      "efeitos": [
+        {"tipo": "intensity", "valor": 2},
+        {
+          "tipo": "regra",
+          "id": "dispensa-requisito",
+          "requisito": "sanctuaries-e-strongholds/pocket-apartment",
+          "em": ["sanctuaries-e-strongholds/all-roads-lead-to-home", "sanctuaries-e-strongholds/sweet-home"]
+        }
+      ],
       "resumo": "Inclui Nomad e ainda tira o Sanctuary e as melhorias dele. A regra Outer Shell, da seção de Defenses, continua valendo.",
       "verificado": true,
       "referencia": "negociacoes-intensity.md"
@@ -389,7 +417,7 @@
       "custo": {"tipo": "gratis"},
       "grupoExclusivo": "intensity-world-variance",
       "efeitos": [{"tipo": "intensity", "valor": -1}],
-      "resumo": "O algoritmo da Company faz todo mundo novo ser, o mais perto possível, uma cópia fiel de uma obra que ele pode conhecer, antes de Universal Calibration, de outros contractors e de Dimensional Resonance. Meios de viagem da própria Company sempre levam ao mundo escolhido. Sincronizada no co-op.",
+      "resumo": "O algoritmo da Company faz todo mundo novo ser, o mais perto possível, uma cópia fiel de uma obra que ele pode conhecer, antes de Universal Calibration, de outros contractors e de Dimensional Resonance. Meios de viagem da própria Company sempre levam ao mundo escolhido, a menos que o contractor escolha sair (opt out) durante o salto. Sincronizada no co-op.",
       "verificado": true,
       "referencia": "negociacoes-intensity.md"
     },
@@ -474,7 +502,7 @@
       "exclusoes": ["outros-perks/exit-stage-left"],
       "grupoExclusivo": "intensity-dimensional-resonance",
       "efeitos": [{"tipo": "intensity", "valor": 3}],
-      "resumo": "Explorar o desconhecido pode levar a um mundo novo e cria sozinho um portal como os de Brave New Worlds, além dos ao acaso. Exit Stage Left não pode ser comprado; ele entra em mundos novos explorando, aceitando missão ou usando viagem entre dimensões. Sincronizada no co-op.",
+      "resumo": "Explorar o desconhecido pode levar a um mundo novo e cria sozinho um portal como os de Brave New Worlds, além dos ao acaso. Exit Stage Left não pode ser comprado; ele entra em mundos novos explorando, aceitando missão ou usando viagem entre dimensões. Com algum Dominion, dispensa We Will Meet Again como requisito de Blank Slate e Rainbow Bridge. Sincronizada no co-op.",
       "verificado": true,
       "referencia": "negociacoes-intensity.md"
     },

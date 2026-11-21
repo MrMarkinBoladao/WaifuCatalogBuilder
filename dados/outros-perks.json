@@ -294,7 +294,7 @@
       },
       "repeticao": {"max": null},
       "requisitos": {"declarado": "O subject comprado é do mundo de partida"},
-      "resumo": "Só na criação: o subject comprado é, na verdade, uma captura local do mundo de partida, teletransportada até ele; uma compra por subject do mundo de partida. Custa 20% a mais sobre o preço do tier (no mínimo 1). Não combina com Slightly Used nem com Yeet.",
+      "resumo": "Só na criação: o subject comprado é, na verdade, uma captura local do mundo de partida, teletransportada até ele; uma compra por subject do mundo de partida. Custa 20% a mais sobre o preço do tier (no mínimo 1). Não combina com Slightly Used nem com Yeet. Quem começa no mundo natal da companion recebe o Yoink de graça, sem custo.",
       "verificado": true,
       "regraEspecial": "custo-textual",
       "soNaCriacao": true,

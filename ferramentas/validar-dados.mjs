@@ -153,7 +153,7 @@ function conferirRequisito(op, r, ctx, ondeEstou) {
 }
 
 function conferirOpcao(op, arquivoCategoria, ctx) {
-  const { erro, ids, regrasDocumentadas, pendenciasTxt, categoriasConhecidas } = ctx;
+  const { erro, ids, regrasDocumentadas, pendenciasTxt, categoriasConhecidas, gruposExclusivos } = ctx;
   if (!objeto(op)) return ctx.erros.push(arquivoCategoria + ': opção que não é objeto');
   for (const c of Object.keys(op)) if (!CAMPOS_OPCAO.has(c)) erro(op, 'campo desconhecido: ' + c);
   for (const c of OBRIGATORIOS) if (op[c] === undefined) erro(op, 'falta o campo ' + c);
@@ -270,6 +270,11 @@ function conferirOpcao(op, arquivoCategoria, ctx) {
         if (f.tipo === 'regra') {
           if (typeof f.id !== 'string' || !f.id) erro(op, 'efeito regra precisa de "id"');
           if (f.id === 'bloqueia-categoria' && !categoriasConhecidas.has(f.categoria)) erro(op, 'bloqueia-categoria: categoria inexistente ' + f.categoria);
+          if (f.id === 'libera-grupo-exclusivo' && !(gruposExclusivos && gruposExclusivos.has(f.grupo))) erro(op, 'libera-grupo-exclusivo: nenhuma opção usa o grupoExclusivo ' + f.grupo);
+          if (f.id === 'dispensa-requisito') {
+            if (!ids.has(f.requisito)) erro(op, 'dispensa-requisito: requisito aponta para id inexistente ' + f.requisito);
+            if (!Array.isArray(f.em) || !f.em.length || !f.em.every((x) => ids.has(x))) erro(op, 'dispensa-requisito: "em" precisa de lista de ids existentes');
+          }
           if (f.id === 'bloqueia-categoria' && f.exceto !== undefined) {
             if (!Array.isArray(f.exceto) || !f.exceto.length) erro(op, 'bloqueia-categoria: "exceto" precisa de lista de ids');
             else for (const x of f.exceto) if (!ids.has(x) || !x.startsWith(f.categoria + '/')) erro(op, 'bloqueia-categoria: exceto aponta para id que não é da categoria bloqueada: ' + x);
@@ -423,6 +428,7 @@ export function validar({ dados = join(raiz, 'dados'), docs = join(raiz, 'docs')
   const cargas = [];
   const ids = new Set();
   const grupos = new Set();
+  const gruposExclusivos = new Set();
   const donoDoGrupo = new Map();
   for (const a of arquivos) {
     const j = lerJson(join(dados, a), erros);
@@ -444,6 +450,7 @@ export function validar({ dados = join(raiz, 'dados'), docs = join(raiz, 'docs')
         if (ids.has(op.id)) erros.push(op.id + ': id repetido');
         ids.add(op.id);
       }
+      if (objeto(op) && typeof op.grupoExclusivo === 'string') gruposExclusivos.add(op.grupoExclusivo);
       if (objeto(op) && typeof op.grupo === 'string') {
         grupos.add(op.grupo);
         // O motor compara grupo com grupo em todo o conjunto: o mesmo nome em duas categorias misturaria opções.
@@ -454,7 +461,7 @@ export function validar({ dados = join(raiz, 'dados'), docs = join(raiz, 'docs')
   }
 
   const ctx = {
-    ids, grupos, regrasDocumentadas, pendenciasTxt, erros,
+    ids, grupos, gruposExclusivos, regrasDocumentadas, pendenciasTxt, erros,
     categoriasConhecidas: new Set(categoriasEsperadas),
     erro: (op, msg) => erros.push((objeto(op) && op.id ? op.id : '?') + ': ' + msg),
   };

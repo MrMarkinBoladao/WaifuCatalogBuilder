@@ -8,7 +8,7 @@
       "nome": "Athletic Talent",
       "categoria": "talents",
       "custo": {"tipo": "fixo", "valor": 5},
-      "resumo": "Ele aprende rápido qualquer habilidade atlética não sobrenatural que encontrar: acrobacia, esportes, parkour, natação e afins.",
+      "resumo": "Ele aprende rápido qualquer habilidade atlética não sobrenatural que encontrar: acrobacia, esportes, parkour, natação e afins. O efeito alcança também faixas sobrenaturais e a capacidade física. Habilidade de combate é do Martial Talent.",
       "verificado": true,
       "referencia": "talents.md"
     },

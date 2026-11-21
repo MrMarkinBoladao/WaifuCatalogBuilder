@@ -29,7 +29,7 @@
       "categoria": "servicos-e-missoes",
       "grupo": "servicos-e-missoes-eye-orbs",
       "custo": {"tipo": "fixo", "valor": 75},
-      "resumo": "Permite atender ao pedido de ajuda de quem defende uma invasão, enviando uma força com PvP Asset Value entre 80% do valor maior e 125% do menor. Atender é opcional (há a função Do Not Disturb). Com 90% de vitórias em 20 chamados, o séquito vira Gold e não pode mais recusar chamados.",
+      "resumo": "Permite atender ao pedido de ajuda de quem defende uma invasão, enviando uma força com PvP Asset Value entre 80% do valor maior e 125% do menor. Atender é opcional (há a função Do Not Disturb). Com pelo menos 90% de vitórias em pelo menos 20 chamados, o séquito vira Gold e não pode mais recusar chamados.",
       "verificado": true,
       "referencia": "outros-contractors-pvp.md"
     },
