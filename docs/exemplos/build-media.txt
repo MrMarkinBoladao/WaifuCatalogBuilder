@@ -64,3 +64,4 @@ Dívida: não
 ## Avisos
 - [NÃO CONFIRMADO] Preço por tier (1, 2, 5, 10, 20, 50, 100, 200, 500, 1000): a tabela do documento é uma imagem e não vem no texto exportado. Afeta: Mika Exemplo, Sora Exemplo.
 - [NÃO IMPLEMENTADA] Defense Rebates: o Builder não calcula o desconto de Defenses por traços da origem do séquito. Afeta: Body Defense.
+- [NÃO IMPLEMENTADA] Divisão entre captura e venda: o Builder calcula o ganho e a venda de cada companion pela divisão padrão; com esta cláusula, informe os valores à mão. Afeta: 50%/50%.

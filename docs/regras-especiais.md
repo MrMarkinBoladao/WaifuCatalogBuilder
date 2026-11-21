@@ -16,6 +16,7 @@ A tabela diz, para cada regra, quem a usa e o que faltaria para implementar. O c
 | `desconto-por-arquetipo` | não implementada | 44 opções de `heritages/` (as raízes e todo perk pago em créditos) | Quando a origem tem o arquétipo da heritage, o preço de lista do tier dela (passo 1a) abate o preço da heritage e a sobra passa aos perks seguintes, até acabar, com teto de 80% por perk. Drop-In e Walk-In sem Power Swap não têm esse desconto. Com Power Swap, um tier imaginário conta pelo câmbio em IMG. Os capstones de 1 IMG não recebem o desconto (o documento não diz o contrário). |
 | `custo-textual` | não implementada | `bindings/grand-tapestry`, `outros-perks/yoink` | O custo não cabe nos tipos do esquema. Grand Tapestry: o brinde é "Talent Sharing por Talent que a pessoa tem, mais Psychic Talent", quantidade variável que `gratis` não escreve. Yoink: o preço é 20% acima do de lista do subject, com mínimo de 1, e o esquema só descreve desconto, não acréscimo. O app pede o custo à mão. |
 | `diferenca-de-tier` | não implementada | `outros-perks/power-swap` | O preço é o do dono original do poder menos o do tier da pessoa, e pode dar negativo (devolve créditos). Em quem já está no séquito soma 20% do preço do tier dela no passo 1a. O app pede o custo à mão. |
+| `divisao-captura-venda` | não implementada | as cinco opções `intensity/100-0`, `75-25`, `50-50`, `25-75` e `0-100` | A cláusula muda a divisão do valor total (captura mais venda) de cada pessoa da lista. O Builder só calcula pela divisão padrão: com uma dessas cláusulas, o texto traz o aviso e o ganho e a venda de cada companion capturada ou vendida precisam ser conferidos à mão. |
 | `requisito-textual` | reservada, sem uso | nenhuma | Seria o marcador de um requisito que o Builder não verifica. Os dados usam `{ "declarado": "…" }` dentro de `requisitos`, que o app mostra como pergunta à pessoa e como `[AVISO]` no texto exportado, então esta regra não foi preciso usar. Fica no motor para o caso de um requisito que nem como `declarado` caiba. |
 
 ## Opções que o app trata como "digite o custo" sem regra especial
@@ -26,7 +27,7 @@ Duas opções têm um tipo de custo que o motor ainda não calcula, e por isso o
 
 ## Efeitos que não são regra especial, mas o Builder não calcula
 
-Várias opções de Intensity mudam como o jogo funciona sem mudar a conta (como a divisão entre captura e venda, juros, prazos de entrega e limites de exploração). O número da cláusula entra na conta de Intensity, e o efeito aparece só no `resumo`. A lista completa está em `docs/pendencias-de-dados.md`.
+Várias opções de Intensity mudam como o jogo funciona sem mudar a conta (como juros, prazos de entrega e limites de exploração). O número da cláusula entra na conta de Intensity, e o efeito aparece só no `resumo`. A lista completa está em `docs/pendencias-de-dados.md`.
 
 ## Como acrescentar uma regra
 
