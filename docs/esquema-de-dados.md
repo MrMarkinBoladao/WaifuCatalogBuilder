@@ -271,8 +271,7 @@ Regras gerais do motor (não são do esquema, mas de toda build): arredondamento
     "porIntensity": { "0": [55, 90, 145, 230, 375, 610, 985, 1590, 2575, 4165] }
   },
   "precoPorTier": {
-    "verificado": false,
-    "aviso": "NÃO CONFIRMADO NO DOCUMENTO: a tabela de preços por tier é uma imagem e não vem no texto exportado.",
+    "verificado": true,
     "tier": { "1": 1, "2": 2, "3": 5, "4": 10, "5": 20, "6": 50, "7": 100, "8": 200, "9": 500, "10": 1000 }
   },
   "tiersImaginarios": { "verificado": true, "img": { "X": 2, "Y": 5, "Z": 10 } },
@@ -288,7 +287,7 @@ Regras gerais do motor (não são do esquema, mas de toda build): arredondamento
 - `budgetInicial.porIntensity[N]` é uma lista de 10 valores, DR 1 a DR 10. A mesma convenção vale para a venda (`venda.porIntensity[N]`, tier 1 a 10). A captura tem duas tabelas do mesmo formato: `captura.regular[N]` e `captura.figurante[N]` (o valor do figurante que não passa no teste de três de quatro). Intensity 0 existe nas três.
 - `tiersImaginarios.captura.porIntensity[N]` e `tiersImaginarios.venda.porIntensity[N]` trazem, por tier `X`, `Y`, `Z`, `{ creditos, img }`; na captura, `figurante` traz o mesmo par do figurante. `creditosPorImg` é 1000.
 - `emprestimo.limiteBuildInicial[N]` é o limite do empréstimo na build inicial, de Intensity 0 a 10; `acrescimoPorMundo`, `maximo` e `jurosPor30Dias` são do documento. O motor só usa o limite da build inicial.
-- Preços por tier são o único bloco `verificado: false` de economia (a tabela do documento é uma imagem).
+- Todos os blocos de economia estão `verificado: true` (a tabela de preço por tier é uma imagem do documento, conferida na versão em PDF).
 
 ---
 

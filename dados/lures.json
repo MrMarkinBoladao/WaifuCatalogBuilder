@@ -262,8 +262,8 @@
           }
         ]
       },
-      "resumo": "O Truck-kun: quem ele ou o séquito atropela com uma Scanned land Ride e morre do impacto é capturado, ganha tatuagem dormente e vai para um mundo aleatório a que ele não tem acesso. O limite de vítimas ativas soma o de cada divindade do séquito, por tier (tabela em imagem, não conferida).",
-      "verificado": false,
+      "resumo": "O Truck-kun: quem ele ou o séquito atropela com uma Scanned land Ride e morre do impacto é capturado, ganha tatuagem dormente e vai para um mundo aleatório a que ele não tem acesso. O limite de vítimas ativas soma o de cada divindade do séquito, pelo tier dela: 1 no tier 4, 2 no 5, 5 no 6, 10 no 7, 20 no 8, 50 no 9, 100 no 10, 200 no X, 500 no Y e sem limite no Z.",
+      "verificado": true,
       "tipo": ["Other Capture Method"],
       "referencia": "lures-e-outros-controles.md"
     },

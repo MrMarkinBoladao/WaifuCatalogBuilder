@@ -190,7 +190,11 @@ test('companion comprada, capturada e vendida usa as tabelas da Intensity efetiv
   assert.equal(cA[0].custo, 10);
   assert.equal(cA[1].ganho, 40); // Intensity 5, tier 8: 40 na captura
   assert.equal(cA[1].venda, 120); // e 120 na venda (exemplo do documento)
-  assert.ok(avisosDe(r, 'NÃO CONFIRMADO').some((t) => /Afeta: A\./.test(t)));
+  assert.deepEqual(avisosDe(r, 'NÃO CONFIRMADO'), []);
+  // com a tabela de preços marcada como não confirmada, o aviso volta e diz quem depende dela
+  const naoConf = structuredClone(dados);
+  naoConf.economia.precoPorTier.verificado = false;
+  assert.ok(avisosDe(calcular(e, naoConf), 'NÃO CONFIRMADO').some((t) => /Afeta: A\./.test(t)));
 });
 
 test('figurante: captura pelo valor de figurante e sem venda', () => {

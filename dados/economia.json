@@ -144,8 +144,7 @@
   }
  },
  "precoPorTier": {
-  "verificado": false,
-  "aviso": "NÃO CONFIRMADO NO DOCUMENTO: a tabela de preços por tier é uma imagem e não vem no texto exportado.",
+  "verificado": true,
   "tier": {
    "1": 1,
    "2": 2,
@@ -157,16 +156,7 @@
    "8": 200,
    "9": 500,
    "10": 1000
-  },
-  "confirmadosPorExemplo": [
-   "2",
-   "3",
-   "4",
-   "5",
-   "6",
-   "7",
-   "10"
-  ]
+  }
  },
  "captura": {
   "verificado": true,

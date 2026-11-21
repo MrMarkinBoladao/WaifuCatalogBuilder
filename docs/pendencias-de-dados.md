@@ -6,13 +6,13 @@ Nada aqui copia o texto do documento: são resumos próprios, em português.
 
 ## 1. Valores não confirmados (`verificado: false`)
 
-Os itens abaixo dependem de uma **imagem** do documento, que não vem no texto exportado. O app mostra `[NÃO CONFIRMADO]` na tela e em `Avisos` do texto exportado sempre que uma build usa um deles, e pede que a pessoa confira (isso vale para as duas primeiras linhas; a terceira não afeta nenhuma opção).
+Nenhum dado está com `verificado: false`. As três tabelas que o export em texto traz como imagem foram lidas na versão em PDF do documento (página 7, preço por tier; página 26, Força do PvP; página 76, limites de Space Truckin’), e os números que o Builder já usava batiam:
 
-- `economia/precoPorTier`: a tabela de preço por tier (1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, mais o câmbio dos tiers imaginários X, Y e Z em 2, 5 e 10 IMG) é uma imagem. Os números usados vêm da referência em português, que os reconstruiu de exemplos espalhados pelo documento (tier 2 = 2, tier 3 = 5, tier 4 = 10, tier 5 = 20, tier 6 = 50, tier 7 = 100, tier 10 = 1000). Os tiers 1, 8 e 9 não aparecem em nenhum texto. **Afeta** companions, Possess, Substitute e qualquer conta que dependa do preço de um tier.
-- `lures/space-truckin`: a tabela de limites de vítimas ativas por tier da divindade é uma imagem. Nome, custo (100) e requisitos foram conferidos no texto; só o limite por tier ficou de fora.
-- Tabela de Força do PvP (níveis 1 a 9): também é uma imagem e fica fora dos dados. Nenhuma opção de `dados/` depende dela, então não há linha `verificado: false`; as Eye Orbs só têm o preço e a descrição.
+- `economia/precoPorTier`: tiers 1 a 10 custam 1, 2, 5, 10, 20, 50, 100, 200, 500 e 1000 créditos; os tiers imaginários X, Y e Z custam 2, 5 e 10 IMG. Confirmado.
+- `lures/space-truckin`: o limite de vítimas ativas por divindade, pelo tier dela, é 1, 2, 5, 10, 20, 50 e 100 nos tiers 4 a 10, 200 no X, 500 no Y e sem limite no Z. Confirmado.
+- Tabela de Força do PvP (níveis 1 a 9, multiplicadores de 1/3 a 3,0): nenhuma opção de `dados/` depende dela; está na referência e foi conferida.
 
-**Para a pessoa dona do projeto:** abrir o documento, ler as três imagens e passar os números. Ao confirmar, troque `verificado` para `true` (em `economia.json`, no bloco `precoPorTier`, ou na opção), corrija os valores e apague a linha daqui.
+O aviso `[NÃO CONFIRMADO]` continua no app e no texto exportado: ele aparece sempre que uma opção ou o preço por tier voltar a ficar com `verificado: false`. A fonte dessas leituras é uma imagem; se a versão do documento mudar, revise as três tabelas.
 
 ## 2. Opções do documento que não viraram opção em `dados/`
 

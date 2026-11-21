@@ -171,7 +171,7 @@ Cada linha tem uma etiqueta entre colchetes:
 
 | Etiqueta | Significado |
 |---|---|
-| `[NÃO CONFIRMADO]` | O valor veio de uma fonte que o documento não confirma em texto (hoje, só a tabela de preço por tier). Diz o que é e quem depende dele. |
+| `[NÃO CONFIRMADO]` | O valor veio de uma fonte que o documento não confirma em texto (hoje nenhum dado está assim: a tabela de preço por tier e a de limites de Space Truckin’ foram conferidas na versão em PDF; o aviso continua existindo para dado futuro). Diz o que é e quem depende dele. |
 | `[NÃO IMPLEMENTADA]` | A opção tem uma regra que o Builder não calcula. A LLM e o usuário precisam resolver à mão. Diz a regra e a opção. |
 | `[ERRO]` | A build quebra uma regra: requisito não atendido, saldo negativo, empréstimo acima do limite, opções que se excluem. Diz a opção e a regra. |
 | `[AVISO]` | Algo que merece conferência mas não quebra regra (por exemplo, uma condição de desconto que o usuário declarou e o Builder não pode verificar). |
@@ -250,7 +250,7 @@ Saldo final: 25
 Dívida: não
 
 ## Avisos
-- [NÃO CONFIRMADO] Preço por tier (1, 2, 5, 10, 20, 50, 100, 200, 500, 1000): a tabela do documento é uma imagem e não vem no texto exportado. Afeta: Hoshi Mirei, Ren Tachibana.
+- nenhum
 ```
 
 ### Exemplo médio
@@ -322,7 +322,6 @@ Saldo final: 15
 Dívida: não
 
 ## Avisos
-- [NÃO CONFIRMADO] Preço por tier (1, 2, 5, 10, 20, 50, 100, 200, 500, 1000): a tabela do documento é uma imagem e não vem no texto exportado. Afeta: Mika Exemplo, Sora Exemplo.
 - [NÃO IMPLEMENTADA] Defense Rebates: o Builder não calcula o desconto de Defenses por traços da origem do séquito. Afeta: Body Defense.
 - [NÃO IMPLEMENTADA] Divisão entre captura e venda: o Builder calcula o ganho e a venda de cada companion pela divisão padrão; com esta cláusula, informe os valores à mão. Afeta: 50%/50%.
 ```
