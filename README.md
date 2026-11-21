@@ -22,7 +22,7 @@ The app does not contain the text of the document. It has option names, numbers 
 - **Companions** are typed in (name, work and tier), because the document keeps its character list in a separate spreadsheet.
 - **Export and import.** The *Text* tab gives you the build as plain text (format `wcb/1`). Importing the same text brings the build back exactly as it was.
 - **Saved versions and a full backup.** Save versions of a build in the browser, download any of them as a `.txt`, load them back, and download one `.json` backup with everything. Loading a backup adds its versions to yours and never deletes anything.
-- **Honest warnings.** Anything the document gives only as an image (the tier price table, for example), any rule the app does not calculate yet, and any rule your build breaks is shown in the app and written into the exported text, so the LLM and you both see it.
+- **Honest warnings.** Any value the data cannot confirm in the document, any rule the app does not calculate yet, and any rule your build breaks is shown in the app and written into the exported text, so the LLM and you both see it.
 
 ## Using the exported text
 

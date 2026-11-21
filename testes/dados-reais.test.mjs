@@ -124,10 +124,10 @@ test('Extra: o poder do local de partida escolhido define o custo; sem escolha c
   assert.equal(achar(sem, 'Extra').custo, 0);
 });
 
-test('Possess custa o preço do tier da companion e avisa que a tabela de preços não está confirmada', () => {
+test('Possess custa o preço do tier da companion, sem aviso de preço não confirmado', () => {
   const r = calcular(base({ origem: { id: 'origens/possess', escolha: 'Mika Exemplo, tier 6' } }), dados);
   assert.equal(achar(r, 'Possess').custo, 50);
-  assert.ok(avisosDe(r, 'NÃO CONFIRMADO').some((t) => /Preço por tier/.test(t)));
+  assert.deepEqual(avisosDe(r, 'NÃO CONFIRMADO'), []);
 });
 
 test('Dragon Break dá duas cópias grátis de Paradox Defense, sem desconto de brinde duplicado', () => {
@@ -199,10 +199,12 @@ test('Memoria só vale com a origem Possess', () => {
 // ---------------------------------------------------------------------------
 // Avisos honestos
 
-test('Space Truckin’ vem com [NÃO CONFIRMADO] e com os requisitos declarados', () => {
+test('Space Truckin’ não traz [NÃO CONFIRMADO] e traz os requisitos declarados', () => {
   const r = calcular(base({ compras: [{ id: 'lures/space-truckin', declaracoes: [] }] }), dados);
-  const nc = avisosDe(r, 'NÃO CONFIRMADO').join(' ');
-  assert.match(nc, /Space Truckin/);
+  assert.deepEqual(avisosDe(r, 'NÃO CONFIRMADO'), []);
+  const av = avisosDe(r, 'AVISO').filter((t) => /Space Truckin/.test(t));
+  assert.equal(av.length, 3);
+  assert.ok(av.some((t) => /Scanned land Ride/.test(t)));
 });
 
 test('Defenses trazem o aviso de Defense Rebates não implementada', () => {
