@@ -258,3 +258,16 @@ test('Nomad: Pocket Apartment e Stronghold ficam fora, mas All Roads Lead to Hom
   const lw = calcular(base({ emprestimo: 400, intensity: ['intensity/hardcore', 'intensity/lawless'], compras: [{ id: 'sanctuaries-e-strongholds/sweet-home' }, { id: 'sanctuaries-e-strongholds/sanctuary', escolha: ['15 créditos'] }] }), dados);
   assert.ok(avisosDe(lw, 'ERRO').some((t) => /Lawless e Sanctuary não podem estar na mesma build/.test(t)));
 });
+
+test('cláusula de divisão entre captura e venda avisa só quando há captura ou venda', () => {
+  const comCaptura = base({
+    intensity: ['intensity/hardcore', 'intensity/50-50'],
+    companions: [{ nome: 'Taro Exemplo', obra: 'Obra Exemplo', tier: 4, entrada: 'captura', papel: 'companion', estado: 'vendida' }],
+  });
+  const r = calcular(comCaptura, dados);
+  assert.ok(avisosDe(r, 'NÃO IMPLEMENTADA').some((t) => /Divisão entre captura e venda/.test(t) && /50%\/50%/.test(t)));
+  const semCaptura = calcular(base({ intensity: ['intensity/hardcore', 'intensity/50-50'] }), dados);
+  assert.ok(!avisosDe(semCaptura, 'NÃO IMPLEMENTADA').some((t) => /Divisão entre captura e venda/.test(t)));
+  const padrao = calcular({ ...comCaptura, intensity: ['intensity/hardcore'] }, dados);
+  assert.ok(!avisosDe(padrao, 'NÃO IMPLEMENTADA').some((t) => /Divisão entre captura e venda/.test(t)));
+});

@@ -43,6 +43,11 @@ export const REGRAS_ESPECIAIS = {
     titulo: 'Diferença de tier (Power Swap)',
     aviso: 'o Builder não calcula o preço pela diferença de tier; informe o custo à mão.',
   },
+  'divisao-captura-venda': {
+    implementada: false,
+    titulo: 'Divisão entre captura e venda',
+    aviso: 'o Builder calcula o ganho e a venda de cada companion pela divisão padrão; com esta cláusula, informe os valores à mão.',
+  },
   'requisito-textual': {
     implementada: false,
     titulo: 'Requisito descrito em texto',
@@ -807,6 +812,10 @@ export function calcular(estado, dados) {
       }
     }
     if (linha.entrada === 'captura' || linha.estado === 'vendida') {
+      for (const idIt of idsIntensity) {
+        const opIt = ix.porId.get(idIt);
+        if (opIt && opIt.regraEspecial && !regraImplementada(opIt.regraEspecial)) usaRegra(opIt.regraEspecial, opIt.nome);
+      }
       if (!ehTierImaginario(t) && !(eco.precoPorTier && eco.precoPorTier.verificado)) {
         // as tabelas de captura e venda são do documento; só a compra depende do preço por tier
       }
